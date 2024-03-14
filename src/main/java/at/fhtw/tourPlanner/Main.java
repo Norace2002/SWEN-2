@@ -17,6 +17,8 @@ public class Main extends Application {
         primaryStage.setTitle("TourPlanner");
         primaryStage.setScene(new Scene(root, 900, 500));
         primaryStage.setMinWidth(500);
+        primaryStage.setMaxHeight(500);
+        primaryStage.setMaxWidth(900);
         primaryStage.show();
 
         return root;
