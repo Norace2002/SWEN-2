@@ -1,4 +1,4 @@
-package at.fhtw.highscores;
+package at.fhtw.tourPlanner;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;

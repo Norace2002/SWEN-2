@@ -4,7 +4,7 @@ module highscores {
     requires javafx.graphics;
     requires java.desktop;
 
-    opens at.fhtw.highscores to javafx.graphics, javafx.fxml;
-    exports at.fhtw.highscores;
-    exports at.fhtw.highscores.model;
+    opens at.fhtw.tourPlanner to javafx.graphics, javafx.fxml;
+    exports at.fhtw.tourPlanner;
+    exports at.fhtw.tourPlanner.model;
 }

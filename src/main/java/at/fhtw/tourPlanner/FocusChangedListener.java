@@ -1,4 +1,4 @@
-package at.fhtw.highscores;
+package at.fhtw.tourPlanner;
 
 public interface FocusChangedListener {
     void requestFocusChange(String name);

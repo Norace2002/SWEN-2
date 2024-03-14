@@ -1,4 +1,4 @@
-package at.fhtw.highscores;
+package at.fhtw.tourPlanner;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

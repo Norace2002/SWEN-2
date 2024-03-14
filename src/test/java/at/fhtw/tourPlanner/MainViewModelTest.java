@@ -1,25 +1,17 @@
-package at.fhtw.highscores;
+package at.fhtw.tourPlanner;
 
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.skin.TableColumnHeader;
 import javafx.stage.Stage;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.testfx.api.FxAssert;
 import org.testfx.api.FxRobot;
 import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
 import org.testfx.matcher.control.ButtonMatchers;
-import org.testfx.matcher.control.LabeledMatchers;
 import org.testfx.service.query.impl.NodeQueryImpl;
 import org.testfx.util.NodeQueryUtils;
-
-import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.*;
 

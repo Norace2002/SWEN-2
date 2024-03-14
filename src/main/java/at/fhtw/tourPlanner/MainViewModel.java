@@ -1,6 +1,6 @@
-package at.fhtw.highscores;
+package at.fhtw.tourPlanner;
 
-import at.fhtw.highscores.model.HighscoreEntry;
+import at.fhtw.tourPlanner.model.HighscoreEntry;
 import javafx.beans.property.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
