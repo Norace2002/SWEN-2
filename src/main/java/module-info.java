@@ -1,4 +1,4 @@
-module highscores {
+module tourPlanner {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.graphics;
