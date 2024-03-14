@@ -14,9 +14,9 @@ public class Main extends Application {
     }
     public static Parent showStage(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(Main.class.getResource("mainWindow.fxml"));
-        primaryStage.setTitle("Highscore");
-        primaryStage.setScene(new Scene(root, 400, 275));
-        primaryStage.setMinWidth(400);
+        primaryStage.setTitle("TourPlanner");
+        primaryStage.setScene(new Scene(root, 900, 500));
+        primaryStage.setMinWidth(500);
         primaryStage.show();
 
         return root;
