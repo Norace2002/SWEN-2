@@ -45,7 +45,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -105,30 +105,14 @@
                      <children>
                         <HBox prefHeight="25.0" prefWidth="315.0">
                            <children>
-                              <MenuBar prefHeight="25.0" prefWidth="308.0">
-                                <menus>
-                                  <Menu mnemonicParsing="false" text="Tours">
-                                    <items>
-                                      <MenuItem mnemonicParsing="false" text="Close" />
-                                    </items>
-                                  </Menu>
-                                  <Menu mnemonicParsing="false" text="+">
-                                    <items>
-                                      <MenuItem mnemonicParsing="false" text="Delete" />
-                                    </items>
-                                  </Menu>
-                                  <Menu mnemonicParsing="false" text="-">
-                                    <items>
-                                      <MenuItem mnemonicParsing="false" text="About" />
-                                    </items>
-                                  </Menu>
-                                    <Menu mnemonicParsing="false" text="...">
-                                       <items>
-                                          <MenuItem mnemonicParsing="false" text="About" />
-                                       </items>
-                                    </Menu>
-                                </menus>
-                              </MenuBar>
+                              <HBox prefHeight="25.0" prefWidth="231.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="52.0" text="Tours" />
+                                 </children>
+                              </HBox>
+                              <Button mnemonicParsing="false" text="+" />
+                              <Button mnemonicParsing="false" text="-" />
+                              <Button mnemonicParsing="false" text="..." />
                            </children>
                         </HBox>
                         <HBox prefHeight="423.0" prefWidth="336.0">
