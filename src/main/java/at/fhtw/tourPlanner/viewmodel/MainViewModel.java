@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainViewModel {
-    // https://en.wikipedia.org/wiki/Observer_pattern
     private List<FocusChangedListener> focusChangedListenerList = new ArrayList<FocusChangedListener>();
 
     private final StringProperty currentUsername = new SimpleStringProperty("");
