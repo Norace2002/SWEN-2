@@ -81,12 +81,14 @@
         </Menu>
         <Menu mnemonicParsing="false" text="Options">
           <items>
-            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+              <MenuItem mnemonicParsing="false" text="Option 1" />
+              <MenuItem mnemonicParsing="false" text="Option 2" />
+              <MenuItem mnemonicParsing="false" text="Option 3" />
           </items>
         </Menu>
             <Menu mnemonicParsing="false" text="Help">
                <items>
-                  <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+                  <MenuItem mnemonicParsing="false" text="Help Page" />
                </items>
             </Menu>
       </menus>
@@ -109,22 +111,22 @@
                                 <menus>
                                   <Menu mnemonicParsing="false" text="Tours">
                                     <items>
-                                      <MenuItem mnemonicParsing="false" text="Close" />
+                                      <MenuItem mnemonicParsing="false" text="Tours" />
                                     </items>
                                   </Menu>
                                   <Menu mnemonicParsing="false" text="+">
                                     <items>
-                                      <MenuItem mnemonicParsing="false" text="Delete" />
+                                      <MenuItem mnemonicParsing="false" text="Add Tour" />
                                     </items>
                                   </Menu>
                                   <Menu mnemonicParsing="false" text="-">
                                     <items>
-                                      <MenuItem mnemonicParsing="false" text="About" />
+                                      <MenuItem mnemonicParsing="false" text="Delete Tour" />
                                     </items>
                                   </Menu>
                                     <Menu mnemonicParsing="false" text="...">
                                        <items>
-                                          <MenuItem mnemonicParsing="false" text="About" />
+                                          <MenuItem mnemonicParsing="false" text="More Info" />
                                        </items>
                                     </Menu>
                                 </menus>
