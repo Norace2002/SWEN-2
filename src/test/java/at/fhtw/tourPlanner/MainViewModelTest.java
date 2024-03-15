@@ -1,5 +1,6 @@
 package at.fhtw.tourPlanner;
 
+import at.fhtw.tourPlanner.viewmodel.MainViewModel;
 import javafx.scene.Parent;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.skin.TableColumnHeader;

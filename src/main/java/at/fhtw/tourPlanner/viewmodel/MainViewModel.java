@@ -1,5 +1,6 @@
-package at.fhtw.tourPlanner;
+package at.fhtw.tourPlanner.viewmodel;
 
+import at.fhtw.tourPlanner.listener.FocusChangedListener;
 import at.fhtw.tourPlanner.model.HighscoreEntry;
 import javafx.beans.property.*;
 import javafx.collections.FXCollections;

@@ -1,5 +1,7 @@
-package at.fhtw.tourPlanner;
+package at.fhtw.tourPlanner.view;
 
+import at.fhtw.tourPlanner.listener.FocusChangedListener;
+import at.fhtw.tourPlanner.viewmodel.MainViewModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
