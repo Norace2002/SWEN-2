@@ -28,25 +28,22 @@ public class MainViewController implements Initializable {
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    /*
-    Info: loadRouteMenu funktioniert nicht
 
-    public void loadRouteMenu(){
+    public void loadRouteMenu(Label label){
         try{
-            Pane newLoadedPane =  FXMLLoader.load(getClass().getResource("routeMenu.fxml"));
-            hostPane.getChildren().add(newLoadedPane);
-        } catch(IOException e){
+            //Pane newLoadedPane =  FXMLLoader.load(getClass().getResource("routeMenu.fxml"));
+            //hostPane.getChildren().add(newLoadedPane);
+            System.out.println(label.getText());
+        } catch(Exception e){
             System.out.println("Problem loading FXML into Pane");
             e.printStackTrace();
         }
     }
-    */
 
     private void setLabelClickHandler() {
         for (javafx.scene.Node node : routeEntries.getChildren()) {
             if (node instanceof Label label) {
-                //label.setOnMouseClicked(event -> loadRouteMenu());
-                System.out.println("label clicked");
+                label.setOnMouseClicked(event -> loadRouteMenu(label));
             }
         }
     }

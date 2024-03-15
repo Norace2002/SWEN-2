@@ -125,7 +125,7 @@
                                 <content>
                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="423.0" prefWidth="300.0">
                                        <children>
-                                          <VBox prefHeight="409.0" prefWidth="285.0">
+                                          <VBox prefHeight="409.0" prefWidth="285.0" fx:id="routeEntries">
                                              <children>
                                                  <Label prefHeight="37.0" prefWidth="286.0" style="-fx-padding:10;" text="Figlwarte" />
                                                  <Label prefHeight="37.0" prefWidth="287.0" style="-fx-padding:10;" text="Wienerwald" />
