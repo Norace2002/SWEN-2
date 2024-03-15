@@ -45,7 +45,11 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="500.0"
+      prefWidth="900.0"
+      xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="at.fhtw.tourPlanner.view.MainViewController">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -81,14 +85,12 @@
         </Menu>
         <Menu mnemonicParsing="false" text="Options">
           <items>
-              <MenuItem mnemonicParsing="false" text="Option 1" />
-              <MenuItem mnemonicParsing="false" text="Option 2" />
-              <MenuItem mnemonicParsing="false" text="Option 3" />
+            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
           </items>
         </Menu>
             <Menu mnemonicParsing="false" text="Help">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Help Page" />
+                  <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
                </items>
             </Menu>
       </menus>
@@ -107,30 +109,14 @@
                      <children>
                         <HBox prefHeight="25.0" prefWidth="315.0">
                            <children>
-                              <MenuBar prefHeight="25.0" prefWidth="308.0">
-                                <menus>
-                                  <Menu mnemonicParsing="false" text="Tours">
-                                    <items>
-                                      <MenuItem mnemonicParsing="false" text="Tours" />
-                                    </items>
-                                  </Menu>
-                                  <Menu mnemonicParsing="false" text="+">
-                                    <items>
-                                      <MenuItem mnemonicParsing="false" text="Add Tour" />
-                                    </items>
-                                  </Menu>
-                                  <Menu mnemonicParsing="false" text="-">
-                                    <items>
-                                      <MenuItem mnemonicParsing="false" text="Delete Tour" />
-                                    </items>
-                                  </Menu>
-                                    <Menu mnemonicParsing="false" text="...">
-                                       <items>
-                                          <MenuItem mnemonicParsing="false" text="More Info" />
-                                       </items>
-                                    </Menu>
-                                </menus>
-                              </MenuBar>
+                              <HBox prefHeight="25.0" prefWidth="231.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="52.0" text="Tours" />
+                                 </children>
+                              </HBox>
+                              <Button mnemonicParsing="false" text="+" />
+                              <Button mnemonicParsing="false" text="-" />
+                              <Button mnemonicParsing="false" text="..." />
                            </children>
                         </HBox>
                         <HBox prefHeight="423.0" prefWidth="336.0">

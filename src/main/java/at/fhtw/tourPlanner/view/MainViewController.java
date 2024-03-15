@@ -1,16 +1,12 @@
 package at.fhtw.tourPlanner.view;
 
-import at.fhtw.tourPlanner.listener.FocusChangedListener;
 import at.fhtw.tourPlanner.viewmodel.MainViewModel;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.net.URL;
@@ -22,19 +18,36 @@ public class MainViewController implements Initializable {
 
     // references used to setup data-binding
     @FXML
-    Pane hostPane;
+    private Pane hostPane;
+    @FXML
+    private VBox routeEntries;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        setLabelClickHandler();
     }
 
-    public void loadFxml(ActionEvent event){
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /*
+    Info: loadRouteMenu funktioniert nicht
+
+    public void loadRouteMenu(){
         try{
-            Pane newLoadedPane =  FXMLLoader.load(getClass().getResource("path/to/file.xml"));
+            Pane newLoadedPane =  FXMLLoader.load(getClass().getResource("routeMenu.fxml"));
             hostPane.getChildren().add(newLoadedPane);
         } catch(IOException e){
             System.out.println("Problem loading FXML into Pane");
             e.printStackTrace();
+        }
+    }
+    */
+
+    private void setLabelClickHandler() {
+        for (javafx.scene.Node node : routeEntries.getChildren()) {
+            if (node instanceof Label label) {
+                //label.setOnMouseClicked(event -> loadRouteMenu());
+                System.out.println("label clicked");
+            }
         }
     }
 }
