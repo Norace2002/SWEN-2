@@ -4,13 +4,18 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity"
+      minHeight="-Infinity" minWidth="-Infinity"
+      prefHeight="400.0" prefWidth="600.0"
+      xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="at.fhtw.tourPlanner.view.RouteMenuController">
    <children>
       <HBox prefHeight="100.0" prefWidth="233.0">
          <children>
-            <Button minWidth="0.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="General" />
-            <Button minWidth="0.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Route" />
-            <Button minWidth="0.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Misc" />
+            <Button minWidth="0.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="General" fx:id="generalButton" onAction="#loadGeneralWindow"/>
+            <Button minWidth="0.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Route" fx:id="routeButton" onAction="#loadRouteWindow"/>
+            <Button minWidth="0.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Misc" fx:id="miscButton" onAction="#loadMiscWindow"/>
          </children>
       </HBox>
    </children>
