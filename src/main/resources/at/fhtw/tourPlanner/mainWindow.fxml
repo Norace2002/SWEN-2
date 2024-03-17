@@ -119,8 +119,8 @@
                                     </Text>
                                  </children>
                               </HBox>
-                              <Button mnemonicParsing="false" text="+" />
-                              <Button mnemonicParsing="false" text="-" />
+                              <Button mnemonicParsing="false" text="+" fx:id="createTourButton" onAction="#loadCreateRouteWindow"/>
+                              <Button mnemonicParsing="false" text="-" fx:id="deleteTourButton"/>
                               <Button mnemonicParsing="false" text="..." />
                            </children>
                         </HBox>
@@ -134,7 +134,7 @@
                                              <children>
                                                  <Label prefHeight="37.0" prefWidth="286.0" style="-fx-padding:10;" text="Figlwarte" />
                                                  <Label prefHeight="37.0" prefWidth="287.0" style="-fx-padding:10;" text="Wienerwald" />
-                                                 <Label prefHeight="37.0" prefWidth="289.0" style="-fx-padding:10;" text="Dopplerhütte" />
+                                                 <Label prefHeight="37.0" prefWidth="289.0" style="-fx-padding:10;" text="Dopplerhuette" />
                                              </children>
                                           </VBox>
                                        </children>

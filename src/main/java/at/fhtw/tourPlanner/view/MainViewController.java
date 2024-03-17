@@ -29,6 +29,19 @@ public class MainViewController implements Initializable {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    public void loadCreateRouteWindow(){
+        System.out.println("load route creation window");
+
+        try{
+            hostPane.getChildren().clear();
+
+            Pane newLoadedPane =  FXMLLoader.load(getClass().getResource("/at/fhtw/tourPlanner/createTour.fxml"));
+            hostPane.getChildren().add(newLoadedPane);
+        } catch(Exception e){
+            System.out.println("Problem loading FXML into Pane");
+            e.printStackTrace();
+        }
+    }
     public void loadRouteMenu(Label label){
         try{
             Pane newLoadedPane =  FXMLLoader.load(getClass().getResource("/at/fhtw/tourPlanner/routeMenu.fxml"));
