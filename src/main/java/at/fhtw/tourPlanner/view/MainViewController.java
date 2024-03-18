@@ -44,6 +44,7 @@ public class MainViewController implements Initializable {
     }
     public void loadRouteMenu(Label label){
         try{
+
             hostPane.getChildren().clear();
             Pane newLoadedPane =  FXMLLoader.load(getClass().getResource("/at/fhtw/tourPlanner/routeMenu.fxml"));
             hostPane.getChildren().add(newLoadedPane);
