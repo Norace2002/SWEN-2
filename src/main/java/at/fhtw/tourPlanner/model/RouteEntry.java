@@ -1,29 +1,122 @@
 package at.fhtw.tourPlanner.model;
 
-import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.FloatProperty;
 import javafx.beans.property.StringProperty;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public class RouteEntry {
-    private final StringProperty routeName;
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // standard variables
+    private final StringProperty name;
+    private final StringProperty description;
+    private final StringProperty start;
+    private final StringProperty destination;
+    private final StringProperty transportType;
 
-    public RouteEntry(String routeName){
-        this.routeName = new SimpleStringProperty(routeName);
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // retrieved from REST-call to https://openrouteservice.org/dev , https://tile.openstreetmap.org/
+    private float distance;
+    private float estimatedTime;
+    private Image mapImage;
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // constructor
+
+    public RouteEntry(StringProperty name, StringProperty description, StringProperty start, StringProperty destination, StringProperty transportType) {
+        this.name = name;
+        this.description = description;
+        this.start = start;
+        this.destination = destination;
+        this.transportType = transportType;
     }
-    public RouteEntry(StringProperty routeName){
-        this.routeName = routeName;
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // getter + setter
+
+    public String getName() {
+        return name.get();
+    }
+
+    public StringProperty nameProperty() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name.set(name);
+    }
+
+    public String getDescription() {
+        return description.get();
+    }
+
+    public StringProperty descriptionProperty() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description.set(description);
+    }
+
+    public String getStart() {
+        return start.get();
+    }
+
+    public StringProperty startProperty() {
+        return start;
+    }
+
+    public void setStart(String start) {
+        this.start.set(start);
+    }
+
+    public String getDestination() {
+        return destination.get();
+    }
+
+    public StringProperty destinationProperty() {
+        return destination;
+    }
+
+    public void setDestination(String destination) {
+        this.destination.set(destination);
+    }
+
+    public String getTransportType() {
+        return transportType.get();
+    }
+
+    public StringProperty transportTypeProperty() {
+        return transportType;
+    }
+
+    public void setTransportType(String transportType) {
+        this.transportType.set(transportType);
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    public String getRouteName() {
-        return routeName.get();
+    public float getDistance() {
+        return distance;
     }
 
-    public void setRouteName(String routeName) {
-        this.routeName.set(routeName);
+    public void setDistance(float distance) {
+        this.distance = distance;
     }
 
-    public StringProperty routeNameProperty() {
-        return routeName;
+    public float getEstimatedTime() {
+        return estimatedTime;
+    }
+
+    public void setEstimatedTime(float estimatedTime) {
+        this.estimatedTime = estimatedTime;
+    }
+
+    public Image getMapImage() {
+        return mapImage;
+    }
+
+    public void setMapImage(Image mapImage) {
+        this.mapImage = mapImage;
     }
 }
