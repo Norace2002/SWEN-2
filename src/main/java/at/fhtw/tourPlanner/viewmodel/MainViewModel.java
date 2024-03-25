@@ -1,8 +1,9 @@
 package at.fhtw.tourPlanner.viewmodel;
 
 import at.fhtw.tourPlanner.listener.FocusChangedListener;
-import at.fhtw.tourPlanner.model.HighscoreEntry;
-import javafx.beans.property.*;
+import at.fhtw.tourPlanner.model.RouteEntry;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -11,24 +12,23 @@ import java.util.List;
 
 public class MainViewModel {
     private List<FocusChangedListener> focusChangedListenerList = new ArrayList<FocusChangedListener>();
-
-    private final StringProperty currentUsername = new SimpleStringProperty("");
-    private final StringProperty currentPoints = new SimpleStringProperty("");
-    private final ObservableList<HighscoreEntry> data =
+    private final StringProperty name = new SimpleStringProperty("");
+    private final ObservableList<RouteEntry> data =
             FXCollections.observableArrayList(
-                    new HighscoreEntry("daniel", "infinite"),
-                    new HighscoreEntry("not daniel", "few")
+                    new RouteEntry("Wienerwald"),
+                    new RouteEntry("Dopllerhuette"),
+                    new RouteEntry("Figlwarte"),
+                    new RouteEntry("Dorfrunde")
             );
 
-    public StringProperty getCurrentUsername() {
-        return currentUsername;
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // functions
+
+    public StringProperty getName() {
+        return name;
     }
 
-    public StringProperty getCurrentPoints(){
-        return currentPoints;
-    }
-
-    public ObservableList<HighscoreEntry> getData(){
+    public ObservableList<RouteEntry> getData(){
         return data;
     }
 
@@ -37,11 +37,11 @@ public class MainViewModel {
     }
 
     public void saveDataToList(){
-        data.add(new HighscoreEntry(currentUsername.get(), currentPoints.get()));
-        currentUsername.set("");
-        currentPoints.set("");
+        data.add(new RouteEntry(name.get()));
+        name.set("");
         for (var listener: this.focusChangedListenerList) {
-            listener.requestFocusChange("input of username");
+            listener.requestFocusChange("input of routename");
         }
     }
+
 }

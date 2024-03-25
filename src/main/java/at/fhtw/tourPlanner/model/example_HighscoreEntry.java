@@ -3,17 +3,17 @@ package at.fhtw.tourPlanner.model;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-public class HighscoreEntry {
+public class example_HighscoreEntry {
 
     private final StringProperty username;
     private final StringProperty points;
 
-    public HighscoreEntry(String username, String points){
+    public example_HighscoreEntry(String username, String points){
         this.username = new SimpleStringProperty(username);
         this.points = new SimpleStringProperty(points);
     }
 
-    public HighscoreEntry(StringProperty username, StringProperty points) {
+    public example_HighscoreEntry(StringProperty username, StringProperty points) {
         this.username = username;
         this.points = points;
     }

@@ -1,6 +1,7 @@
 package at.fhtw.tourPlanner.model;
 
 import javafx.beans.property.FloatProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -9,10 +10,10 @@ public class RouteEntry {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // standard variables
     private final StringProperty name;
-    private final StringProperty description;
-    private final StringProperty start;
-    private final StringProperty destination;
-    private final StringProperty transportType;
+    private StringProperty description;
+    private StringProperty start;
+    private StringProperty destination;
+    private StringProperty transportType;
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // retrieved from REST-call to https://openrouteservice.org/dev , https://tile.openstreetmap.org/
@@ -22,13 +23,12 @@ public class RouteEntry {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // constructor
+    public RouteEntry(String name){
+        this.name = new SimpleStringProperty(name);
+    }
 
-    public RouteEntry(StringProperty name, StringProperty description, StringProperty start, StringProperty destination, StringProperty transportType) {
+    public RouteEntry(StringProperty name) {
         this.name = name;
-        this.description = description;
-        this.start = start;
-        this.destination = destination;
-        this.transportType = transportType;
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

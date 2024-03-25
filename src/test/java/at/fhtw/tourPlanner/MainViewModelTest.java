@@ -1,6 +1,6 @@
 package at.fhtw.tourPlanner;
 
-import at.fhtw.tourPlanner.viewmodel.MainViewModel;
+import at.fhtw.tourPlanner.viewmodel.example_MainViewModel;
 import javafx.scene.Parent;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.skin.TableColumnHeader;
@@ -24,7 +24,7 @@ class MainViewModelTest {
     /**
      * Will be called with {@code @Before} semantics, i. e. before each test method.
      *
-     * @param stage - Will be injected by the test runner.
+     * @param primaryStage - Will be injected by the test runner.
      */
     @Start
     private void start(Stage primaryStage) throws Exception{
@@ -34,7 +34,7 @@ class MainViewModelTest {
     @Test
     void saveDataToList_shouldAddData() {
         // Arrange
-        MainViewModel mainViewModel = new MainViewModel();
+        example_MainViewModel mainViewModel = new example_MainViewModel();
         var lastDataCount = mainViewModel.getData().size();
         final String expectedName = "Susi Sorglos";
         mainViewModel.getCurrentUsername().set( expectedName );
