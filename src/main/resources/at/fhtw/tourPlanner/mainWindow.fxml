@@ -47,6 +47,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
+<?import javafx.scene.control.ListView?>
 <VBox prefHeight="500.0" prefWidth="900.0"
       xmlns="http://javafx.com/javafx/17"
       xmlns:fx="http://javafx.com/fxml/1"
@@ -125,23 +126,13 @@
                            </children>
                         </HBox>
                         <HBox prefHeight="423.0" prefWidth="336.0">
-                           <children>
-                              <ScrollPane fitToWidth="true" prefHeight="423.0" prefWidth="303.0">
-                                <content>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="423.0" prefWidth="300.0">
-                                       <children>
-                                          <VBox prefHeight="409.0" prefWidth="285.0" fx:id="routeEntries">
-                                             <children>
-                                                 <Label prefHeight="37.0" prefWidth="286.0" style="-fx-padding:10;" text="Figlwarte" />
-                                                 <Label prefHeight="37.0" prefWidth="287.0" style="-fx-padding:10;" text="Wienerwald" />
-                                                 <Label prefHeight="37.0" prefWidth="289.0" style="-fx-padding:10;" text="Dopplerhuette" />
-                                             </children>
-                                          </VBox>
-                                       </children>
-                                    </AnchorPane>
-                                </content>
-                              </ScrollPane>
-                           </children>
+                            <children>
+                                <ListView prefHeight="423.0" prefWidth="303.0" fx:id="routeEntries">
+                                    <Label text="Figlwarte"/>
+                                    <Label text="Wienerwald"/>
+                                    <Label text="Dopplerhuette"/>
+                                </ListView>
+                            </children>
                         </HBox>
                      </children>
                   </VBox>

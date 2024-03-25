@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
@@ -20,7 +21,7 @@ public class MainViewController implements Initializable {
     @FXML
     private Pane hostPane;
     @FXML
-    private VBox routeEntries;
+    private ListView<Label> routeEntries;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -55,11 +56,16 @@ public class MainViewController implements Initializable {
         }
     }
 
+
     private void setLabelClickHandler() {
-        for (javafx.scene.Node node : routeEntries.getChildren()) {
-            if (node instanceof Label label) {
-                label.setOnMouseClicked(event -> loadRouteMenu(label));
-            }
-        }
+        // Clear any existing click handlers
+        routeEntries.getItems().forEach(label -> label.setOnMouseClicked(null));
+        System.out.println("Debug: existing handlers cleared");
+
+        // Iterate over the items in the ListView
+        routeEntries.getItems().forEach(label -> {
+            System.out.println("Debug: label entry " + label.getText());
+            label.setOnMouseClicked(event -> loadRouteMenu(label));
+        });
     }
 }
