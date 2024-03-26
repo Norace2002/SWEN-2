@@ -10,10 +10,10 @@ public class RouteEntry {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // standard variables
     private final StringProperty name;
-    private StringProperty description;
-    private StringProperty start;
-    private StringProperty destination;
-    private StringProperty transportType;
+    private final StringProperty description;
+    private final StringProperty start;
+    private final StringProperty destination;
+    private final StringProperty transportType;
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // retrieved from REST-call to https://openrouteservice.org/dev , https://tile.openstreetmap.org/
@@ -23,12 +23,20 @@ public class RouteEntry {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // constructor
-    public RouteEntry(String name){
+    public RouteEntry(String name, String description, String start, String destination, String transportType){
         this.name = new SimpleStringProperty(name);
+        this.description = new SimpleStringProperty(description);
+        this.start = new SimpleStringProperty(start);
+        this.destination = new SimpleStringProperty(destination);
+        this.transportType = new SimpleStringProperty(transportType);
     }
 
-    public RouteEntry(StringProperty name) {
+    public RouteEntry(StringProperty name, StringProperty description, StringProperty start, StringProperty destination, StringProperty transportType) {
         this.name = name;
+        this.description = name;
+        this.start = name;
+        this.destination = name;
+        this.transportType = name;
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -101,6 +109,7 @@ public class RouteEntry {
     }
 
     public void setDistance(float distance) {
+        // rest call for distance
         this.distance = distance;
     }
 
@@ -109,6 +118,7 @@ public class RouteEntry {
     }
 
     public void setEstimatedTime(float estimatedTime) {
+        // rest call for estimated time
         this.estimatedTime = estimatedTime;
     }
 
@@ -117,6 +127,7 @@ public class RouteEntry {
     }
 
     public void setMapImage(Image mapImage) {
+        // rest call for image
         this.mapImage = mapImage;
     }
 }

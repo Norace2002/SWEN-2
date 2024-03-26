@@ -1,5 +1,6 @@
 package at.fhtw.tourPlanner.view;
 
+import at.fhtw.tourPlanner.model.RouteEntry;
 import at.fhtw.tourPlanner.viewmodel.MainViewModel;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,7 +12,7 @@ import javafx.scene.layout.Pane;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class MainViewController implements Initializable {
+public class MainViewController extends abstractController implements Initializable {
 
     private final MainViewModel viewModel = new MainViewModel();
 
@@ -24,6 +25,9 @@ public class MainViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setLabelClickHandler();
+
+        // bind listview to observablelist
+        // ????
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -41,6 +45,7 @@ public class MainViewController implements Initializable {
             e.printStackTrace();
         }
     }
+
     public void loadRouteMenu(Label label){
         try{
 
@@ -54,7 +59,6 @@ public class MainViewController implements Initializable {
         }
     }
 
-
     private void setLabelClickHandler() {
         // Clear any existing click handlers
         routeEntries.getItems().forEach(label -> label.setOnMouseClicked(null));
@@ -65,5 +69,18 @@ public class MainViewController implements Initializable {
             System.out.println("Debug: label entry " + label.getText());
             label.setOnMouseClicked(event -> loadRouteMenu(label));
         });
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public void addRouteEntry(){
+        // take information from mediator
+        viewModel.addNewRouteEntryToList(
+                routeMediator.relayRouteName(),
+                routeMediator.relayRouteDescription(),
+                routeMediator.relayRouteStart(),
+                routeMediator.relayRouteDestination(),
+                routeMediator.relayRouteTransportationType()
+        );
     }
 }
