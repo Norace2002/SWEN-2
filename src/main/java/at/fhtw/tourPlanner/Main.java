@@ -13,7 +13,7 @@ public class Main extends Application {
         showStage(primaryStage);
     }
     public static Parent showStage(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(Main.class.getResource("mainWindowV2.fxml"));
+        Parent root = FXMLLoader.load(Main.class.getResource("mainWindow.fxml"));
         primaryStage.setTitle("TourPlanner");
         primaryStage.setScene(new Scene(root, 900, 550));
         primaryStage.setMinWidth(900);
