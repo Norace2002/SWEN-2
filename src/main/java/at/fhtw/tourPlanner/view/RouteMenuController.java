@@ -53,7 +53,7 @@ public class RouteMenuController implements Initializable {
         try{
             contentWindowPane.getChildren().clear();
 
-            Pane newLoadedPane =  FXMLLoader.load(getClass().getResource("/at/fhtw/tourPlanner/routeWindow.fxml"));
+            Pane newLoadedPane =  FXMLLoader.load(getClass().getResource("/at/fhtw/tourPlanner/miscWindow.fxml"));
             contentWindowPane.getChildren().add(newLoadedPane);
         } catch(Exception e){
             System.out.println("Problem loading FXML into Pane");

@@ -9,6 +9,7 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
@@ -16,16 +17,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<GridPane xmlns="http://javafx.com/javafx/17"
-          xmlns:fx="http://javafx.com/fxml/1"
-          fx:controller="at.fhtw.tourPlanner.view.MainViewController">
+<GridPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.fhtw.tourPlanner.view.MainViewController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="444.5" minWidth="10.0" prefWidth="285.5" />
-    <ColumnConstraints hgrow="SOMETIMES" maxWidth="690.5" minWidth="10.0" prefWidth="614.5" />
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="550.0" prefWidth="614.5" />
   </columnConstraints>
   <rowConstraints>
     <RowConstraints maxHeight="472.0" minHeight="0.0" prefHeight="51.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="500.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
+      <RowConstraints prefHeight="36.0" vgrow="SOMETIMES" />
       <RowConstraints maxHeight="886.5" minHeight="0.0" prefHeight="452.5" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
@@ -88,12 +87,13 @@
       </VBox>
       <VBox prefHeight="291.0" prefWidth="293.0" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS">
          <children>
-             <ListView prefHeight="423.0" prefWidth="303.0" fx:id="routeEntries" VBox.vgrow="ALWAYS">
-                 <Label text="Figlwarte"/>
-                 <Label text="Wienerwald"/>
-                 <Label text="Dopplerhuette"/>
+             <ListView fx:id="routeEntries" prefHeight="423.0" prefWidth="303.0" VBox.vgrow="ALWAYS">
+                 <Label text="Figlwarte" />
+                 <Label text="Wienerwald" />
+                 <Label text="Dopplerhuette" />
              </ListView>
          </children>
       </VBox>
+      <AnchorPane fx:id="hostPane" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.rowSpan="2" GridPane.vgrow="ALWAYS" />
    </children>
 </GridPane>
