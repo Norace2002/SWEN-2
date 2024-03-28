@@ -46,6 +46,20 @@ public class MainViewController extends abstractController implements Initializa
         }
     }
 
+    public void loadEditRouteWindow(){
+        System.out.println("load route editing window");
+
+        try{
+            hostPane.getChildren().clear();
+
+            Pane newLoadedPane =  FXMLLoader.load(getClass().getResource("/at/fhtw/tourPlanner/editTour.fxml"));
+            hostPane.getChildren().add(newLoadedPane);
+        } catch(Exception e){
+            System.out.println("Problem loading FXML into Pane");
+            e.printStackTrace();
+        }
+    }
+
     public void loadRouteMenu(Label label){
         try{
 

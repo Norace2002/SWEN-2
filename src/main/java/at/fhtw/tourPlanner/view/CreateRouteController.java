@@ -18,6 +18,8 @@ public class CreateRouteController extends abstractController implements Initial
     private Button createEntryButton;
     @FXML
     private Button exitButton;
+    @FXML
+    private Button uploadFileButton;
 
     @FXML
     private TextField nameField;
@@ -29,6 +31,11 @@ public class CreateRouteController extends abstractController implements Initial
     private TextField destinationField;
     @FXML
     private TextField transportTypeField;
+    @FXML
+    private TextField tourDistanceField;
+    @FXML
+    private TextField estimatedTimeField;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
