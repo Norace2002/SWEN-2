@@ -1,36 +1,51 @@
 package at.fhtw.tourPlanner.view;
 
+import at.fhtw.tourPlanner.mediator.Listener;
+import at.fhtw.tourPlanner.mediator.Mediator;
 import at.fhtw.tourPlanner.model.RouteEntry;
 import at.fhtw.tourPlanner.viewmodel.MainViewModel;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.Pane;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class MainViewController extends abstractController implements Initializable {
+public class MainViewController implements Initializable, Listener {
 
     private final MainViewModel viewModel = new MainViewModel();
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     // references used to setup data-binding
     @FXML
     private Pane hostPane;
     @FXML
-    private ListView<Label> routeEntries;
+    private ListView<String> routeEntries;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        setLabelClickHandler();
+        setListItemClickEvent();
+
+        // subscribe to Mediator
+        Mediator.getInstance().registerListener(this);
 
         // bind listview to observablelist
-        // ????
+        routeEntries.setItems(viewModel.getRouteEntries());
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // interface methods
+
+    public void updateRouteList(RouteEntry entry){
+        System.out.println("MainViewController updates RouteList");
+        viewModel.addNewRouteEntry(entry);
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // UI interaction methods
 
     public void loadCreateRouteWindow(){
         System.out.println("load route creation window");
@@ -60,41 +75,26 @@ public class MainViewController extends abstractController implements Initializa
         }
     }
 
-    public void loadRouteMenu(Label label){
+    public void loadRouteMenu(String routeName){
         try{
 
             hostPane.getChildren().clear();
             Pane newLoadedPane =  FXMLLoader.load(getClass().getResource("/at/fhtw/tourPlanner/routeMenu.fxml"));
             hostPane.getChildren().add(newLoadedPane);
-            System.out.println(label.getText());
+            System.out.println(routeName);
         } catch(Exception e){
             System.out.println("Problem loading FXML into Pane");
             e.printStackTrace();
         }
     }
 
-    private void setLabelClickHandler() {
-        // Clear any existing click handlers
-        routeEntries.getItems().forEach(label -> label.setOnMouseClicked(null));
-        System.out.println("Debug: existing handlers cleared");
-
-        // Iterate over the items in the ListView
-        routeEntries.getItems().forEach(label -> {
-            System.out.println("Debug: label entry " + label.getText());
-            label.setOnMouseClicked(event -> loadRouteMenu(label));
+    private void setListItemClickEvent() {
+        routeEntries.setOnMouseClicked(event -> {
+            String selectedItem = routeEntries.getSelectionModel().getSelectedItem();
+            if (selectedItem != null) {
+                loadRouteMenu(selectedItem);
+            }
         });
     }
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    public void addRouteEntry(){
-        // take information from mediator
-        viewModel.addNewRouteEntryToList(
-                routeMediator.relayRouteName(),
-                routeMediator.relayRouteDescription(),
-                routeMediator.relayRouteStart(),
-                routeMediator.relayRouteDestination(),
-                routeMediator.relayRouteTransportationType()
-        );
-    }
 }

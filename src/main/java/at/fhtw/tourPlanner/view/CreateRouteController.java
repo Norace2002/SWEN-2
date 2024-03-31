@@ -1,18 +1,17 @@
 package at.fhtw.tourPlanner.view;
 
-import at.fhtw.tourPlanner.mediator.CreateRouteMediator;
-import at.fhtw.tourPlanner.viewmodel.MainViewModel;
+import at.fhtw.tourPlanner.mediator.Listener;
+import at.fhtw.tourPlanner.mediator.Mediator;
+import at.fhtw.tourPlanner.model.RouteEntry;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class CreateRouteController extends abstractController implements Initializable {
+public class CreateRouteController implements Initializable, Listener {
 
     @FXML
     private Button createEntryButton;
@@ -36,25 +35,34 @@ public class CreateRouteController extends abstractController implements Initial
     @FXML
     private TextField estimatedTimeField;
 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        // subscribe to Mediator
+        Mediator.getInstance().registerListener(this);
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // interface methods
 
+    public void updateRouteList(RouteEntry entry){
+
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // create new Route upon button
     public void createNewRouteEntry(){
-        System.out.println("new route added to list");
-
-        // taking information from input fields
+        System.out.println("CreateRouteController reached");
+        // taking information from input fields and validate
         // ...
 
+        // create new RouteEntry Object from input
+        RouteEntry newEntry = new RouteEntry("Fortnite", "description", "Tiltedtowers", "Tomatotown", "Battlebus");
+
         // relay information to mainview controller over mediator
-        routeMediator.copyRouteName("Test");
-        routeMediator.copyRouteDescription("small description");
-        routeMediator.copyRouteStart("Bikini");
-        routeMediator.copyRouteDestination("Bottom");
-        routeMediator.copyRouteTransportationType("Bootmobil");
+        Mediator.getInstance().publishRouteUpdate(newEntry);
     }
+
+
 }

@@ -87,11 +87,7 @@
       </VBox>
       <VBox prefHeight="291.0" prefWidth="293.0" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS">
          <children>
-             <ListView fx:id="routeEntries" prefHeight="423.0" prefWidth="303.0" VBox.vgrow="ALWAYS">
-                 <Label text="Figlwarte" />
-                 <Label text="Wienerwald" />
-                 <Label text="Dopplerhuette" />
-             </ListView>
+             <ListView fx:id="routeEntries" prefHeight="423.0" prefWidth="303.0" VBox.vgrow="ALWAYS"> </ListView>
          </children>
       </VBox>
       <AnchorPane fx:id="hostPane" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.rowSpan="2" GridPane.vgrow="ALWAYS" />

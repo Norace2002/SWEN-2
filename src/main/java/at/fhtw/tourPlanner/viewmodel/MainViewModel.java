@@ -1,38 +1,38 @@
 package at.fhtw.tourPlanner.viewmodel;
-
-import at.fhtw.tourPlanner.listener.FocusChangedListener;
 import at.fhtw.tourPlanner.model.RouteEntry;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Label;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class MainViewModel {
-    private List<FocusChangedListener> focusChangedListenerList = new ArrayList<FocusChangedListener>();
-    private final ObservableList<RouteEntry> routeEntries =
-            FXCollections.observableArrayList(
-                    new RouteEntry("Wienerwald", "", "", "", ""),
-                    new RouteEntry("Dopllerhuette", "", "", "", ""),
-                    new RouteEntry("Figlwarte", "", "", "", "")
-            );
+    private final ObservableList<String> routeEntries = FXCollections.observableArrayList();
+    private final Map<String, RouteEntry> entryMap = new HashMap<>();
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // functions
+    public ObservableList<String> getRouteEntries(){return routeEntries;}
 
-    public ObservableList<RouteEntry> getRouteEntries(){
-        return routeEntries;
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // functions related routeEntries
+
+    public void addNewRouteEntry(RouteEntry newEntry){
+        // add new entry object to map
+        entryMap.put(newEntry.getName(), newEntry);
+
+        // add new entry to listview
+        routeEntries.add(newEntry.getName());
+
+        // make database call
+        // newEntry.addToDatabase();
+        // System.out.println("routeentry added to db");
     }
 
-    public void addNewRouteEntryToList(String name, String description, String start, String destination, String transportType){
-        // take over variables from input
-        RouteEntry entry = new RouteEntry(name,description,start,destination,transportType);
-
-        // calculate values
-
-        // add entry to list
-        routeEntries.add(entry);
+    public RouteEntry getRouteEntryByName(String routeName){
+        return entryMap.get(routeName);
     }
 
 }
