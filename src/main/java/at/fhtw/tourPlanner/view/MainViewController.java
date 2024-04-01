@@ -10,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.Pane;
 
+import javax.print.attribute.standard.Media;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -25,6 +26,9 @@ public class MainViewController implements Initializable, Listener {
     @FXML
     private ListView<String> routeEntries;
 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // interface methods
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setListItemClickEvent();
@@ -36,12 +40,13 @@ public class MainViewController implements Initializable, Listener {
         routeEntries.setItems(viewModel.getRouteEntries());
     }
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // interface methods
-
     public void updateRouteList(RouteEntry entry){
         System.out.println("MainViewController updates RouteList");
         viewModel.addNewRouteEntry(entry);
+    }
+
+    public void loadRouteInformation(RouteEntry entry){
+
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -81,7 +86,12 @@ public class MainViewController implements Initializable, Listener {
             hostPane.getChildren().clear();
             Pane newLoadedPane =  FXMLLoader.load(getClass().getResource("/at/fhtw/tourPlanner/routeMenu.fxml"));
             hostPane.getChildren().add(newLoadedPane);
-            System.out.println(routeName);
+
+            //handle specific route information through mediator
+            System.out.println(routeName + " picked");
+            RouteEntry chosenEntry = viewModel.getRouteEntryByName(routeName);
+            Mediator.getInstance().routePicked(chosenEntry);
+
         } catch(Exception e){
             System.out.println("Problem loading FXML into Pane");
             e.printStackTrace();

@@ -31,4 +31,10 @@ public class Mediator{
         }
     }
 
+    public void routePicked(RouteEntry entry){
+        for(var listener : listeners){
+            listener.loadRouteInformation(entry);
+        }
+    }
+
 }

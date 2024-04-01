@@ -36,6 +36,7 @@ public class CreateRouteController implements Initializable, Listener {
     private TextField estimatedTimeField;
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // interface methods
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -43,10 +44,11 @@ public class CreateRouteController implements Initializable, Listener {
         Mediator.getInstance().registerListener(this);
     }
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // interface methods
-
     public void updateRouteList(RouteEntry entry){
+
+    }
+
+    public void loadRouteInformation(RouteEntry entry){
 
     }
 
@@ -54,15 +56,30 @@ public class CreateRouteController implements Initializable, Listener {
     // create new Route upon button
     public void createNewRouteEntry(){
         System.out.println("CreateRouteController reached");
-        // taking information from input fields and validate
-        // ...
+        
+        RouteEntry newEntry = null;
 
         // create new RouteEntry Object from input
-        RouteEntry newEntry = new RouteEntry("Fortnite", "description", "Tiltedtowers", "Tomatotown", "Battlebus");
-
+        if(nameField.getText() != null 
+        && descriptionField.getText() != null
+        && startField.getText() != null
+        && destinationField.getText() != null
+        && transportTypeField.getText() != null){
+            newEntry = new RouteEntry(
+                    nameField.getText(),
+                    descriptionField.getText(),
+                    startField.getText(),
+                    destinationField.getText(),
+                    transportTypeField.getText());
+        }
+        
         // relay information to mainview controller over mediator
-        Mediator.getInstance().publishRouteUpdate(newEntry);
+        if(newEntry != null){
+            Mediator.getInstance().publishRouteUpdate(newEntry);
+        }
+        else{
+            System.out.println("Couldnt create new Route Object");
+        }
     }
-
 
 }

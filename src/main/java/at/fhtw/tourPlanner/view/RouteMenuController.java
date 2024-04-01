@@ -1,5 +1,7 @@
 package at.fhtw.tourPlanner.view;
 
+import at.fhtw.tourPlanner.mediator.Listener;
+import at.fhtw.tourPlanner.model.RouteEntry;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -8,13 +10,26 @@ import javafx.scene.layout.Pane;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class RouteMenuController implements Initializable {
+public class RouteMenuController implements Initializable, Listener {
 
     @FXML
     Pane contentWindowPane;
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // interface methods
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadGeneralWindow();
+    }
+
+    @Override
+    public void updateRouteList(RouteEntry entry) {
+
+    }
+
+    public void loadRouteInformation(RouteEntry entry){
+
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
