@@ -105,4 +105,16 @@ public class MainViewController implements Initializable, Listener {
         });
     }
 
+    public  void deleteRoute() {
+        //get selected Entry and call methode from viewModel
+        String selectedItem = routeEntries.getSelectionModel().getSelectedItem();
+        viewModel.deleteRouteEntry(selectedItem);
+
+        //clear pain of deleted entry
+        hostPane.getChildren().clear();
+
+        System.out.println("Entry '" + selectedItem + "' deleted");
+
+    }
+
 }

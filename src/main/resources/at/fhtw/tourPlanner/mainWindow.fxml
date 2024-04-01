@@ -57,7 +57,7 @@
             <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="NEVER">
                <children>
                   <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="79.0" text="Search" HBox.hgrow="ALWAYS" />
-                  <TextField prefHeight="25.0" prefWidth="521.0" text="Type here" HBox.hgrow="ALWAYS" />
+                  <TextField prefHeight="25.0" prefWidth="521.0" promptText="Type Here" HBox.hgrow="ALWAYS" />
                </children>
             </HBox>
          </children>
@@ -74,7 +74,7 @@
                   <ButtonBar buttonMinWidth="5.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="36.0" prefWidth="160.0" HBox.hgrow="ALWAYS">
                     <buttons>
                         <Button mnemonicParsing="false" text="+" onAction="#loadCreateRouteWindow"/>
-                        <Button mnemonicParsing="false" text="-"/>
+                        <Button mnemonicParsing="false" text="-" onAction="#deleteRoute"/>
                         <Button mnemonicParsing="false" text="..." onAction="#loadEditRouteWindow"/>
                     </buttons>
                      <cursor>

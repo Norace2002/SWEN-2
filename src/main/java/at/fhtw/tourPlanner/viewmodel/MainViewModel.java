@@ -36,4 +36,21 @@ public class MainViewModel {
         return entryMap.get(routeName);
     }
 
+    public void deleteRouteEntry(String entryName){
+
+        // make database call - Delete
+        /*
+            RouteEntry entry = entryMap.get(entryName);
+            entry.removeFromDatabase();
+            System.out.println("routeentry removed from db");
+
+         */
+
+        // remove Entry via Entry name
+        entryMap.remove(entryName);
+        routeEntries.remove(entryName);
+
+
+    }
+
 }
