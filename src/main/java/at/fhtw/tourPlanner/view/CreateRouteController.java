@@ -59,8 +59,8 @@ public class CreateRouteController implements Initializable, Listener {
         RouteEntry newEntry = null;
 
         // check if input is not null
-        if(nameField.getText() != null && descriptionField.getText() != null && startField.getText() != null
-        && destinationField.getText() != null && transportTypeField.getText() != null){
+        if(!nameField.getText().isEmpty() && !descriptionField.getText().isEmpty() && !startField.getText().isEmpty()
+        && !destinationField.getText().isEmpty() && !transportTypeField.getText().isEmpty()){
             // create new RouteEntry Object from input
             newEntry = new RouteEntry(nameField.getText(), descriptionField.getText(), startField.getText(),
                     destinationField.getText(), transportTypeField.getText());
