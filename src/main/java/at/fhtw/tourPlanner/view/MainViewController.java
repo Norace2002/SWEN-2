@@ -38,6 +38,7 @@ public class MainViewController implements Initializable, Listener {
 
         // bind listview to observablelist
         routeEntries.setItems(viewModel.getRouteEntries());
+
     }
 
     public void updateRouteList(RouteEntry entry){

@@ -11,8 +11,8 @@ import javafx.scene.control.TextField;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class CreateRouteController implements Initializable, Listener {
 
+public class EditRouteController implements Initializable, Listener {
     @FXML
     private Button createEntryButton;
     @FXML
@@ -48,25 +48,28 @@ public class CreateRouteController implements Initializable, Listener {
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // create new Route upon button
-    public void createNewRouteEntry(){
-        RouteEntry newEntry = null;
+    // edit Route upon button
+    public void saveChanges(){
+        RouteEntry entry = Mediator.getInstance().getCurrentRouteEntry();
 
-        // check if input is not null
-        if(!nameField.getText().isEmpty() && !descriptionField.getText().isEmpty() && !startField.getText().isEmpty()
-        && !destinationField.getText().isEmpty() && !transportTypeField.getText().isEmpty()){
-            // create new RouteEntry Object from input
-            newEntry = new RouteEntry(nameField.getText(), descriptionField.getText(), startField.getText(),
-                    destinationField.getText(), transportTypeField.getText());
+        // check if input is not null - if so replace it with new input
+        if(!nameField.getText().isEmpty()){
+            entry.setName(nameField.getText());
         }
-        
-        // relay information to mainview controller over mediator
-        if(newEntry != null){
-            Mediator.getInstance().publishRouteUpdate(newEntry);
+        if(!descriptionField.getText().isEmpty()){
+            entry.setDescription(descriptionField.getText());
         }
-        else{
-            System.out.println("Couldnt create new Route Object");
+        if(!startField.getText().isEmpty()){
+            entry.setStart(startField.getText());
         }
+        if(!destinationField.getText().isEmpty()){
+            entry.setDestination(destinationField.getText());
+        }
+        if(!transportTypeField.getText().isEmpty()){
+            entry.setTransportType(transportTypeField.getText());
+        }
+
+        System.out.println("Saved new input");
+
     }
-
 }

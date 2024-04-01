@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.fhtw.tourPlanner.view.CreateRouteController"
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.fhtw.tourPlanner.view.EditRouteController"
       AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
    <children>
       <HBox alignment="CENTER" prefHeight="52.0" prefWidth="600.0">
@@ -79,7 +79,7 @@
                   <ButtonBar buttonMinWidth="120.0" prefHeight="25.0" prefWidth="593.0" HBox.hgrow="ALWAYS">
                      <buttons>
                         <Button mnemonicParsing="false" text="Exit without saving" fx:id="exitButton"/>
-                        <Button mnemonicParsing="false" text="Save Changes" />
+                        <Button mnemonicParsing="false" text="Save Changes" fx:id="saveChangesButton" onAction="#saveChanges"/>
                      </buttons>
                   </ButtonBar>
                </children>

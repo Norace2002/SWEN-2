@@ -47,4 +47,9 @@ public class Mediator{
 
         System.out.println("all listeners received currentRoute");
     }
+
+    public RouteEntry getCurrentRouteEntry(){
+        return currentRoute;
+    }
+
 }
