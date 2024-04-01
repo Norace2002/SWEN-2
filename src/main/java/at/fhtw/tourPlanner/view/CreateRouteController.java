@@ -48,29 +48,22 @@ public class CreateRouteController implements Initializable, Listener {
 
     }
 
-    public void loadRouteInformation(RouteEntry entry){
+    @Override
+    public void getCurrentRoute(RouteEntry currentRoute){
 
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // create new Route upon button
     public void createNewRouteEntry(){
-        System.out.println("CreateRouteController reached");
-        
         RouteEntry newEntry = null;
 
-        // create new RouteEntry Object from input
-        if(nameField.getText() != null 
-        && descriptionField.getText() != null
-        && startField.getText() != null
-        && destinationField.getText() != null
-        && transportTypeField.getText() != null){
-            newEntry = new RouteEntry(
-                    nameField.getText(),
-                    descriptionField.getText(),
-                    startField.getText(),
-                    destinationField.getText(),
-                    transportTypeField.getText());
+        // check if input is not null
+        if(nameField.getText() != null && descriptionField.getText() != null && startField.getText() != null
+        && destinationField.getText() != null && transportTypeField.getText() != null){
+            // create new RouteEntry Object from input
+            newEntry = new RouteEntry(nameField.getText(), descriptionField.getText(), startField.getText(),
+                    destinationField.getText(), transportTypeField.getText());
         }
         
         // relay information to mainview controller over mediator

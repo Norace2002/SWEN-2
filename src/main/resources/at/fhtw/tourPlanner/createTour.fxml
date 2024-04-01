@@ -74,36 +74,6 @@
                   <TextField fx:id="transportTypeField" prefHeight="25.0" prefWidth="400.0" HBox.hgrow="ALWAYS" />
                </children>
             </HBox>
-            <HBox alignment="CENTER_LEFT" layoutY="150.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="10.0">
-               <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tour Distance:" wrappingWidth="180.0" HBox.hgrow="ALWAYS">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Text>
-                  <TextField fx:id="tourDistanceField" prefHeight="25.0" prefWidth="400.0" HBox.hgrow="ALWAYS" />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER_LEFT" layoutY="180.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="10.0">
-               <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Estimated Time:" wrappingWidth="180.0" HBox.hgrow="ALWAYS">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Text>
-                  <TextField fx:id="estimatedTimeField" prefHeight="25.0" prefWidth="400.0" HBox.hgrow="ALWAYS" />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER_LEFT" layoutY="210.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="10.0">
-               <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Route Information:" wrappingWidth="180.0" HBox.hgrow="ALWAYS">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Text>
-                  <Button mnemonicParsing="false" text="Upload File" HBox.hgrow="ALWAYS" fx:id="uploadFileButton"/>
-               </children>
-            </HBox>
             <HBox layoutY="240.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="10.0">
                <children>
                   <ButtonBar buttonMinWidth="120.0" prefHeight="25.0" prefWidth="593.0" HBox.hgrow="ALWAYS">

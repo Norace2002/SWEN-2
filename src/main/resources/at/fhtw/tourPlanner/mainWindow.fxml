@@ -74,8 +74,8 @@
                   <ButtonBar buttonMinWidth="5.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="36.0" prefWidth="160.0" HBox.hgrow="ALWAYS">
                     <buttons>
                         <Button mnemonicParsing="false" text="+" onAction="#loadCreateRouteWindow"/>
-                        <Button mnemonicParsing="false" text="-" onAction="#loadEditRouteWindow"/>
-                        <Button mnemonicParsing="false" text="..." />
+                        <Button mnemonicParsing="false" text="-"/>
+                        <Button mnemonicParsing="false" text="..." onAction="#loadEditRouteWindow"/>
                     </buttons>
                      <cursor>
                         <Cursor fx:constant="DEFAULT" />

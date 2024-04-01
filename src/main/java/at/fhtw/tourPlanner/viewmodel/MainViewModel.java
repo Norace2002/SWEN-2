@@ -27,8 +27,9 @@ public class MainViewModel {
         routeEntries.add(newEntry.getName());
 
         // make database call
-        // newEntry.addToDatabase();
-        // System.out.println("routeentry added to db");
+        /* newEntry.addToDatabase();
+        System.out.println("routeentry added to db");
+         */
     }
 
     public RouteEntry getRouteEntryByName(String routeName){

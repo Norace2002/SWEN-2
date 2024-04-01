@@ -4,5 +4,6 @@ import at.fhtw.tourPlanner.model.RouteEntry;
 
 public interface Listener {
     void updateRouteList(RouteEntry entry);
-    void loadRouteInformation(RouteEntry entry);
+
+    void getCurrentRoute(RouteEntry currentRoute);
 }

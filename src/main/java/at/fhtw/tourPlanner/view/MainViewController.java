@@ -45,7 +45,7 @@ public class MainViewController implements Initializable, Listener {
         viewModel.addNewRouteEntry(entry);
     }
 
-    public void loadRouteInformation(RouteEntry entry){
+    public void getCurrentRoute(RouteEntry currentRoute){
 
     }
 
@@ -57,11 +57,10 @@ public class MainViewController implements Initializable, Listener {
 
         try{
             hostPane.getChildren().clear();
-
             Pane newLoadedPane =  FXMLLoader.load(getClass().getResource("/at/fhtw/tourPlanner/createTour.fxml"));
             hostPane.getChildren().add(newLoadedPane);
         } catch(Exception e){
-            System.out.println("Problem loading FXML into Pane");
+            System.out.println("Problem loading CreateTour FXML into Pane");
             e.printStackTrace();
         }
     }
@@ -71,29 +70,21 @@ public class MainViewController implements Initializable, Listener {
 
         try{
             hostPane.getChildren().clear();
-
             Pane newLoadedPane =  FXMLLoader.load(getClass().getResource("/at/fhtw/tourPlanner/editTour.fxml"));
             hostPane.getChildren().add(newLoadedPane);
         } catch(Exception e){
-            System.out.println("Problem loading FXML into Pane");
+            System.out.println("Problem loading EditTour FXML into Pane");
             e.printStackTrace();
         }
     }
 
     public void loadRouteMenu(String routeName){
         try{
-
             hostPane.getChildren().clear();
             Pane newLoadedPane =  FXMLLoader.load(getClass().getResource("/at/fhtw/tourPlanner/routeMenu.fxml"));
             hostPane.getChildren().add(newLoadedPane);
-
-            //handle specific route information through mediator
-            System.out.println(routeName + " picked");
-            RouteEntry chosenEntry = viewModel.getRouteEntryByName(routeName);
-            Mediator.getInstance().routePicked(chosenEntry);
-
         } catch(Exception e){
-            System.out.println("Problem loading FXML into Pane");
+            System.out.println("Problem loading RouteMenu FXML into Pane");
             e.printStackTrace();
         }
     }
@@ -102,6 +93,13 @@ public class MainViewController implements Initializable, Listener {
         routeEntries.setOnMouseClicked(event -> {
             String selectedItem = routeEntries.getSelectionModel().getSelectedItem();
             if (selectedItem != null) {
+                // handle specific route information through mediator
+                RouteEntry chosenEntry = viewModel.getRouteEntryByName(selectedItem);
+
+                // call Listener function for RouteMenuController
+                Mediator.getInstance().setCurrentRoute(chosenEntry);
+
+                // load RouteMenu for window selection
                 loadRouteMenu(selectedItem);
             }
         });
