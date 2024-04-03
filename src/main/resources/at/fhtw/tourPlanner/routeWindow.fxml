@@ -44,8 +44,8 @@
                   </Text>
                   <ButtonBar buttonMinWidth="5.0" HBox.hgrow="ALWAYS">
                     <buttons>
-                      <Button mnemonicParsing="false" text="+" />
-                        <Button mnemonicParsing="false" text="-" />
+                      <Button mnemonicParsing="false" text="+" onAction="#addEntry"/>
+                        <Button mnemonicParsing="false" text="-" onAction="#deleteEntry"/>
                         <Button mnemonicParsing="false" text="..." />
                     </buttons>
                   </ButtonBar>

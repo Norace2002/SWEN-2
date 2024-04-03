@@ -19,4 +19,14 @@ public class LogViewModel {
         logList.add(entry);
     }
 
+    public void deleteEntry(int id){
+        for (LogEntry entry : logList) {
+            // if the id is found - delete it
+            if (entry.getId() == id) {
+                logList.remove(entry);
+                break;
+            }
+        }
+    }
+
 }

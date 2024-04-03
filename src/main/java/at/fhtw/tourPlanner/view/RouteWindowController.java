@@ -2,6 +2,7 @@ package at.fhtw.tourPlanner.view;
 
 import at.fhtw.tourPlanner.mediator.Listener;
 import at.fhtw.tourPlanner.mediator.Mediator;
+import at.fhtw.tourPlanner.model.LogEntry;
 import at.fhtw.tourPlanner.model.RouteEntry;
 import at.fhtw.tourPlanner.viewmodel.LogViewModel;
 import javafx.fxml.FXML;
@@ -24,6 +25,10 @@ public class RouteWindowController implements Initializable, Listener {
     private TableColumn logDuration;
     @FXML
     private TableColumn logDistance;
+
+    //delete Later
+    private int logCounter = 1;
+    private int deleteCounter = 0;
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // interface methods
@@ -60,4 +65,20 @@ public class RouteWindowController implements Initializable, Listener {
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public void addEntry (){
+        LogEntry newLogEntry = new LogEntry(logCounter,"test" + logCounter, "test" + logCounter, "test" + logCounter, logCounter, 10.1 * logCounter, 30.3 * logCounter, logCounter);
+        viewModel.addEntry(newLogEntry);
+        ++logCounter;
+    }
+
+    public void deleteEntry (){
+
+
+        if(deleteCounter < logCounter){
+            viewModel.deleteEntry(deleteCounter);
+            ++deleteCounter;
+        }
+
+    }
 }
