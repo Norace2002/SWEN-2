@@ -31,6 +31,10 @@ public class Mediator{
 
     ArrayList<Listener> listeners = new ArrayList<Listener>();
 
+    public RouteEntry getCurrentRouteEntry(){
+        return currentRoute;
+    }
+
     public void registerListener(Listener newListener){
         listeners.add(newListener);
     }
@@ -58,8 +62,15 @@ public class Mediator{
         System.out.println("all listeners received currentRoute");
     }
 
-    public RouteEntry getCurrentRouteEntry(){
-        return currentRoute;
+    public boolean checkUniqueIdentifier(String givenEntryName){
+        for(var listener : listeners){
+            if(listener.checkUniqueEntry(givenEntryName)) {
+                return true;
+            }
+        }
+        return false;
     }
+
+
 
 }

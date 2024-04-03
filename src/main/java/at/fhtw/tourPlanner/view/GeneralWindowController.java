@@ -56,6 +56,10 @@ public class GeneralWindowController implements Initializable, Listener {
         currentEntry = currentRoute;
     }
 
+    public boolean checkUniqueEntry(String givenEntryName){
+        return false;
+    }
+
     private void loadInformation(){
         tourNameLabel.setText(currentEntry.getName());
         tourStartLabel.setText(currentEntry.getStart());

@@ -29,6 +29,7 @@ public class CreateRouteController implements Initializable, Listener {
     @FXML
     private TextField transportTypeField;
 
+
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // interface methods
 
@@ -44,7 +45,10 @@ public class CreateRouteController implements Initializable, Listener {
 
     @Override
     public void getCurrentRoute(RouteEntry currentRoute){
+    }
 
+    public boolean checkUniqueEntry(String givenEntryName){
+        return false;
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -52,21 +56,29 @@ public class CreateRouteController implements Initializable, Listener {
     public void createNewRouteEntry(){
         RouteEntry newEntry = null;
 
-        // check if input is not null
-        if(!nameField.getText().isEmpty() && !descriptionField.getText().isEmpty() && !startField.getText().isEmpty()
-        && !destinationField.getText().isEmpty() && !transportTypeField.getText().isEmpty()){
-            // create new RouteEntry Object from input
-            newEntry = new RouteEntry(nameField.getText(), descriptionField.getText(), startField.getText(),
-                    destinationField.getText(), transportTypeField.getText());
-        }
-        
-        // relay information to mainview controller over mediator
-        if(newEntry != null){
-            Mediator.getInstance().publishRouteUpdate(newEntry);
+
+        if(!nameField.getText().isEmpty() && Mediator.getInstance().checkUniqueIdentifier(nameField.getText())){
+            // check if input is not null
+            if(!nameField.getText().isEmpty() && !descriptionField.getText().isEmpty() && !startField.getText().isEmpty()
+                    && !destinationField.getText().isEmpty() && !transportTypeField.getText().isEmpty()){
+                // create new RouteEntry Object from input
+                newEntry = new RouteEntry(nameField.getText(), descriptionField.getText(), startField.getText(),
+                        destinationField.getText(), transportTypeField.getText());
+            }
+
+            // relay information to mainview controller over mediator
+            if(newEntry != null){
+                Mediator.getInstance().publishRouteUpdate(newEntry);
+            }
+            else{
+                System.out.println("Couldnt create new Route Object");
+            }
         }
         else{
-            System.out.println("Couldnt create new Route Object");
+            System.out.println("Current tour name isn't available");
         }
+
+
     }
 
 }

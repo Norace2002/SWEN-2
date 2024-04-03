@@ -52,6 +52,10 @@ public class EditRouteController implements Initializable, Listener {
         entry = currentRoute;
     }
 
+    public boolean checkUniqueEntry(String givenEntryName){
+        return false;
+    }
+
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // edit Route upon button
     public void saveChanges(){

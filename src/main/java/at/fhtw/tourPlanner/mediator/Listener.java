@@ -6,4 +6,7 @@ public interface Listener {
     void updateRouteList(RouteEntry entry);
 
     void getCurrentRoute(RouteEntry currentRoute);
+
+    boolean checkUniqueEntry(String givenEntryName);
+
 }

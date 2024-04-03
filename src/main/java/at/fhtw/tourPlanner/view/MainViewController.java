@@ -50,6 +50,10 @@ public class MainViewController implements Initializable, Listener {
 
     }
 
+    public boolean checkUniqueEntry(String givenEntryName){
+        return viewModel.getRouteEntryByName(givenEntryName) == null;
+    }
+
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // UI interaction methods
 

@@ -40,6 +40,10 @@ public class RouteMenuController implements Initializable, Listener {
 
     }
 
+    public boolean checkUniqueEntry(String givenEntryName){
+        return false;
+    }
+
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     public void loadGeneralWindow(){
