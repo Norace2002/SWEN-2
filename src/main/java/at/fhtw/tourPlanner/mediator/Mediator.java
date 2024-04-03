@@ -4,6 +4,12 @@ import at.fhtw.tourPlanner.model.RouteEntry;
 
 import java.util.ArrayList;
 
+/*
+* Implementing the Mediator as a Singleton with listeners is a solution hinted to us by our colleague.
+* We implemented the functionality without further assistance, yet we assume a certain similarity is bound to occur.
+* Credits: Adrian Andretsch
+ */
+
 public class Mediator{
 
     private RouteEntry currentRoute;
@@ -39,6 +45,10 @@ public class Mediator{
         currentRoute = entry;
         System.out.println("currentRoute set");
     }
+
+    /* Frage an Prof:
+    * Umsetzung von get currentRoute als Publish für alle User oder als getter?
+    */
 
     public void publishCurrentRoute(){
         for(var listener : listeners){

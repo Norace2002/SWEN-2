@@ -39,7 +39,7 @@ public class GeneralWindowController implements Initializable, Listener {
         Mediator.getInstance().registerListener(this);
 
         // get currently active route
-        Mediator.getInstance().publishCurrentRoute();
+        currentEntry = Mediator.getInstance().getCurrentRouteEntry();
 
         // set URL for discerning windows
         System.out.println("calling loadInformation()");

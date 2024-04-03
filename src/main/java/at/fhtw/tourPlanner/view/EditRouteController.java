@@ -18,8 +18,10 @@ public class EditRouteController implements Initializable, Listener {
     @FXML
     private Button exitButton;
 
+    /*
     @FXML
     private TextField nameField;
+    */
     @FXML
     private TextField descriptionField;
     @FXML
@@ -29,6 +31,8 @@ public class EditRouteController implements Initializable, Listener {
     @FXML
     private TextField transportTypeField;
 
+    private RouteEntry entry;
+
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // interface methods
 
@@ -36,6 +40,7 @@ public class EditRouteController implements Initializable, Listener {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // subscribe to Mediator
         Mediator.getInstance().registerListener(this);
+        entry = Mediator.getInstance().getCurrentRouteEntry();
     }
 
     public void updateRouteList(RouteEntry entry){
@@ -44,18 +49,17 @@ public class EditRouteController implements Initializable, Listener {
 
     @Override
     public void getCurrentRoute(RouteEntry currentRoute){
-
+        entry = currentRoute;
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // edit Route upon button
     public void saveChanges(){
-        RouteEntry entry = Mediator.getInstance().getCurrentRouteEntry();
-
-        // check if input is not null - if so replace it with new input
+        /* check if input is not null - if so replace it with new input
         if(!nameField.getText().isEmpty()){
             entry.setName(nameField.getText());
         }
+        */
         if(!descriptionField.getText().isEmpty()){
             entry.setDescription(descriptionField.getText());
         }
