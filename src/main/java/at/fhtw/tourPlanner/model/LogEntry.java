@@ -1,22 +1,32 @@
 package at.fhtw.tourPlanner.model;
 
-import javafx.beans.property.FloatProperty;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.StringProperty;
+import javafx.beans.property.*;
 
 public class LogEntry {
+    private int id;
     private final StringProperty date;
     private final StringProperty time;
     private final StringProperty comment;
     private final IntegerProperty difficulty; // 1-5;
-    private final FloatProperty distance;
-    private final FloatProperty duration;
+    private final DoubleProperty distance;
+    private final DoubleProperty duration;
     private final IntegerProperty rating; // 1-5
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // constructor
 
-    public LogEntry(StringProperty date, StringProperty time, StringProperty comment, IntegerProperty difficulty, FloatProperty distance, FloatProperty duration, IntegerProperty rating) {
+    public LogEntry(int id, String date, String time, String comment, int difficulty, double distance, double duration, int rating){
+        this.id = id;
+        this.date = new SimpleStringProperty(date);
+        this.time = new SimpleStringProperty(time);
+        this.comment = new SimpleStringProperty(comment);
+        this.difficulty = new SimpleIntegerProperty(difficulty);
+        this.distance = new SimpleDoubleProperty(distance);
+        this.duration = new SimpleDoubleProperty(duration);
+        this.rating = new SimpleIntegerProperty(rating);
+    }
+
+    public LogEntry(StringProperty date, StringProperty time, StringProperty comment, IntegerProperty difficulty, DoubleProperty distance, DoubleProperty duration, IntegerProperty rating) {
         this.date = date;
         this.time = time;
         this.comment = comment;
@@ -77,11 +87,11 @@ public class LogEntry {
         this.difficulty.set(difficulty);
     }
 
-    public float getDistance() {
+    public double getDistance() {
         return distance.get();
     }
 
-    public FloatProperty distanceProperty() {
+    public DoubleProperty distanceProperty() {
         return distance;
     }
 
@@ -89,11 +99,11 @@ public class LogEntry {
         this.distance.set(distance);
     }
 
-    public float getDuration() {
+    public double getDuration() {
         return duration.get();
     }
 
-    public FloatProperty durationProperty() {
+    public DoubleProperty durationProperty() {
         return duration;
     }
 
@@ -111,5 +121,13 @@ public class LogEntry {
 
     public void setRating(int rating) {
         this.rating.set(rating);
+    }
+
+    public int getId(){
+        return id;
+    }
+
+    public void setId(int newId){
+        this.id = newId;
     }
 }

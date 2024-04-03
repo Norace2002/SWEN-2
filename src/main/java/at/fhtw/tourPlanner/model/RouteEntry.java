@@ -33,10 +33,10 @@ public class RouteEntry {
 
     public RouteEntry(StringProperty name, StringProperty description, StringProperty start, StringProperty destination, StringProperty transportType) {
         this.name = name;
-        this.description = name;
-        this.start = name;
-        this.destination = name;
-        this.transportType = name;
+        this.description = description;
+        this.start = start;
+        this.destination = destination;
+        this.transportType = transportType;
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
