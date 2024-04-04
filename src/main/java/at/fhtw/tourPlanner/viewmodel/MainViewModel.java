@@ -1,47 +1,56 @@
 package at.fhtw.tourPlanner.viewmodel;
-
-import at.fhtw.tourPlanner.listener.FocusChangedListener;
-import at.fhtw.tourPlanner.model.HighscoreEntry;
-import javafx.beans.property.*;
+import at.fhtw.tourPlanner.model.RouteEntry;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Label;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class MainViewModel {
-    private List<FocusChangedListener> focusChangedListenerList = new ArrayList<FocusChangedListener>();
+    private final ObservableList<String> routeEntries = FXCollections.observableArrayList();
+    private final Map<String, RouteEntry> entryMap = new HashMap<>();
 
-    private final StringProperty currentUsername = new SimpleStringProperty("");
-    private final StringProperty currentPoints = new SimpleStringProperty("");
-    private final ObservableList<HighscoreEntry> data =
-            FXCollections.observableArrayList(
-                    new HighscoreEntry("daniel", "infinite"),
-                    new HighscoreEntry("not daniel", "few")
-            );
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public ObservableList<String> getRouteEntries(){return routeEntries;}
 
-    public StringProperty getCurrentUsername() {
-        return currentUsername;
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // functions related routeEntries
+
+    public void addNewRouteEntry(RouteEntry newEntry){
+        // add new entry object to map
+        entryMap.put(newEntry.getName(), newEntry);
+
+        // add new entry to listview
+        routeEntries.add(newEntry.getName());
+
+        // make database call
+        /* newEntry.addToDatabase();
+        System.out.println("routeentry added to db");
+         */
     }
 
-    public StringProperty getCurrentPoints(){
-        return currentPoints;
+    public RouteEntry getRouteEntryByName(String routeName){
+        return entryMap.get(routeName);
     }
 
-    public ObservableList<HighscoreEntry> getData(){
-        return data;
+    public void deleteRouteEntry(String entryName){
+
+        // make database call - Delete
+        /*
+            RouteEntry entry = entryMap.get(entryName);
+            entry.removeFromDatabase();
+            System.out.println("routeentry removed from db");
+
+         */
+
+        // remove Entry via Entry name
+        entryMap.remove(entryName);
+        routeEntries.remove(entryName);
+
+
     }
 
-    public void addListener(FocusChangedListener listener) {
-        this.focusChangedListenerList.add(listener);
-    }
-
-    public void saveDataToList(){
-        data.add(new HighscoreEntry(currentUsername.get(), currentPoints.get()));
-        currentUsername.set("");
-        currentPoints.set("");
-        for (var listener: this.focusChangedListenerList) {
-            listener.requestFocusChange("input of username");
-        }
-    }
 }

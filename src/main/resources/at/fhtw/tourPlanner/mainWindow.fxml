@@ -1,154 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!--
-  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
-  All rights reserved. Use is subject to license terms.
-
-  This file is available and licensed under the following license:
-
-  Redistribution and use in source and binary forms, with or without
-  modification, are permitted provided that the following conditions
-  are met:
-
-  - Redistributions of source code must retain the above copyright
-    notice, this list of conditions and the following disclaimer.
-  - Redistributions in binary form must reproduce the above copyright
-    notice, this list of conditions and the following disclaimer in
-    the documentation and/or other materials provided with the distribution.
-  - Neither the name of Oracle Corporation nor the names of its
-    contributors may be used to endorse or promote products derived
-    from this software without specific prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
--->
-
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<VBox prefHeight="500.0" prefWidth="900.0"
-      xmlns="http://javafx.com/javafx/17"
-      xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="at.fhtw.tourPlanner.view.MainViewController">
-  <children>
-    <MenuBar VBox.vgrow="NEVER">
-      <menus>
-        <Menu mnemonicParsing="false" text="File">
-          <items>
-            <MenuItem mnemonicParsing="false" text="New" />
-            <MenuItem mnemonicParsing="false" text="Open…" />
-            <Menu mnemonicParsing="false" text="Open Recent" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Close" />
-            <MenuItem mnemonicParsing="false" text="Save" />
-            <MenuItem mnemonicParsing="false" text="Save As…" />
-            <MenuItem mnemonicParsing="false" text="Revert" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Preferences…" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Quit" />
-          </items>
-        </Menu>
-        <Menu mnemonicParsing="false" text="Edit">
-          <items>
-            <MenuItem mnemonicParsing="false" text="Undo" />
-            <MenuItem mnemonicParsing="false" text="Redo" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Cut" />
-            <MenuItem mnemonicParsing="false" text="Copy" />
-            <MenuItem mnemonicParsing="false" text="Paste" />
-            <MenuItem mnemonicParsing="false" text="Delete" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Select All" />
-            <MenuItem mnemonicParsing="false" text="Unselect All" />
-          </items>
-        </Menu>
-        <Menu mnemonicParsing="false" text="Options">
-          <items>
-            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
-          </items>
-        </Menu>
-            <Menu mnemonicParsing="false" text="Help">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
-               </items>
-            </Menu>
-      </menus>
-    </MenuBar>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
-      <children>
-            <HBox prefHeight="19.0" prefWidth="900.0">
+<GridPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.fhtw.tourPlanner.view.MainViewController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="444.5" minWidth="10.0" prefWidth="285.5" />
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="550.0" prefWidth="614.5" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="472.0" minHeight="0.0" prefHeight="51.0" vgrow="SOMETIMES" />
+      <RowConstraints prefHeight="36.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="886.5" minHeight="0.0" prefHeight="452.5" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.vgrow="NEVER">
+         <children>
+            <MenuBar prefHeight="25.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Close" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Delete" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Options">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+                  <Menu mnemonicParsing="false" text="Help">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Delete" />
+                     </items>
+                  </Menu>
+              </menus>
+            </MenuBar>
+            <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="NEVER">
                <children>
-                  <Button mnemonicParsing="false" text="Search" />
-                  <TextField prefHeight="14.0" prefWidth="847.0" text="Type here" />
+                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="79.0" text="Search" HBox.hgrow="ALWAYS" />
+                  <TextField prefHeight="25.0" prefWidth="521.0" promptText="Type Here" HBox.hgrow="ALWAYS" />
                </children>
             </HBox>
-            <HBox layoutY="26.0" prefHeight="448.0" prefWidth="900.0">
+         </children>
+      </VBox>
+      <VBox prefHeight="200.0" prefWidth="100.0" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="TOP" GridPane.vgrow="NEVER">
+         <children>
+            <HBox minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="34.0" prefWidth="280.0" VBox.vgrow="NEVER">
                <children>
-                  <VBox prefHeight="361.0" prefWidth="300.0">
-                     <children>
-                        <HBox prefHeight="25.0" prefWidth="315.0">
-                           <children>
-                              <HBox prefHeight="25.0" prefWidth="231.0">
-                                 <children>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tours">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </Text>
-                                 </children>
-                              </HBox>
-                              <Button mnemonicParsing="false" text="+" />
-                              <Button mnemonicParsing="false" text="-" />
-                              <Button mnemonicParsing="false" text="..." />
-                           </children>
-                        </HBox>
-                        <HBox prefHeight="423.0" prefWidth="336.0">
-                           <children>
-                              <ScrollPane fitToWidth="true" prefHeight="423.0" prefWidth="303.0">
-                                <content>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="423.0" prefWidth="300.0">
-                                       <children>
-                                          <VBox prefHeight="409.0" prefWidth="285.0" fx:id="routeEntries">
-                                             <children>
-                                                 <Label prefHeight="37.0" prefWidth="286.0" style="-fx-padding:10;" text="Figlwarte" />
-                                                 <Label prefHeight="37.0" prefWidth="287.0" style="-fx-padding:10;" text="Wienerwald" />
-                                                 <Label prefHeight="37.0" prefWidth="289.0" style="-fx-padding:10;" text="Dopplerhütte" />
-                                             </children>
-                                          </VBox>
-                                       </children>
-                                    </AnchorPane>
-                                </content>
-                              </ScrollPane>
-                           </children>
-                        </HBox>
-                     </children>
-                  </VBox>
-                  <Pane prefHeight="400.0" prefWidth="600.0" fx:id="hostPane"/>
+                  <Label prefHeight="34.0" prefWidth="93.0" text="Tours" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <ButtonBar buttonMinWidth="5.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="36.0" prefWidth="160.0" HBox.hgrow="ALWAYS">
+                    <buttons>
+                        <Button mnemonicParsing="false" text="+" onAction="#loadCreateRouteWindow"/>
+                        <Button mnemonicParsing="false" text="-" onAction="#deleteRoute"/>
+                        <Button mnemonicParsing="false" text="..." onAction="#loadEditRouteWindow"/>
+                    </buttons>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </ButtonBar>
                </children>
             </HBox>
-      </children>
-    </AnchorPane>
-  </children>
-</VBox>
+         </children>
+      </VBox>
+      <VBox prefHeight="291.0" prefWidth="293.0" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS">
+         <children>
+             <ListView fx:id="routeEntries" prefHeight="423.0" prefWidth="303.0" VBox.vgrow="ALWAYS"> </ListView>
+         </children>
+      </VBox>
+      <AnchorPane fx:id="hostPane" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.rowSpan="2" GridPane.vgrow="ALWAYS" />
+   </children>
+</GridPane>

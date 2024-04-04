@@ -1,5 +1,8 @@
 package at.fhtw.tourPlanner.view;
 
+import at.fhtw.tourPlanner.mediator.Listener;
+import at.fhtw.tourPlanner.mediator.Mediator;
+import at.fhtw.tourPlanner.model.RouteEntry;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -8,13 +11,37 @@ import javafx.scene.layout.Pane;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class RouteMenuController implements Initializable {
+public class RouteMenuController implements Initializable, Listener {
 
     @FXML
     Pane contentWindowPane;
+
+    RouteEntry currentEntry;
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // interface methods
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        // load general route information window
         loadGeneralWindow();
+
+        // subscribe to Mediator
+        Mediator.getInstance().registerListener(this);
+    }
+
+    @Override
+    public void updateRouteList(RouteEntry entry) {
+
+    }
+
+    @Override
+    public void getCurrentRoute(RouteEntry currentRoute){
+
+    }
+
+    public boolean checkUniqueEntry(String givenEntryName){
+        return false;
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -28,7 +55,7 @@ public class RouteMenuController implements Initializable {
             Pane newLoadedPane =  FXMLLoader.load(getClass().getResource("/at/fhtw/tourPlanner/generalWindow.fxml"));
             contentWindowPane.getChildren().add(newLoadedPane);
         } catch(Exception e){
-            System.out.println("Problem loading FXML into Pane");
+            System.out.println("Problem loading GeneralWindow FXML into Pane");
             e.printStackTrace();
         }
     }
@@ -42,7 +69,7 @@ public class RouteMenuController implements Initializable {
             Pane newLoadedPane =  FXMLLoader.load(getClass().getResource("/at/fhtw/tourPlanner/routeWindow.fxml"));
             contentWindowPane.getChildren().add(newLoadedPane);
         } catch(Exception e){
-            System.out.println("Problem loading FXML into Pane");
+            System.out.println("Problem loading RouteWindow FXML into Pane");
             e.printStackTrace();
         }
     }
@@ -53,10 +80,10 @@ public class RouteMenuController implements Initializable {
         try{
             contentWindowPane.getChildren().clear();
 
-            Pane newLoadedPane =  FXMLLoader.load(getClass().getResource("/at/fhtw/tourPlanner/routeWindow.fxml"));
+            Pane newLoadedPane =  FXMLLoader.load(getClass().getResource("/at/fhtw/tourPlanner/miscWindow.fxml"));
             contentWindowPane.getChildren().add(newLoadedPane);
         } catch(Exception e){
-            System.out.println("Problem loading FXML into Pane");
+            System.out.println("Problem loading MiscWindow FXML into Pane");
             e.printStackTrace();
         }
     }

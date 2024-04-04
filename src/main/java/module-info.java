@@ -3,6 +3,7 @@ module tourPlanner {
     requires javafx.fxml;
     requires javafx.graphics;
     requires java.desktop;
+    requires lombok;
 
     opens at.fhtw.tourPlanner to javafx.graphics, javafx.fxml;
     exports at.fhtw.tourPlanner;
