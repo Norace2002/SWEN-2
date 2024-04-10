@@ -1,4 +1,5 @@
 package at.fhtw.tourPlanner.viewmodel;
+import at.fhtw.tourPlanner.backend.RouteService;
 import at.fhtw.tourPlanner.model.RouteEntry;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -12,6 +13,7 @@ import java.util.Map;
 public class MainViewModel {
     private final ObservableList<String> routeEntries = FXCollections.observableArrayList();
     private final Map<String, RouteEntry> entryMap = new HashMap<>();
+    private RouteService routeService = new RouteService();
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public ObservableList<String> getRouteEntries(){return routeEntries;}
@@ -26,10 +28,8 @@ public class MainViewModel {
         // add new entry to listview
         routeEntries.add(newEntry.getName());
 
-        // make database call
-        /* newEntry.addToDatabase();
-        System.out.println("routeentry added to db");
-         */
+        // add Route to DB through backend service
+        routeService.addNewRoute(newEntry);
     }
 
     public RouteEntry getRouteEntryByName(String routeName){
@@ -39,18 +39,12 @@ public class MainViewModel {
     public void deleteRouteEntry(String entryName){
 
         // make database call - Delete
-        /*
-            RouteEntry entry = entryMap.get(entryName);
-            entry.removeFromDatabase();
-            System.out.println("routeentry removed from db");
-
-         */
+        RouteEntry entry = entryMap.get(entryName);
+        routeService.deleteRoute(entryName);
 
         // remove Entry via Entry name
         entryMap.remove(entryName);
         routeEntries.remove(entryName);
-
-
     }
 
 }
