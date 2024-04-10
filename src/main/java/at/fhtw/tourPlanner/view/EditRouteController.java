@@ -7,12 +7,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 
 public class EditRouteController implements Initializable, Listener {
+    public Text editTourTitle;
     @FXML
     private Button createEntryButton;
     @FXML
@@ -41,6 +43,7 @@ public class EditRouteController implements Initializable, Listener {
         // subscribe to Mediator
         Mediator.getInstance().registerListener(this);
         entry = Mediator.getInstance().getCurrentRouteEntry();
+        editTourTitle.setText("Edit Entry: " + entry.getName());
     }
 
     public void updateRouteList(RouteEntry entry){

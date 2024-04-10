@@ -72,14 +72,18 @@ public class MainViewController implements Initializable, Listener {
 
     public void loadEditRouteWindow(){
         System.out.println("load route editing window");
-
-        try{
-            hostPane.getChildren().clear();
-            Pane newLoadedPane =  FXMLLoader.load(getClass().getResource("/at/fhtw/tourPlanner/editTour.fxml"));
-            hostPane.getChildren().add(newLoadedPane);
-        } catch(Exception e){
-            System.out.println("Problem loading EditTour FXML into Pane");
-            e.printStackTrace();
+        if(Mediator.getInstance().getCurrentRouteEntry() == null) {
+            System.out.println("current Route not set");
+        }
+        else{
+            try{
+                hostPane.getChildren().clear();
+                Pane newLoadedPane =  FXMLLoader.load(getClass().getResource("/at/fhtw/tourPlanner/editTour.fxml"));
+                hostPane.getChildren().add(newLoadedPane);
+            } catch(Exception e){
+                System.out.println("Problem loading EditTour FXML into Pane");
+                e.printStackTrace();
+            }
         }
     }
 
