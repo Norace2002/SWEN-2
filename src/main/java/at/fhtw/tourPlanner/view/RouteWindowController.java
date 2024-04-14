@@ -6,10 +6,23 @@ import at.fhtw.tourPlanner.model.LogEntry;
 import at.fhtw.tourPlanner.model.RouteEntry;
 import at.fhtw.tourPlanner.viewmodel.LogViewModel;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.Pane;
+
+//libraries to keep popups in bounds
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import java.io.IOException;
+import javafx.scene.Node;
+import javafx.event.ActionEvent;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -66,6 +79,7 @@ public class RouteWindowController implements Initializable, Listener {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    //depricated
     public void addEntry (){
         LogEntry newLogEntry = new LogEntry(logCounter,"test" + logCounter, "test" + logCounter, "test" + logCounter, logCounter, 10.1 * logCounter, 30.3 * logCounter, logCounter);
         viewModel.addEntry(newLogEntry);
@@ -80,5 +94,59 @@ public class RouteWindowController implements Initializable, Listener {
             ++deleteCounter;
         }
 
+    }
+
+    public void loadCreateTourLogWindow(ActionEvent event) {
+        System.out.println("load route Log creation window");
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/at/fhtw/tourPlanner/createTourLog.fxml"));
+            Parent root = loader.load();
+            CreateTourLogController controller = loader.getController();
+
+            Stage popupStage = new Stage();
+            popupStage.initOwner((Stage)((Node)event.getSource()).getScene().getWindow());
+            popupStage.initModality(Modality.WINDOW_MODAL);
+
+
+            //**************** Frage an Prof ob das so passt  *****************************
+            //popupStage.initStyle(StageStyle.UNDECORATED);
+
+            Scene scene = new Scene(root);
+            popupStage.setScene(scene);
+
+            controller.setStage(popupStage);
+
+            popupStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void loadEditTourLogWindow(ActionEvent event){
+        System.out.println("load route Log creation window");
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/at/fhtw/tourPlanner/editTourLog.fxml"));
+            Parent root = loader.load();
+            CreateTourLogController controller = loader.getController();
+
+            Stage popupStage = new Stage();
+            popupStage.initOwner((Stage)((Node)event.getSource()).getScene().getWindow());
+            popupStage.initModality(Modality.WINDOW_MODAL);
+
+
+            //**************** Frage an Prof ob das so passt  *****************************
+            //popupStage.initStyle(StageStyle.UNDECORATED);
+
+            Scene scene = new Scene(root);
+            popupStage.setScene(scene);
+
+            controller.setStage(popupStage);
+
+            popupStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

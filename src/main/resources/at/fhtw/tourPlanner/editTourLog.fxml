@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -14,7 +15,7 @@
    <children>
       <HBox alignment="CENTER" prefHeight="52.0" prefWidth="600.0">
          <children>
-            <Text fx:id="editTourTitle" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit Tour" underline="true">
+            <Text fx:id="editTourTitle" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit Tour Log" underline="true">
                <font>
                   <Font size="24.0" />
                </font>
@@ -25,42 +26,62 @@
          <children>
             <HBox alignment="CENTER_LEFT" fillHeight="false" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="10.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tour Description:" wrappingWidth="180.0" HBox.hgrow="ALWAYS">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Difficulty:" wrappingWidth="180.0" HBox.hgrow="ALWAYS">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="descriptionField" prefHeight="25.0" prefWidth="400.0" promptText="given tourDescription" HBox.hgrow="ALWAYS" />
+                  <TextField fx:id="difficultyField" prefHeight="25.0" prefWidth="400.0" promptText="given difficulty" HBox.hgrow="ALWAYS" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" layoutY="30.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="10.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="From: " wrappingWidth="180.0" HBox.hgrow="ALWAYS">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Total Distance: " wrappingWidth="180.0" HBox.hgrow="ALWAYS">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="startField" prefHeight="25.0" prefWidth="400.0" promptText="given from" HBox.hgrow="ALWAYS" />
+                  <TextField fx:id="totalDistanceField" prefHeight="25.0" prefWidth="400.0" promptText="given distance" HBox.hgrow="ALWAYS" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" layoutY="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="10.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="To:" wrappingWidth="180.0" HBox.hgrow="ALWAYS">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Total Time:" wrappingWidth="180.0" HBox.hgrow="ALWAYS">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="destinationField" prefHeight="25.0" prefWidth="400.0" promptText="given to" HBox.hgrow="ALWAYS" />
+                  <TextField fx:id="totalTimeField" prefHeight="25.0" prefWidth="400.0" promptText="given time spent" HBox.hgrow="ALWAYS" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" layoutY="90.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="10.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Transport Type:" wrappingWidth="180.0" HBox.hgrow="ALWAYS">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Date/ Time: " wrappingWidth="180.0" HBox.hgrow="ALWAYS">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="transportTypeField" prefHeight="25.0" prefWidth="400.0" promptText="given transportType" HBox.hgrow="ALWAYS" />
+                  <DatePicker fx:id="dateTimeField" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="413.0" promptText="given Date/Time" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutY="120.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="10.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Comment:" wrappingWidth="180.0" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="commentField" prefHeight="25.0" prefWidth="400.0" promptText="given comment" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutY="150.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="10.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Rating: " wrappingWidth="180.0" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="ratingField" prefHeight="25.0" prefWidth="400.0" promptText="given rating" HBox.hgrow="ALWAYS" />
                </children>
             </HBox>
             <HBox layoutY="240.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="10.0">
