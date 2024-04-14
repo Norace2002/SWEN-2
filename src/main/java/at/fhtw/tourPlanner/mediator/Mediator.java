@@ -1,6 +1,7 @@
 package at.fhtw.tourPlanner.mediator;
 
 import at.fhtw.tourPlanner.model.RouteEntry;
+import at.fhtw.tourPlanner.model.LogEntry;
 
 import java.util.ArrayList;
 
@@ -45,6 +46,12 @@ public class Mediator{
         }
     }
 
+    public void publishLogEntry(LogEntry entry){
+        for(var listener : listeners){
+            listener.updateTourLogList(entry);
+        }
+    }
+
     public void setCurrentRoute(RouteEntry entry){
         currentRoute = entry;
         System.out.println("currentRoute set");
@@ -58,7 +65,7 @@ public class Mediator{
         System.out.println("all listeners received currentRoute");
     }
 
-    public boolean checkUniqueIdentifier(String givenEntryName){
+    public boolean checkUniqueRouteEntryIdentifier(String givenEntryName){
         for(var listener : listeners){
             if(listener.checkUniqueEntry(givenEntryName)) {
                 return true;

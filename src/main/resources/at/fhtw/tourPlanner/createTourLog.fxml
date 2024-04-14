@@ -89,7 +89,7 @@
                   <ButtonBar buttonMinWidth="120.0" prefHeight="25.0" prefWidth="593.0" HBox.hgrow="ALWAYS">
                      <buttons>
                         <Button fx:id="exitButton" mnemonicParsing="false" text="Exit without saving" />
-                        <Button fx:id="saveChangesButton" mnemonicParsing="false"  text="Save Changes" />
+                        <Button fx:id="createTourLogButton" mnemonicParsing="false"  text="Create Tour Log" onAction="#createNewTourLog"/>
                      </buttons>
                   </ButtonBar>
                </children>

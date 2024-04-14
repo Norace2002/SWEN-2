@@ -2,6 +2,7 @@ package at.fhtw.tourPlanner.view;
 
 import at.fhtw.tourPlanner.mediator.Listener;
 import at.fhtw.tourPlanner.mediator.Mediator;
+import at.fhtw.tourPlanner.model.LogEntry;
 import at.fhtw.tourPlanner.model.RouteEntry;
 import at.fhtw.tourPlanner.viewmodel.MainViewModel;
 import javafx.fxml.FXML;
@@ -57,6 +58,9 @@ public class MainViewController implements Initializable, Listener {
 
     public boolean checkUniqueEntry(String givenEntryName){
         return viewModel.getRouteEntryByName(givenEntryName) == null;
+    }
+
+    public void updateTourLogList(LogEntry entry){
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

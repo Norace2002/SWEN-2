@@ -2,6 +2,7 @@ package at.fhtw.tourPlanner.view;
 
 import at.fhtw.tourPlanner.mediator.Listener;
 import at.fhtw.tourPlanner.mediator.Mediator;
+import at.fhtw.tourPlanner.model.LogEntry;
 import at.fhtw.tourPlanner.model.RouteEntry;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -51,13 +52,16 @@ public class CreateRouteController implements Initializable, Listener {
         return false;
     }
 
+    public void updateTourLogList(LogEntry entry){
+    }
+
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // create new Route upon button
     public void createNewRouteEntry(){
         RouteEntry newEntry = null;
 
 
-        if(!nameField.getText().isEmpty() && Mediator.getInstance().checkUniqueIdentifier(nameField.getText())){
+        if(!nameField.getText().isEmpty() && Mediator.getInstance().checkUniqueRouteEntryIdentifier(nameField.getText())){
             // check if input is not null
             if(!nameField.getText().isEmpty() && !descriptionField.getText().isEmpty() && !startField.getText().isEmpty()
                     && !destinationField.getText().isEmpty() && !transportTypeField.getText().isEmpty()){

@@ -2,6 +2,7 @@ package at.fhtw.tourPlanner.view;
 
 import at.fhtw.tourPlanner.mediator.Listener;
 import at.fhtw.tourPlanner.mediator.Mediator;
+import at.fhtw.tourPlanner.model.LogEntry;
 import at.fhtw.tourPlanner.model.RouteEntry;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -59,6 +60,11 @@ public class GeneralWindowController implements Initializable, Listener {
     public boolean checkUniqueEntry(String givenEntryName){
         return false;
     }
+
+    public void updateTourLogList(LogEntry entry){
+    }
+
+    //////////////////////////////////////////////////////////////////////
 
     private void loadInformation(){
         tourNameLabel.setText(currentEntry.getName());

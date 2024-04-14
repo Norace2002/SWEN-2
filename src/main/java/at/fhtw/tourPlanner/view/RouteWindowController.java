@@ -77,14 +77,12 @@ public class RouteWindowController implements Initializable, Listener {
         return false;
     }
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    //depricated
-    public void addEntry (){
-        LogEntry newLogEntry = new LogEntry(logCounter,"test" + logCounter, "test" + logCounter, "test" + logCounter, logCounter, 10.1 * logCounter, 30.3 * logCounter, logCounter);
-        viewModel.addEntry(newLogEntry);
+    public void updateTourLogList(LogEntry entry){
+        viewModel.addEntry(entry);
         ++logCounter;
     }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     public void deleteEntry (){
 
@@ -129,7 +127,7 @@ public class RouteWindowController implements Initializable, Listener {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/at/fhtw/tourPlanner/editTourLog.fxml"));
             Parent root = loader.load();
-            CreateTourLogController controller = loader.getController();
+            EditTourLogController controller = loader.getController();
 
             Stage popupStage = new Stage();
             popupStage.initOwner((Stage)((Node)event.getSource()).getScene().getWindow());
