@@ -34,7 +34,10 @@
               <menus>
                 <Menu mnemonicParsing="false" text="File">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="Close" />
+                      <MenuItem mnemonicParsing="false" text="Route Report" onAction="#generateRouteReport"/>
+                      <MenuItem mnemonicParsing="false" text="Summary Report" onAction="#generateSummaryReport"/>
+                      <MenuItem mnemonicParsing="false" text="Import" onAction="#importTourDataJSON"/>
+                      <MenuItem mnemonicParsing="false" text="Export" onAction="#exportTourDataJSON"/>
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Edit">
@@ -49,7 +52,7 @@
                 </Menu>
                   <Menu mnemonicParsing="false" text="Help">
                      <items>
-                        <MenuItem mnemonicParsing="false" text="Delete" />
+                        <MenuItem mnemonicParsing="false" text="There is no help" />
                      </items>
                   </Menu>
               </menus>
