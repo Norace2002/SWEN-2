@@ -50,10 +50,6 @@ public class Mediator{
         System.out.println("currentRoute set");
     }
 
-    /* Frage an Prof:
-    * Umsetzung von get currentRoute als Publish für alle User oder als getter?
-    */
-
     public void publishCurrentRoute(){
         for(var listener : listeners){
             listener.getCurrentRoute(currentRoute);
@@ -69,6 +65,11 @@ public class Mediator{
             }
         }
         return false;
+    }
+
+
+    public void deselectCurrentRoute(){
+        currentRoute = null;
     }
 
 
