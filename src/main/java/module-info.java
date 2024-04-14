@@ -12,6 +12,4 @@ module tourPlanner {
     opens at.fhtw.tourPlanner.viewmodel to javafx.fxml, javafx.graphics;
     exports at.fhtw.tourPlanner.view;
     opens at.fhtw.tourPlanner.view to javafx.fxml, javafx.graphics;
-    exports at.fhtw.tourPlanner.listener;
-    opens at.fhtw.tourPlanner.listener to javafx.fxml, javafx.graphics;
 }
