@@ -1,5 +1,6 @@
 package at.fhtw.tourPlanner.backend;
 
+import at.fhtw.tourPlanner.model.Entry;
 import at.fhtw.tourPlanner.model.RouteEntry;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -7,7 +8,13 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 public class RouteService implements BackendServiceInterface{
-    public void addNewRoute(RouteEntry newEntry) throws IOException{
+    @Override
+    public Entry getEntry(Entry entry) {
+        return null;
+    }
+
+    @Override
+    public void addEntry(Entry entry)  throws IOException{
         // create new Route Entry in backend
         String url = "http://localhost:8080/test";
 
@@ -31,7 +38,13 @@ public class RouteService implements BackendServiceInterface{
         }
     }
 
-    public void deleteRoute(String entryName) {
-        // delete Route in backend by Name
+    @Override
+    public void deleteEntry(Entry entry) {
+
+    }
+
+    @Override
+    public void editEntry(Entry entry) {
+
     }
 }

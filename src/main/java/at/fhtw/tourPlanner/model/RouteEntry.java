@@ -6,7 +6,7 @@ import javafx.beans.property.StringProperty;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-public class RouteEntry {
+public class RouteEntry implements Entry{
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // standard variables
     private final StringProperty name;

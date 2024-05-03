@@ -1,13 +1,28 @@
 package at.fhtw.tourPlanner.backend;
 
+import at.fhtw.tourPlanner.model.Entry;
 import at.fhtw.tourPlanner.model.LogEntry;
 
+import java.io.IOException;
+
 public class LogService implements BackendServiceInterface{
-    public void addNewLog(LogEntry entry) {
-        // add new Log Entry to DB
+    @Override
+    public Entry getEntry(Entry entry) {
+        return null;
     }
 
-    public void deleteLog(int id) {
-        // delete Log Entry based on DB
+    @Override
+    public void addEntry(Entry entry) throws IOException {
+
+    }
+
+    @Override
+    public void deleteEntry(Entry entry) {
+
+    }
+
+    @Override
+    public void editEntry(Entry entry) {
+
     }
 }

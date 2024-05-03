@@ -2,7 +2,7 @@ package at.fhtw.tourPlanner.model;
 
 import javafx.beans.property.*;
 
-public class LogEntry {
+public class LogEntry implements Entry{
     private int id;
     private final StringProperty date;
     private final StringProperty time;
