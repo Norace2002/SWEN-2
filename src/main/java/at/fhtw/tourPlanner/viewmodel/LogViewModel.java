@@ -34,7 +34,7 @@ public class LogViewModel {
         logList.add(entry);
     }
 
-    public void deleteEntry(int id){
+    public void deleteEntry(int id) throws IOException {
         for (LogEntry entry : logList) {
             // if the id is found - delete it
             if (entry.getId() == id) {

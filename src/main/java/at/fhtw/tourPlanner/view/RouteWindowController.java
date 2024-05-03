@@ -84,7 +84,7 @@ public class RouteWindowController implements Initializable, Listener {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    public void deleteEntry (){
+    public void deleteEntry () throws IOException {
 
 
         if(deleteCounter < logCounter){
