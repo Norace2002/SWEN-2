@@ -45,7 +45,12 @@ public class MainViewModel {
 
         // make database call - Delete
         RouteEntry entry = entryMap.get(entryName);
-        routeService.deleteEntry(entry);
+        try{
+            routeService.deleteEntry(entry);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
 
         // remove Entry via Entry name
         entryMap.remove(entryName);

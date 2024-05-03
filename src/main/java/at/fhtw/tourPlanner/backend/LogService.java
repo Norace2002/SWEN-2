@@ -11,7 +11,16 @@ import java.net.URL;
 
 public class LogService implements BackendServiceInterface{
 
-    private void establishConnection(HttpURLConnection connection) throws IOException{
+    private void establishConnection(String requestMethode) throws IOException{
+        // create new Route Entry in backend
+        String url = "http://localhost:8080/route";
+
+        // Open a connection to the URL
+        HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
+
+        // Set the request method to GET
+        connection.setRequestMethod(requestMethode);
+
         // Read the response of the request
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()))) {
             StringBuilder response = new StringBuilder();
@@ -27,63 +36,23 @@ public class LogService implements BackendServiceInterface{
     }
     @Override
     public Entry getEntry(Entry entry) throws IOException {
-        // fetch Log Entry from backend
-        String url = "http://localhost:8080/log";
-
-        // Open a connection to the URL
-        HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
-
-        // Set the request method to GET
-        connection.setRequestMethod("GET");
-
-        //connects to spring - database
-        establishConnection(connection);
+        establishConnection("GET");
 
         return null;
     }
 
     @Override
     public void addEntry(Entry entry) throws IOException {
-        // create new Log Entry in backend
-        String url = "http://localhost:8080/log";
-
-        // Open a connection to the URL
-        HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
-
-        // Set the request method to GET
-        connection.setRequestMethod("POST");
-
-        //connects to spring - database
-        establishConnection(connection);
+        establishConnection("POST");
     }
 
     @Override
     public void deleteEntry(Entry entry) throws IOException {
-        // delete Log Entry in backend
-        String url = "http://localhost:8080/log";
-
-        // Open a connection to the URL
-        HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
-
-        // Set the request method to GET
-        connection.setRequestMethod("DELETE");
-
-        //connects to spring - database
-        establishConnection(connection);
+        establishConnection("DELETE");
     }
 
     @Override
     public void editEntry(Entry entry) throws IOException {
-        // delete Log Entry in backend
-        String url = "http://localhost:8080/log";
-
-        // Open a connection to the URL
-        HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
-
-        // Set the request method to GET
-        connection.setRequestMethod("PUT");
-
-        //connects to spring - database
-        establishConnection(connection);
+        establishConnection("PUT");
     }
 }

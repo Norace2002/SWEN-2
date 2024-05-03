@@ -8,12 +8,17 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 public class RouteService implements BackendServiceInterface{
-    @Override
-    public Entry getEntry(Entry entry) {
-        return null;
-    }
 
-    private void establishConnection(HttpURLConnection connection) throws IOException{
+    private void establishConnection(String requestMethode) throws IOException{
+        // create new Route Entry in backend
+        String url = "http://localhost:8080/route";
+
+        // Open a connection to the URL
+        HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
+
+        // Set the request method to GET
+        connection.setRequestMethod(requestMethode);
+
         // Read the response of the request
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()))) {
             StringBuilder response = new StringBuilder();
@@ -29,39 +34,24 @@ public class RouteService implements BackendServiceInterface{
     }
 
     @Override
+    public Entry getEntry(Entry entry) throws IOException{
+        establishConnection("GET");
+
+        return null;
+    }
+
+    @Override
     public void addEntry(Entry entry)  throws IOException{
-        // create new Route Entry in backend
-        String url = "http://localhost:8080/test";
-
-        // Open a connection to the URL
-        HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
-
-        // Set the request method to GET
-        connection.setRequestMethod("GET");
-
-        //connects to spring - database
-        establishConnection(connection);
-
-
+        establishConnection("POST");
     }
 
     @Override
-    public void deleteEntry(Entry entry) {
-        /*/ create new Route Entry in backend
-        String url = "http://localhost:8080/test";
-
-        // Open a connection to the URL
-        HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
-
-        // Set the request method to GET
-        connection.setRequestMethod("GET");
-
-        //connects to spring - database
-        establishConnection(connection);*/
+    public void deleteEntry(Entry entry) throws IOException{
+        establishConnection("DELETE");
     }
 
     @Override
-    public void editEntry(Entry entry) {
-
+    public void editEntry(Entry entry) throws IOException{
+        establishConnection("PUT");
     }
 }
