@@ -6,6 +6,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import lombok.extern.java.Log;
 
+import java.io.IOException;
+
 public class LogViewModel {
 
     private LogService logService = new LogService();
@@ -21,7 +23,12 @@ public class LogViewModel {
 
     public void addEntry(LogEntry entry){
         // add entry to DB
-        logService.addNewLog(entry);
+        try{
+            logService.addEntry(entry);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
 
         // add entry to LogList
         logList.add(entry);
@@ -32,7 +39,7 @@ public class LogViewModel {
             // if the id is found - delete it
             if (entry.getId() == id) {
                 // remove entry from DB
-                logService.deleteLog(id);
+                logService.deleteEntry(entry);
 
                 // remove entry from list
                 logList.remove(entry);

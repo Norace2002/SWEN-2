@@ -31,7 +31,7 @@ public class MainViewModel {
 
         // add Route to DB through backend service
         try {
-            routeService.addNewRoute(newEntry);
+            routeService.addEntry(newEntry);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -45,7 +45,7 @@ public class MainViewModel {
 
         // make database call - Delete
         RouteEntry entry = entryMap.get(entryName);
-        routeService.deleteRoute(entryName);
+        routeService.deleteEntry(entry);
 
         // remove Entry via Entry name
         entryMap.remove(entryName);
