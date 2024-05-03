@@ -5,6 +5,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Label;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -29,7 +30,11 @@ public class MainViewModel {
         routeEntries.add(newEntry.getName());
 
         // add Route to DB through backend service
-        routeService.addNewRoute(newEntry);
+        try {
+            routeService.addNewRoute(newEntry);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public RouteEntry getRouteEntryByName(String routeName){
