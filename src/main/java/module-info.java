@@ -5,6 +5,7 @@ module tourPlanner {
     requires java.desktop;
     requires lombok;
     requires java.net.http;
+    requires com.fasterxml.jackson.databind;
 
     opens at.fhtw.tourPlanner to javafx.graphics, javafx.fxml;
     exports at.fhtw.tourPlanner;

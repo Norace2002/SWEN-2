@@ -10,7 +10,10 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.net.http.HttpRequest.BodyPublishers;
-public class RouteService implements BackendServiceInterface{
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.SerializationFeature;
+
+public class RouteService extends BaseService implements BackendServiceInterface{
 
     @Override
     public Entry getEntry(Entry entry) throws IOException, InterruptedException{

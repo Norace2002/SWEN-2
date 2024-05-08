@@ -2,6 +2,8 @@ package at.fhtw.tourPlanner.backend;
 
 import at.fhtw.tourPlanner.model.Entry;
 import at.fhtw.tourPlanner.model.LogEntry;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.SerializationFeature;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -13,7 +15,7 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
-public class LogService implements BackendServiceInterface{
+public class LogService extends BaseService implements BackendServiceInterface{
 
     @Override
     public Entry getEntry(Entry entry) throws IOException, InterruptedException{
@@ -43,7 +45,9 @@ public class LogService implements BackendServiceInterface{
     public void addEntry(Entry entry)  throws IOException, InterruptedException{
         // create new Route Entry in backend
         String url = "http://localhost:8080/log";
-        String json = "test";
+
+        // turn entry object into JSON string
+        String json = this.entryToJson(entry);
 
         // Create an HttpClient
         HttpClient client = HttpClient.newHttpClient();
