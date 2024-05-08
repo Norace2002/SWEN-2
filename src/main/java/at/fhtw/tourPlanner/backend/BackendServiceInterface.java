@@ -5,11 +5,11 @@ import at.fhtw.tourPlanner.model.Entry;
 import java.io.IOException;
 
 public interface BackendServiceInterface {
-    Entry getEntry(Entry entry) throws IOException;
+    Entry getEntry(Entry entry) throws IOException, InterruptedException;
 
-    void addEntry(Entry entry) throws IOException;
+    void addEntry(Entry entry) throws IOException, InterruptedException;
 
-    void deleteEntry(Entry entry) throws IOException;
+    void deleteEntry(Entry entry) throws IOException,InterruptedException;
 
-    void editEntry(Entry entry) throws IOException;
+    void editEntry(Entry entry) throws IOException, InterruptedException;
 }

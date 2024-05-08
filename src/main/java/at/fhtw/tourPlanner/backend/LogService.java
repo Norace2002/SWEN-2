@@ -7,52 +7,102 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
+import java.net.URI;
 import java.net.URL;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
 
 public class LogService implements BackendServiceInterface{
 
-    private void establishConnection(String requestMethode) throws IOException{
-        // create new Route Entry in backend
-        String url = "http://localhost:8080/route";
-
-        // Open a connection to the URL
-        HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
-
-        // Set the request method to GET
-        connection.setRequestMethod(requestMethode);
-
-        // Read the response of the request
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()))) {
-            StringBuilder response = new StringBuilder();
-            String line;
-            while ((line = reader.readLine()) != null) {
-                response.append(line);
-            }
-            System.out.println("Response from server: " + response.toString());
-        } finally {
-            // Disconnect the connection
-            connection.disconnect();
-        }
-    }
     @Override
-    public Entry getEntry(Entry entry) throws IOException {
-        establishConnection("GET");
+    public Entry getEntry(Entry entry) throws IOException, InterruptedException{
+        // create new Route Entry in backend
+        String url = "http://localhost:8080/log";
 
+        // Create an HttpClient
+        HttpClient client = HttpClient.newHttpClient();
+
+        // Create a request
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(url))
+                .GET()
+                .build();
+
+        // Send the request and get the response
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+        // Print the response
+        System.out.println("Response from server: " + response.body());
+
+        //Convert jackson into entry
         return null;
     }
 
     @Override
-    public void addEntry(Entry entry) throws IOException {
-        establishConnection("POST");
+    public void addEntry(Entry entry)  throws IOException, InterruptedException{
+        // create new Route Entry in backend
+        String url = "http://localhost:8080/log";
+        String json = "test";
+
+        // Create an HttpClient
+        HttpClient client = HttpClient.newHttpClient();
+
+        // Create a request - turn entry into jason string
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(url))
+                .POST(HttpRequest.BodyPublishers.ofString(json))
+                .build();
+
+        // Send the request and get the response
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+        // Print the response
+        System.out.println("Response from server: " + response.body());
+
     }
 
     @Override
-    public void deleteEntry(Entry entry) throws IOException {
-        establishConnection("DELETE");
+    public void deleteEntry(Entry entry) throws IOException, InterruptedException{
+        // create new Route Entry in backend
+        String url = "http://localhost:8080/log";
+
+        // Create an HttpClient
+        HttpClient client = HttpClient.newHttpClient();
+
+        // Create a request
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(url))
+                .DELETE()
+                .build();
+
+        // Send the request and get the response
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+        // Print the response
+        System.out.println("Response from server: " + response.body());
     }
 
     @Override
-    public void editEntry(Entry entry) throws IOException {
-        establishConnection("PUT");
+    public void editEntry(Entry entry) throws IOException, InterruptedException{
+        // create new Route Entry in backend
+        String url = "http://localhost:8080/log";
+        String json = "test";
+
+        // Create an HttpClient
+        HttpClient client = HttpClient.newHttpClient();
+
+        // Create a request
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(url))
+                .PUT(HttpRequest.BodyPublishers.ofString(json))
+                .build();
+
+        // Send the request and get the response
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+        // Print the response
+        System.out.println("Response from server: " + response.body());
+
     }
 }

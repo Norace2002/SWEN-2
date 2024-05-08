@@ -27,6 +27,8 @@ public class LogViewModel {
             logService.addEntry(entry);
         } catch (IOException e) {
             throw new RuntimeException(e);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
 
 
@@ -39,7 +41,14 @@ public class LogViewModel {
             // if the id is found - delete it
             if (entry.getId() == id) {
                 // remove entry from DB
-                logService.deleteEntry(entry);
+                try{
+                    logService.deleteEntry(entry);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
 
                 // remove entry from list
                 logList.remove(entry);

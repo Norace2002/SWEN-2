@@ -34,7 +34,10 @@ public class MainViewModel {
             routeService.addEntry(newEntry);
         } catch (IOException e) {
             throw new RuntimeException(e);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
+
     }
 
     public RouteEntry getRouteEntryByName(String routeName){
@@ -49,6 +52,8 @@ public class MainViewModel {
             routeService.deleteEntry(entry);
         } catch (IOException e) {
             throw new RuntimeException(e);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
 
 
