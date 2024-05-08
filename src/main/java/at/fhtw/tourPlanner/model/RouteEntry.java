@@ -18,7 +18,6 @@ public class RouteEntry implements Entry{
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // retrieved from REST-call to https://openrouteservice.org/dev , https://tile.openstreetmap.org/
     private float distance;
-
     private float estimatedTime;
     private Image mapImage;
 

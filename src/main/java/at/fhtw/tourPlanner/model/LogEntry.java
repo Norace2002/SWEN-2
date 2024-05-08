@@ -11,12 +11,16 @@ public class LogEntry implements Entry{
     private final DoubleProperty distance;
     private final DoubleProperty duration;
     private final IntegerProperty rating; // 1-5
+    private String route;
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // constructor
 
-    public LogEntry(int id, String date, String time, String comment, int difficulty, double distance, double duration, int rating){
+    public LogEntry(int id, String date, String time, String comment,
+                    int difficulty, double distance, double duration,
+                    int rating, String route){
         this.id = id;
+        this.route = route;
         this.date = new SimpleStringProperty(date);
         this.time = new SimpleStringProperty(time);
         this.comment = new SimpleStringProperty(comment);
@@ -26,7 +30,9 @@ public class LogEntry implements Entry{
         this.rating = new SimpleIntegerProperty(rating);
     }
 
-    public LogEntry(StringProperty date, StringProperty time, StringProperty comment, IntegerProperty difficulty, DoubleProperty distance, DoubleProperty duration, IntegerProperty rating) {
+    public LogEntry(StringProperty date, StringProperty time, StringProperty comment,
+                    IntegerProperty difficulty, DoubleProperty distance, DoubleProperty duration,
+                    IntegerProperty rating) {
         this.date = date;
         this.time = time;
         this.comment = comment;
@@ -130,4 +136,8 @@ public class LogEntry implements Entry{
     public void setId(int newId){
         this.id = newId;
     }
+
+    public String getRoute(){return route;}
+
+    public void setRoute(String route){this.route = route;}
 }
