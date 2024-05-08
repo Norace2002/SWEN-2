@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public class Mediator{
 
     private RouteEntry currentRoute;
+    private LogEntry currentLog;
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Singleton implementation
@@ -35,6 +36,7 @@ public class Mediator{
     public RouteEntry getCurrentRouteEntry(){
         return currentRoute;
     }
+    public LogEntry getCurrentLogEntry(){return currentLog; }
 
     public void registerListener(Listener newListener){
         listeners.add(newListener);
@@ -57,6 +59,11 @@ public class Mediator{
         System.out.println("currentRoute set");
     }
 
+    public void setCurrentLog(LogEntry entry){
+        currentLog = entry;
+        System.out.println("currentLog set");
+    }
+
     public void publishCurrentRoute(){
         for(var listener : listeners){
             listener.getCurrentRoute(currentRoute);
@@ -77,6 +84,10 @@ public class Mediator{
 
     public void deselectCurrentRoute(){
         currentRoute = null;
+    }
+
+    public void deselectCurrentLog(){
+        currentLog = null;
     }
 
 

@@ -40,7 +40,7 @@ public class RouteService extends BaseService implements BackendServiceInterface
     }
 
     @Override
-    public void addEntry(Entry entry)  throws IOException, InterruptedException{
+    public String addEntry(Entry entry)  throws IOException, InterruptedException{
         // create new Route Entry in backend
         String url = "http://localhost:8080/route";
         String json = "test";
@@ -60,6 +60,7 @@ public class RouteService extends BaseService implements BackendServiceInterface
         // Print the response
         System.out.println("Response from server: " + response.body());
 
+        return "";
     }
 
     @Override

@@ -2,6 +2,7 @@ package at.fhtw.tourPlanner.viewmodel;
 
 import at.fhtw.tourPlanner.backend.LogService;
 import at.fhtw.tourPlanner.model.LogEntry;
+import at.fhtw.tourPlanner.model.RouteEntry;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import lombok.extern.java.Log;
@@ -11,9 +12,7 @@ import java.io.IOException;
 public class LogViewModel {
 
     private LogService logService = new LogService();
-    private final ObservableList<LogEntry> logList = FXCollections.observableArrayList(
-            new LogEntry(0,"test", "test", "test", 1, 20.2, 30.3, 1)
-    );
+    private final ObservableList<LogEntry> logList = FXCollections.observableArrayList();
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -21,10 +20,23 @@ public class LogViewModel {
         return this.logList;
     }
 
-    public void addEntry(LogEntry entry){
+    public void getEntry(LogEntry entry){
+        // get entry from DB
+        try{
+            logService.getEntry(entry);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public int addEntry(LogEntry entry){
+        String serverResponse = "";
+
         // add entry to DB
         try{
-            logService.addEntry(entry);
+            serverResponse = logService.addEntry(entry);
         } catch (IOException e) {
             throw new RuntimeException(e);
         } catch (InterruptedException e) {
@@ -34,6 +46,8 @@ public class LogViewModel {
 
         // add entry to LogList
         logList.add(entry);
+
+        return Integer.parseInt(serverResponse);
     }
 
     public void deleteEntry(int id) throws IOException {
@@ -56,5 +70,17 @@ public class LogViewModel {
             }
         }
     }
+
+    public void editEntry(LogEntry entry){
+        // edit entry in DB
+        try{
+            logService.editEntry(entry);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
 
 }

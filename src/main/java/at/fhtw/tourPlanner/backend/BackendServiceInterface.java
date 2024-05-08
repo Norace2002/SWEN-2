@@ -7,7 +7,7 @@ import java.io.IOException;
 public interface BackendServiceInterface {
     Entry getEntry(Entry entry) throws IOException, InterruptedException;
 
-    void addEntry(Entry entry) throws IOException, InterruptedException;
+    String addEntry(Entry entry) throws IOException, InterruptedException;
 
     void deleteEntry(Entry entry) throws IOException,InterruptedException;
 
