@@ -49,7 +49,7 @@ public class MainViewController implements Initializable, Listener {
 
     public void updateRouteList(RouteEntry entry){
         System.out.println("MainViewController updates RouteList");
-        viewModel.addNewRouteEntry(entry);
+        viewModel.updateRouteEntries(entry);
     }
 
     public void getCurrentRoute(RouteEntry currentRoute){
@@ -137,9 +137,6 @@ public class MainViewController implements Initializable, Listener {
 
         //deselect current Route
         Mediator.getInstance().deselectCurrentRoute();
-
-        System.out.println("Entry '" + selectedItem + "' deleted");
-
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

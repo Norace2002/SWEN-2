@@ -11,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -27,6 +28,9 @@ import java.util.ResourceBundle;
 public class EditTourLogController implements Initializable, Listener {
 
     private Stage stage;
+
+    @FXML
+    public VBox vbox; //current Window
     private LogService logService;
 
     @FXML
@@ -130,4 +134,10 @@ public class EditTourLogController implements Initializable, Listener {
         LogMediator.getInstance().editEntry(entry);
 
     }
+
+    public void closeWindow(){
+        Stage stage = (Stage) vbox.getScene().getWindow();
+        stage.close();
+    }
+
 }

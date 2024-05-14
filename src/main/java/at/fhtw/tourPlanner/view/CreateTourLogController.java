@@ -10,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -24,6 +25,9 @@ import java.util.ResourceBundle;
 public class CreateTourLogController implements Initializable, Listener {
 
     private Stage stage;
+
+    @FXML
+    public VBox vbox; //current Window
 
     @FXML
     private Button createTourLogButton;
@@ -133,9 +137,11 @@ public class CreateTourLogController implements Initializable, Listener {
         } else {
             System.out.println("One or more fields are empty");
         }
-
-
-
-
     }
+
+    public void closeWindow(){
+        Stage stage = (Stage) vbox.getScene().getWindow();
+        stage.close();
+    }
+
 }

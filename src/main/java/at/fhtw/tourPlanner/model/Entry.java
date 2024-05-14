@@ -1,4 +1,5 @@
 package at.fhtw.tourPlanner.model;
 
-public interface Entry {
+public abstract class Entry {
+
 }

@@ -3,7 +3,7 @@ package at.fhtw.tourPlanner.model;
 import javafx.beans.property.*;
 import java.sql.Date;
 
-public class LogEntry implements Entry{
+public class LogEntry extends Entry{
     private int id;
     private final ObjectProperty<Date> date;
     private final StringProperty comment;

@@ -12,6 +12,8 @@ import java.net.http.HttpResponse;
 import java.net.http.HttpRequest.BodyPublishers;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 
 public class RouteService extends BaseService implements BackendServiceInterface{
 
@@ -39,11 +41,34 @@ public class RouteService extends BaseService implements BackendServiceInterface
         return null;
     }
 
+    public String getAllEntries() throws IOException, InterruptedException{
+        // create new Route Entry in backend
+        String url = "http://localhost:8080/route/all";
+
+        // Create an HttpClient
+        HttpClient client = HttpClient.newHttpClient();
+
+        // Create a request
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(url))
+                .GET()
+                .build();
+
+        // Send the request and get the response
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+        // Print the response
+        System.out.println("Response from server: " + response.body());
+
+        //Convert jackson into entry
+        return response.body();
+    }
+
     @Override
     public String addEntry(Entry entry)  throws IOException, InterruptedException{
         // create new Route Entry in backend
         String url = "http://localhost:8080/route";
-        String json = "test";
+        String json = this.entryToJson(entry);
 
         // Create an HttpClient
         HttpClient client = HttpClient.newHttpClient();
@@ -58,37 +83,48 @@ public class RouteService extends BaseService implements BackendServiceInterface
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
         // Print the response
-        System.out.println("Response from server: " + response.body());
+        System.out.println("Response from server : successfully created entry");
 
         return "";
     }
 
     @Override
     public void deleteEntry(Entry entry) throws IOException, InterruptedException{
-        // create new Route Entry in backend
-        String url = "http://localhost:8080/route";
 
-        // Create an HttpClient
-        HttpClient client = HttpClient.newHttpClient();
+        if (entry instanceof RouteEntry) {
+            // Casting von Entry zu RouteEntry to extract the name only
+            RouteEntry routeEntry = (RouteEntry) entry;
 
-        // Create a request
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(url))
-                .DELETE()
-                .build();
+            // create new Route Entry in backend
+            String url = "http://localhost:8080/route?name=" + URLEncoder.encode(routeEntry.getName(), StandardCharsets.UTF_8);
 
-        // Send the request and get the response
-        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+            // Create an HttpClient
+            HttpClient client = HttpClient.newHttpClient();
 
-        // Print the response
-        System.out.println("Response from server: " + response.body());
+            // Create a request
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create(url))
+                    .DELETE()
+                    .build();
+
+            // Send the request and get the response
+            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+            // Print the response
+            System.out.println("Response from server: " + response.body());
+        }
+        else {
+            System.out.println("Problem occurred while passing entry from type RouteEntry");
+        }
+
+
     }
 
     @Override
     public void editEntry(Entry entry) throws IOException, InterruptedException{
         // create new Route Entry in backend
         String url = "http://localhost:8080/route";
-        String json = "test";
+        String json = this.entryToJson(entry);
 
         // Create an HttpClient
         HttpClient client = HttpClient.newHttpClient();

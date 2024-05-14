@@ -54,6 +54,7 @@ public class Mediator{
         }
     }
 
+
     public void setCurrentRoute(RouteEntry entry){
         currentRoute = entry;
         System.out.println("currentRoute set");

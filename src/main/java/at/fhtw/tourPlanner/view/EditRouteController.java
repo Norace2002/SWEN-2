@@ -6,8 +6,11 @@ import at.fhtw.tourPlanner.model.LogEntry;
 import at.fhtw.tourPlanner.model.RouteEntry;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
 import java.net.URL;
@@ -16,10 +19,9 @@ import java.util.ResourceBundle;
 
 public class EditRouteController implements Initializable, Listener {
     public Text editTourTitle;
+
     @FXML
-    private Button createEntryButton;
-    @FXML
-    private Button exitButton;
+    public VBox vbox; //current Window
 
     /*
     @FXML
@@ -84,7 +86,22 @@ public class EditRouteController implements Initializable, Listener {
             entry.setTransportType(transportTypeField.getText());
         }
 
+        Mediator.getInstance().publishRouteUpdate(entry);
+
         System.out.println("Saved new input");
 
+    }
+
+    public void closeWindow(){
+        // Get the parent container of the VBox
+        Parent parent = vbox.getParent();
+
+        // Check if the parent container is a Pane
+        if (parent instanceof Pane) {
+            // Remove the child (VBox) from the parent container's list of children
+            ((Pane) parent).getChildren().remove(vbox);
+        } else {
+            System.out.println("Parent is not a Pane.");
+        }
     }
 }

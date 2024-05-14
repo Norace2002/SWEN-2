@@ -41,6 +41,11 @@ public class LogService extends BaseService implements BackendServiceInterface{
         return null;
     }
 
+    public String getAllEntries(){
+
+        return "";
+    }
+
     @Override
     public String addEntry(Entry entry)  throws IOException, InterruptedException{
         // create new Route Entry in backend
