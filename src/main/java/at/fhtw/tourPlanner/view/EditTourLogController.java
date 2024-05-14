@@ -86,6 +86,7 @@ public class EditTourLogController implements Initializable, Listener {
     }
 
     public void saveTourLogChanges(){
+
         if(!difficultyField.getText().isEmpty()){
             try{
                 entry.setDifficulty(Integer.parseInt(difficultyField.getText()));

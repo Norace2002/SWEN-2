@@ -100,15 +100,20 @@ public class RouteWindowController implements Initializable, Listener {
 
     public void deleteEntry () throws IOException {
 
+        if (LogMediator.getInstance().getCurrentLogEntry() != null){
+            //get selected Entry and call methode from viewModel via LogMediator
+            LogEntry selectedItem = (LogEntry) logTable.getSelectionModel().getSelectedItem();
+            LogMediator.getInstance().deleteEntry(selectedItem.getId());
 
-        //get selected Entry and call methode from viewModel via LogMediator
-        LogEntry selectedItem = (LogEntry) logTable.getSelectionModel().getSelectedItem();
-        LogMediator.getInstance().deleteEntry(selectedItem.getId());
+            //deselect current Route
+            LogMediator.getInstance().deselectCurrentLog();
 
-        //deselect current Route
-        LogMediator.getInstance().deselectCurrentLog();
+            System.out.println("Log with id: '" + selectedItem.getId() + "' deleted");
+        }
+        else {
+            System.out.println("You have select a log entry before deleting");
+        }
 
-        System.out.println("Log with id: '" + selectedItem.getId() + "' deleted");
 
     }
 
@@ -140,29 +145,34 @@ public class RouteWindowController implements Initializable, Listener {
     }
 
     public void loadEditTourLogWindow(ActionEvent event){
-        System.out.println("load route Log creation window");
+        if (LogMediator.getInstance().getCurrentLogEntry() != null){
+            System.out.println("load route Log creation window");
 
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/at/fhtw/tourPlanner/editTourLog.fxml"));
-            Parent root = loader.load();
-            EditTourLogController controller = loader.getController();
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/at/fhtw/tourPlanner/editTourLog.fxml"));
+                Parent root = loader.load();
+                EditTourLogController controller = loader.getController();
 
-            Stage popupStage = new Stage();
-            popupStage.initOwner((Stage)((Node)event.getSource()).getScene().getWindow());
-            popupStage.initModality(Modality.WINDOW_MODAL);
+                Stage popupStage = new Stage();
+                popupStage.initOwner((Stage)((Node)event.getSource()).getScene().getWindow());
+                popupStage.initModality(Modality.WINDOW_MODAL);
 
 
-            //**************** Frage an Prof ob das so passt  *****************************
-            //popupStage.initStyle(StageStyle.UNDECORATED);
+                //**************** Frage an Prof ob das so passt  *****************************
+                //popupStage.initStyle(StageStyle.UNDECORATED);
 
-            Scene scene = new Scene(root);
-            popupStage.setScene(scene);
+                Scene scene = new Scene(root);
+                popupStage.setScene(scene);
 
-            controller.setStage(popupStage);
+                controller.setStage(popupStage);
 
-            popupStage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
+                popupStage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            System.out.println("You have select a log entry before editing");
         }
+
     }
 }

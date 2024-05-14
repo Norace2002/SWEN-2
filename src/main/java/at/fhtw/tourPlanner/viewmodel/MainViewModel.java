@@ -73,6 +73,7 @@ public class MainViewModel {
     public void updateRouteEntries(RouteEntry entry){
 
         //check if entry with same name already exits and if so,  instead edit altered values in db
+
         if(entryMap.containsKey(entry.getName())){
             //edit values from existing routeEntry
             try {
@@ -82,20 +83,19 @@ public class MainViewModel {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-        }
+        } else {
+            //If entry is new add it to Map/Listview
+            entryMap.put(entry.getName(), entry);
+            routeEntries.add(entry.getName());
 
-
-        //If entry is new add it to Map/Listview
-        entryMap.put(entry.getName(), entry);
-        routeEntries.add(entry.getName());
-
-        // add Route to DB through backend service
-        try {
-            routeService.addEntry(entry);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+            // add Route to DB through backend service
+            try {
+                routeService.addEntry(entry);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
 
     }
