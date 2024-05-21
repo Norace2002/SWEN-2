@@ -2,6 +2,7 @@ package at.fhtw.tourPlanner.mediator;
 
 import at.fhtw.tourPlanner.model.RouteEntry;
 import at.fhtw.tourPlanner.model.LogEntry;
+import com.fasterxml.jackson.databind.JsonNode;
 
 import java.util.ArrayList;
 
@@ -54,23 +55,9 @@ public class Mediator{
         }
     }
 
-
     public void setCurrentRoute(RouteEntry entry){
         currentRoute = entry;
         System.out.println("currentRoute set");
-    }
-
-    public void setCurrentLog(LogEntry entry){
-        currentLog = entry;
-        System.out.println("currentLog set");
-    }
-
-    public void publishCurrentRoute(){
-        for(var listener : listeners){
-            listener.getCurrentRoute(currentRoute);
-        }
-
-        System.out.println("all listeners received currentRoute");
     }
 
     public boolean checkUniqueRouteEntryIdentifier(String givenEntryName){
@@ -82,15 +69,7 @@ public class Mediator{
         return false;
     }
 
-
     public void deselectCurrentRoute(){
         currentRoute = null;
     }
-
-    public void deselectCurrentLog(){
-        currentLog = null;
-    }
-
-
-
 }

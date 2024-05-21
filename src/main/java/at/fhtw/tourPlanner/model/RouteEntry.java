@@ -1,11 +1,6 @@
 package at.fhtw.tourPlanner.model;
 
-import javafx.beans.property.FloatProperty;
-import javafx.beans.property.SimpleFloatProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
+import javafx.beans.property.*;
 
 public class RouteEntry extends Entry{
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -22,26 +17,26 @@ public class RouteEntry extends Entry{
     private float time;
     //private Image mapImage;
 
-    private final FloatProperty startLatitude;
-    private final FloatProperty startLongitude;
-    private final FloatProperty destinationLatitude;
-    private final FloatProperty destinationLongitude;
+    private final DoubleProperty startLatitude;
+    private final DoubleProperty startLongitude;
+    private final DoubleProperty destinationLatitude;
+    private final DoubleProperty destinationLongitude;
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // constructor
-    public RouteEntry(String name, String description, String start, String destination, String transportType, float startLatitude, float startLongitude, float destinationLatitude, float destinationLongitude){
+    public RouteEntry(String name, String description, String start, String destination, String transportType, double startLatitude, double startLongitude, double destinationLatitude, double destinationLongitude){
         this.name = new SimpleStringProperty(name);
         this.description = new SimpleStringProperty(description);
         this.start = new SimpleStringProperty(start);
         this.destination = new SimpleStringProperty(destination);
         this.transportType = new SimpleStringProperty(transportType);
-        this.startLatitude = new SimpleFloatProperty(startLatitude);
-        this.startLongitude = new SimpleFloatProperty(startLongitude);
-        this.destinationLatitude = new SimpleFloatProperty(destinationLatitude);
-        this.destinationLongitude = new SimpleFloatProperty(destinationLongitude);
+        this.startLatitude = new SimpleDoubleProperty(startLatitude);
+        this.startLongitude = new SimpleDoubleProperty(startLongitude);
+        this.destinationLatitude = new SimpleDoubleProperty(destinationLatitude);
+        this.destinationLongitude = new SimpleDoubleProperty(destinationLongitude);
     }
 
-    public RouteEntry(StringProperty name, StringProperty description, StringProperty start, StringProperty destination, StringProperty transportType, SimpleFloatProperty startLatitude, SimpleFloatProperty startLongitude, SimpleFloatProperty destinationLatitude, SimpleFloatProperty destinationLongitude) {
+    public RouteEntry(StringProperty name, StringProperty description, StringProperty start, StringProperty destination, StringProperty transportType, SimpleDoubleProperty startLatitude, SimpleDoubleProperty startLongitude, SimpleDoubleProperty destinationLatitude, SimpleDoubleProperty destinationLongitude) {
         this.name = name;
         this.description = description;
         this.start = start;
@@ -60,10 +55,10 @@ public class RouteEntry extends Entry{
         this.start = new SimpleStringProperty("");
         this.destination = new SimpleStringProperty("");
         this.transportType = new SimpleStringProperty("");
-        this.startLatitude = new SimpleFloatProperty(0.0f);
-        this.startLongitude = new SimpleFloatProperty(0.0f);
-        this.destinationLatitude = new SimpleFloatProperty(0.0f);
-        this.destinationLongitude = new SimpleFloatProperty(0.0f);
+        this.startLatitude = new SimpleDoubleProperty(0.0f);
+        this.startLongitude = new SimpleDoubleProperty(0.0f);
+        this.destinationLatitude = new SimpleDoubleProperty(0.0f);
+        this.destinationLongitude = new SimpleDoubleProperty(0.0f);
     }
 
 
@@ -132,49 +127,49 @@ public class RouteEntry extends Entry{
     }
 
     //Map Properties
-    public float getStartLatitude() {
+    public double getStartLatitude() {
         return startLatitude.get();
     }
 
-    public FloatProperty startLatitudeProperty() {
+    public DoubleProperty startLatitudeProperty() {
         return startLatitude;
     }
 
-    public void setStartLatitude(float startLatitude) {
+    public void setStartLatitude(Double startLatitude) {
         this.startLatitude.set(startLatitude);
     }
-    public float getStartLongitude() {return startLongitude.get();}
+    public double getStartLongitude() {return startLongitude.get();}
 
-    public FloatProperty startLongitudeProperty() {
+    public DoubleProperty startLongitudeProperty() {
         return startLongitude;
     }
 
-    public void setStartLongitude(float startLongitude) {
+    public void setStartLongitude(Double startLongitude) {
         this.startLongitude.set(startLongitude);
     }
-    public float getDestinationLatitude() {
+    public double getDestinationLatitude() {
         return destinationLatitude.get();
     }
 
-    public FloatProperty destinationLatitudeProperty() {
+    public DoubleProperty destinationLatitudeProperty() {
         return destinationLatitude;
     }
 
-    public void setDestinationLatitude(float startLatitude) {
+    public void setDestinationLatitude(Double startLatitude) {
         this.destinationLatitude.set(startLatitude);
     }
-    public float getDestinationLongitude() {return destinationLongitude.get();}
+    public double getDestinationLongitude() {return destinationLongitude.get();}
 
-    public FloatProperty destinationLongitudeProperty() {
+    public DoubleProperty destinationLongitudeProperty() {
         return destinationLongitude;
     }
 
-    public void setDestinationLongitude(float destinationLongitude) {this.destinationLongitude.set(destinationLongitude);}
+    public void setDestinationLongitude(Double destinationLongitude) {this.destinationLongitude.set(destinationLongitude);}
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // REST call on create
 
-    public float getDistance() {
+    public double getDistance() {
         return distance;
     }
 
@@ -183,7 +178,7 @@ public class RouteEntry extends Entry{
         this.distance = distance;
     }
 
-    public float getTime() {
+    public double getTime() {
         return time;
     }
 

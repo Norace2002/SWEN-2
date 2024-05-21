@@ -1,11 +1,14 @@
 package at.fhtw.tourPlanner.view;
 
+import at.fhtw.tourPlanner.backend.OpenrouteService;
+import at.fhtw.tourPlanner.backend.OsmService;
 import at.fhtw.tourPlanner.mediator.Listener;
 import at.fhtw.tourPlanner.mediator.LogMediator;
 import at.fhtw.tourPlanner.mediator.Mediator;
 import at.fhtw.tourPlanner.model.LogEntry;
 import at.fhtw.tourPlanner.model.RouteEntry;
 import at.fhtw.tourPlanner.viewmodel.LogViewModel;
+import com.fasterxml.jackson.databind.JsonNode;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -13,6 +16,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 
 //libraries to keep popups in bounds
@@ -26,10 +30,22 @@ import javafx.scene.Node;
 import javafx.event.ActionEvent;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class RouteWindowController implements Initializable, Listener {
+
+    OpenrouteService openrouteService = new OpenrouteService();
+    OsmService osmService = new OsmService();
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     private RouteEntry entry;
+
+    private JsonNode geoJson;
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     @FXML
     private TableView logTable;
@@ -53,6 +69,10 @@ public class RouteWindowController implements Initializable, Listener {
 
         // get currently chosen entry
         entry = Mediator.getInstance().getCurrentRouteEntry();
+
+        // create tileMap
+        geoJson = getGeoJson(entry);
+        Image map = osmService.getMap(geoJson);
 
         // bind tableView to list
         logDate.setCellValueFactory(new PropertyValueFactory<>("date"));
@@ -174,5 +194,24 @@ public class RouteWindowController implements Initializable, Listener {
             System.out.println("You have select a log entry before editing");
         }
 
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // methods concerning tileMap
+
+    private JsonNode getGeoJson(RouteEntry entry){
+        List<Double> startCoordinates = new ArrayList<>();
+        startCoordinates.add(entry.getStartLongitude());
+        startCoordinates.add(entry.getStartLatitude());
+
+        List<Double> destinationCoordinates = new ArrayList<>();
+        destinationCoordinates.add(entry.getDestinationLongitude());
+        destinationCoordinates.add(entry.getDestinationLatitude());
+
+        return openrouteService.directions(
+                entry.getTransportType(),
+                startCoordinates,
+                destinationCoordinates
+        );
     }
 }
