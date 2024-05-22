@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.net.URI;
 import java.net.URLEncoder;
@@ -18,15 +19,39 @@ public class OpenrouteService extends BaseService{
 
     private String apiKey = "5b3ce3597851110001cf624834b6ec4afd3d488695e036bb86a0e318";
     private HttpClient client = HttpClient.newHttpClient();
+    private JsonNode directionsGeoJson;
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // public methods, accesible from VM and Controllers
 
     public List<Double> getStartCoordinates(RouteEntry entry){
-        return search(entry.getStart());
+        JsonNode root = search(entry.getStart());
+        return extractCoordinates(root);
     }
 
     public List<Double> getDestinationCoordinates(RouteEntry entry){
-        return search(entry.getDestination());
+        JsonNode root = search(entry.getDestination());
+        return extractCoordinates(root);
+    }
+
+    public Double getDuration(){
+        return extractDuration(directionsGeoJson);
+    }
+
+    public Double getDistance(){
+        return extractDistance(directionsGeoJson);
+    }
+
+    public void updateDirections(RouteEntry entry){
+        List<Double> startCoordinates = Arrays.asList(entry.getStartLongitude(), entry.getStartLatitude());
+        List<Double> destinationCoordinates = Arrays.asList(entry.getDestinationLongitude(), entry.getDestinationLatitude());
+
+        this.directionsGeoJson = directions(entry.getTransportType(), startCoordinates, destinationCoordinates);
+    }
+
+    public JsonNode getDirectionsGeoJson(RouteEntry entry){
+        updateDirections(entry);
+        return directionsGeoJson;
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -38,46 +63,9 @@ public class OpenrouteService extends BaseService{
      */
 
     // return a JSON formatted list of objects corresponding to search input
-    private List<Double> search(String input) {
+    private JsonNode search(String input) {
         String encodedInput = URLEncoder.encode(input, StandardCharsets.UTF_8);
         String url = String.format("https://api.openrouteservice.org/geocode/search?api_key=%s&text=%s", apiKey, encodedInput);
-
-        try{
-            // Create a request
-            HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create(url))
-                    .GET()
-                    .build();
-
-            // Send the request and get the response
-            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-
-            // Print the response
-            System.out.println("Response from server: " + response.body());
-
-            // return results by handing over response as JSON node to getCoordinates function
-            return extractCoordinates(getObjectMapper().readTree(response.body()));
-        }catch(IOException | InterruptedException e){
-            e.printStackTrace();
-            return new ArrayList<>();
-        }
-    }
-
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    /*
-     * LocationAPI:
-     * responsible for creating waypoints along the way between start and destination coordinates
-     * GeoJSON format
-     */
-
-    public JsonNode directions(String transportType, List<Double> startCoordinates, List<Double> destinationCoordinates){
-        String url = String.format("https://api.openrouteservice.org/v2/directions/%s?api_key=%s&start=%s,%s&end=%s,%s",
-                transportType,
-                apiKey,
-                startCoordinates.get(0), startCoordinates.get(1),
-                destinationCoordinates.get(0), destinationCoordinates.get(1)
-        );
 
         try{
             // Create a request
@@ -101,7 +89,46 @@ public class OpenrouteService extends BaseService{
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    /*
+     * LocationAPI:
+     * responsible for creating waypoints along the way between start and destination coordinates
+     * GeoJSON format
+     */
+
+    private JsonNode directions(String transportType, List<Double> startCoordinates, List<Double> destinationCoordinates){
+        String url = String.format("https://api.openrouteservice.org/v2/directions/%s?api_key=%s&start=%s,%s&end=%s,%s",
+                transportType,
+                apiKey,
+                startCoordinates.get(0), startCoordinates.get(1),
+                destinationCoordinates.get(0), destinationCoordinates.get(1)
+        );
+
+        try{
+            // Create a request
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create(url))
+                    .GET()
+                    .build();
+
+            // Send the request and get the response
+            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+            // Print the response
+            System.out.println("Response from server: " + response.body());
+
+            // return results by handing over response as JSON node to getCoordinates function
+            return(getObjectMapper().readTree(response.body()));
+        }catch(IOException | InterruptedException e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Helper functionalities
+    // -> work by skimming through the json response structure and extracting the required values
+    // -> very static
 
     // extract coordinates from response values with jackson
     private List<Double> extractCoordinates(JsonNode rootNode){
@@ -120,5 +147,50 @@ public class OpenrouteService extends BaseService{
         }
 
         return results;
+    }
+
+    // extract duration/distance from response with jackson
+    private Double extractDuration(JsonNode rootNode){
+        Double duration = 0.0;
+
+        try {
+            JsonNode features = rootNode.get("features");
+            if (features.isArray() && !features.isEmpty()) {
+                JsonNode firstFeature = features.get(0);
+                JsonNode properties = firstFeature.get("properties");
+                JsonNode segments = properties.get("segments");
+
+                if (segments.isArray() && !segments.isEmpty()) {
+                    JsonNode firstSegment = segments.get(0);
+                    duration = firstSegment.get("duration").asDouble();
+                }
+            }
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+        }
+
+        return duration;
+    }
+
+    private Double extractDistance(JsonNode rootNode){
+        Double distance = 0.0;
+
+        try {
+            JsonNode features = rootNode.get("features");
+            if (features.isArray() && !features.isEmpty()) {
+                JsonNode firstFeature = features.get(0);
+                JsonNode properties = firstFeature.get("properties");
+                JsonNode segments = properties.get("segments");
+
+                if (segments.isArray() && !segments.isEmpty()) {
+                    JsonNode firstSegment = segments.get(0);
+                    distance = firstSegment.get("distance").asDouble();
+                }
+            }
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+        }
+
+        return distance;
     }
 }

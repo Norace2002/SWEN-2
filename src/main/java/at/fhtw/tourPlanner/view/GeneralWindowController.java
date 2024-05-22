@@ -72,6 +72,8 @@ public class GeneralWindowController implements Initializable, Listener {
         tourDestinationLabel.setText(currentEntry.getDestination());
         tourTransportTypeLabel.setText(currentEntry.getTransportType());
         tourDescriptionText.setText(currentEntry.getDescription());
+        tourDistanceLabel.setText(currentEntry.getDistance() + "m");
+        tourDurationLabel.setText(currentEntry.getTime() + "s");
     }
 
 }

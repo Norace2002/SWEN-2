@@ -35,7 +35,6 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class RouteWindowController implements Initializable, Listener {
-
     OpenrouteService openrouteService = new OpenrouteService();
     OsmService osmService = new OsmService();
 
@@ -55,6 +54,9 @@ public class RouteWindowController implements Initializable, Listener {
     private TableColumn logDuration;
     @FXML
     private TableColumn logDistance;
+
+    @FXML
+    public Pane imgPane;
 
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -200,18 +202,6 @@ public class RouteWindowController implements Initializable, Listener {
     // methods concerning tileMap
 
     private JsonNode getGeoJson(RouteEntry entry){
-        List<Double> startCoordinates = new ArrayList<>();
-        startCoordinates.add(entry.getStartLongitude());
-        startCoordinates.add(entry.getStartLatitude());
-
-        List<Double> destinationCoordinates = new ArrayList<>();
-        destinationCoordinates.add(entry.getDestinationLongitude());
-        destinationCoordinates.add(entry.getDestinationLatitude());
-
-        return openrouteService.directions(
-                entry.getTransportType(),
-                startCoordinates,
-                destinationCoordinates
-        );
+        return openrouteService.getDirectionsGeoJson(entry);
     }
 }

@@ -13,8 +13,9 @@ public class RouteEntry extends Entry{
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // retrieved from REST-call to https://openrouteservice.org/dev , https://tile.openstreetmap.org/
-    private float distance;
-    private float time;
+    private double distance;
+    private double time;
+
     //private Image mapImage;
 
     private final DoubleProperty startLatitude;
@@ -173,7 +174,7 @@ public class RouteEntry extends Entry{
         return distance;
     }
 
-    public void setDistance(float distance) {
+    public void setDistance(double distance) {
         // rest call for distance
         this.distance = distance;
     }
@@ -182,7 +183,7 @@ public class RouteEntry extends Entry{
         return time;
     }
 
-    public void setTime(float estimatedTime) {
+    public void setTime(double estimatedTime) {
         // rest call for estimated time
         this.time = estimatedTime;
     }

@@ -30,7 +30,7 @@
    <children>
       <AnchorPane GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
          <children>
-            <Pane prefHeight="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <Pane prefHeight="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" fx:id="imgPane"/>
          </children>
       </AnchorPane>
       <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="NEVER">
