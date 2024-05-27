@@ -7,16 +7,16 @@ import at.fhtw.tourPlanner.mediator.LogMediator;
 import at.fhtw.tourPlanner.mediator.Mediator;
 import at.fhtw.tourPlanner.model.LogEntry;
 import at.fhtw.tourPlanner.model.RouteEntry;
-import at.fhtw.tourPlanner.viewmodel.LogViewModel;
 import com.fasterxml.jackson.databind.JsonNode;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
 //libraries to keep popups in bounds
@@ -24,13 +24,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import java.io.IOException;
 import javafx.scene.Node;
 import javafx.event.ActionEvent;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -72,9 +70,12 @@ public class RouteWindowController implements Initializable, Listener {
         // get currently chosen entry
         entry = Mediator.getInstance().getCurrentRouteEntry();
 
+        // update current entry
+        updateGeoJson(entry);
+
         // create tileMap
-        geoJson = getGeoJson(entry);
-        Image map = osmService.getMap(geoJson);
+        addImage(entry);
+
 
         // bind tableView to list
         logDate.setCellValueFactory(new PropertyValueFactory<>("date"));
@@ -201,7 +202,35 @@ public class RouteWindowController implements Initializable, Listener {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // methods concerning tileMap
 
+    private void updateGeoJson(RouteEntry entry){
+        openrouteService.updateDirections(entry);
+    }
+
     private JsonNode getGeoJson(RouteEntry entry){
         return openrouteService.getDirectionsGeoJson(entry);
+    }
+
+    private List<Double> getBbox(JsonNode geoJson){
+        return openrouteService.getDirectionsBbox(entry);
+    }
+
+    private void addImage(RouteEntry entry){
+        JsonNode geoJson = getGeoJson(entry);
+        List<Double> bbox = getBbox(geoJson);
+
+        osmService.setZoom(17);
+        osmService.getMarkers().add(new OsmService.GeoCoordinate(bbox.get(0), bbox.get(1)));
+        osmService.getMarkers().add(new OsmService.GeoCoordinate(bbox.get(2), bbox.get(3)));
+
+        osmService.generateImage(bbox.get(0), bbox.get(1),bbox.get(2), bbox.get(3));
+
+        //osmService.saveImage("fhtw-map.png");
+        Image image = SwingFXUtils.toFXImage(osmService.getImage(), null);
+
+        ImageView imageView = new ImageView(image);
+        imageView.fitWidthProperty().bind(this.imgPane.widthProperty());
+        imageView.fitHeightProperty().bind(this.imgPane.heightProperty());
+
+        this.imgPane.getChildren().add(imageView);
     }
 }

@@ -2,6 +2,7 @@ package at.fhtw.tourPlanner.backend;
 
 import at.fhtw.tourPlanner.model.RouteEntry;
 import com.fasterxml.jackson.databind.JsonNode;
+import javafx.geometry.BoundingBox;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -50,8 +51,11 @@ public class OpenrouteService extends BaseService{
     }
 
     public JsonNode getDirectionsGeoJson(RouteEntry entry){
-        updateDirections(entry);
         return directionsGeoJson;
+    }
+
+    public List<Double> getDirectionsBbox(RouteEntry entry){
+        return extractDirectionsBbox(directionsGeoJson);
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -192,5 +196,28 @@ public class OpenrouteService extends BaseService{
         }
 
         return distance;
+    }
+
+    // extract bbox from response with jackson
+    private List<Double> extractDirectionsBbox(JsonNode rootNode){
+        List<Double> bbox = new ArrayList<>();
+        try {
+            JsonNode bboxNode = rootNode.get("bbox");
+            if (bboxNode.isArray() && bboxNode.size() == 4) {
+                bbox.add(bboxNode.get(0).asDouble());
+                bbox.add(bboxNode.get(1).asDouble());
+                bbox.add(bboxNode.get(2).asDouble());
+                bbox.add(bboxNode.get(3).asDouble());
+
+                System.out.println(bbox);
+                return bbox;
+            } else{
+                return null;
+            }
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+        }
+
+        return null;
     }
 }

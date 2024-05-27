@@ -7,6 +7,7 @@ module tourPlanner {
     requires java.net.http;
     requires com.fasterxml.jackson.databind;
     requires java.sql;
+    requires javafx.swing;
 
     opens at.fhtw.tourPlanner to javafx.graphics, javafx.fxml;
     exports at.fhtw.tourPlanner;
