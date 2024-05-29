@@ -12,6 +12,7 @@ import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -31,6 +32,8 @@ import javafx.event.ActionEvent;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+
+import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
 public class RouteWindowController implements Initializable, Listener {
     OpenrouteService openrouteService = new OpenrouteService();
@@ -228,9 +231,13 @@ public class RouteWindowController implements Initializable, Listener {
         Image image = SwingFXUtils.toFXImage(osmService.getImage(), null);
 
         ImageView imageView = new ImageView(image);
+        imageView.setPreserveRatio(true);
+        imageView.setSmooth(true);
         imageView.fitWidthProperty().bind(this.imgPane.widthProperty());
-        imageView.fitHeightProperty().bind(this.imgPane.heightProperty());
+        imageView.setFitHeight(USE_COMPUTED_SIZE);
 
         this.imgPane.getChildren().add(imageView);
+
+        osmService.saveImage("test.png");
     }
 }
