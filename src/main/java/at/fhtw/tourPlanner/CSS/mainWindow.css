@@ -1,0 +1,8 @@
+#vbox{
+    -fx-maxHeight: "-Infinity";
+    -fx-maxWidth: "-Infinity";
+    -fx-minHeight: "-Infinity";
+    -fx-minWidth: "-Infinity";
+    -fx-prefHeight: "400.0";
+    -fx-prefWidth: "600.0";
+}

@@ -38,7 +38,7 @@ import java.util.ResourceBundle;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
-public class RouteWindowController implements Initializable, Listener {
+public class RouteWindowController implements Initializable{
     OpenrouteService openrouteService = new OpenrouteService();
     OsmService osmService = new OsmService();
 
@@ -49,8 +49,6 @@ public class RouteWindowController implements Initializable, Listener {
     private JsonNode geoJson;
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    private final LogViewModel viewModel = new LogViewModel();
 
 
     @FXML
