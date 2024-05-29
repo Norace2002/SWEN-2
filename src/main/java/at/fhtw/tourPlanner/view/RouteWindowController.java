@@ -1,21 +1,36 @@
 package at.fhtw.tourPlanner.view;
 
-import at.fhtw.tourPlanner.mediator.Listener;
+import at.fhtw.tourPlanner.mediator.LogMediator;
 import at.fhtw.tourPlanner.mediator.Mediator;
 import at.fhtw.tourPlanner.model.LogEntry;
 import at.fhtw.tourPlanner.model.RouteEntry;
 import at.fhtw.tourPlanner.viewmodel.LogViewModel;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.Pane;
+
+//libraries to keep popups in bounds
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import java.io.IOException;
+import javafx.scene.Node;
+import javafx.event.ActionEvent;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class RouteWindowController implements Initializable, Listener {
+public class RouteWindowController implements Initializable{
     private RouteEntry entry;
-    private LogViewModel viewModel = new LogViewModel();
+
+    private final LogViewModel viewModel = new LogViewModel();
 
     @FXML
     private TableView logTable;
@@ -26,17 +41,13 @@ public class RouteWindowController implements Initializable, Listener {
     @FXML
     private TableColumn logDistance;
 
-    //delete Later
-    private int logCounter = 1;
-    private int deleteCounter = 0;
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // interface methods
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        // subscribe to Mediator
-        Mediator.getInstance().registerListener(this);
+        setTableItemClickEvent();
 
         // get currently chosen entry
         entry = Mediator.getInstance().getCurrentRouteEntry();
@@ -46,38 +57,101 @@ public class RouteWindowController implements Initializable, Listener {
         logDuration.setCellValueFactory(new PropertyValueFactory<>("duration"));
         logDistance.setCellValueFactory(new PropertyValueFactory<>("distance"));
 
-        logTable.setItems(viewModel.getLogList());
+        logTable.setItems(LogMediator.getInstance().getLogList());
     }
 
-    @Override
-    public void updateRouteList(RouteEntry entry) {
 
-    }
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Method to make list items clickable
 
-    @Override
-    public void getCurrentRoute(RouteEntry currentRoute) {
+    private void setTableItemClickEvent() {
+        logTable.setOnMouseClicked(event -> {
+            LogEntry selectedItem = (LogEntry) logTable.getSelectionModel().getSelectedItem();
 
-    }
-
-    @Override
-    public boolean checkUniqueEntry(String givenEntryName) {
-        return false;
+            if (selectedItem != null) {
+                // call Listener function for RouteMenuController
+                LogMediator.getInstance().setCurrentLog(selectedItem);
+            }
+        });
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // UI interaction methods
 
-    public void addEntry (){
-        LogEntry newLogEntry = new LogEntry(logCounter,"test" + logCounter, "test" + logCounter, "test" + logCounter, logCounter, 10.1 * logCounter, 30.3 * logCounter, logCounter);
-        viewModel.addEntry(newLogEntry);
-        ++logCounter;
+    public void deleteEntry () throws IOException {
+
+        if (LogMediator.getInstance().getCurrentLogEntry() != null){
+            //get selected Entry and call methode from viewModel via LogMediator
+            LogEntry selectedItem = (LogEntry) logTable.getSelectionModel().getSelectedItem();
+            LogMediator.getInstance().deleteEntry(selectedItem.getId());
+
+            //deselect current Route
+            LogMediator.getInstance().deselectCurrentLog();
+
+            System.out.println("Log with id: '" + selectedItem.getId() + "' deleted");
+        }
+        else {
+            System.out.println("You have select a log entry before deleting");
+        }
+
+
     }
 
-    public void deleteEntry (){
+    public void loadCreateTourLogWindow(ActionEvent event) {
+        System.out.println("load route Log creation window");
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/at/fhtw/tourPlanner/createTourLog.fxml"));
+            Parent root = loader.load();
+            CreateTourLogController controller = loader.getController();
+
+            Stage popupStage = new Stage();
+            popupStage.initOwner((Stage)((Node)event.getSource()).getScene().getWindow());
+            popupStage.initModality(Modality.WINDOW_MODAL);
 
 
-        if(deleteCounter < logCounter){
-            viewModel.deleteEntry(deleteCounter);
-            ++deleteCounter;
+            //**************** Frage an Prof ob das so passt  *****************************
+            //popupStage.initStyle(StageStyle.UNDECORATED);
+
+            Scene scene = new Scene(root);
+            popupStage.setScene(scene);
+
+            controller.setStage(popupStage);
+
+            popupStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void loadEditTourLogWindow(ActionEvent event){
+        if (LogMediator.getInstance().getCurrentLogEntry() != null){
+            System.out.println("load route Log creation window");
+
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/at/fhtw/tourPlanner/editTourLog.fxml"));
+                Parent root = loader.load();
+                EditTourLogController controller = loader.getController();
+
+                Stage popupStage = new Stage();
+                popupStage.initOwner((Stage)((Node)event.getSource()).getScene().getWindow());
+                popupStage.initModality(Modality.WINDOW_MODAL);
+
+
+                //**************** Frage an Prof ob das so passt  *****************************
+                //popupStage.initStyle(StageStyle.UNDECORATED);
+
+                Scene scene = new Scene(root);
+                popupStage.setScene(scene);
+
+                controller.setStage(popupStage);
+
+                popupStage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            System.out.println("You have select a log entry before editing");
         }
 
     }

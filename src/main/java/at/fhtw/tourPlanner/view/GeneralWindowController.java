@@ -1,7 +1,7 @@
 package at.fhtw.tourPlanner.view;
 
-import at.fhtw.tourPlanner.mediator.Listener;
 import at.fhtw.tourPlanner.mediator.Mediator;
+import at.fhtw.tourPlanner.model.LogEntry;
 import at.fhtw.tourPlanner.model.RouteEntry;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -11,7 +11,7 @@ import javafx.scene.text.Text;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class GeneralWindowController implements Initializable, Listener {
+public class GeneralWindowController implements Initializable{
     @FXML
     public Label tourNameLabel;
     @FXML
@@ -35,8 +35,6 @@ public class GeneralWindowController implements Initializable, Listener {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        // subscribe to Mediator
-        Mediator.getInstance().registerListener(this);
 
         // get currently active route
         currentEntry = Mediator.getInstance().getCurrentRouteEntry();
@@ -46,19 +44,8 @@ public class GeneralWindowController implements Initializable, Listener {
         this.loadInformation();
     }
 
-    @Override
-    public void updateRouteList(RouteEntry entry) {
 
-    }
-
-    @Override
-    public void getCurrentRoute(RouteEntry currentRoute){
-        currentEntry = currentRoute;
-    }
-
-    public boolean checkUniqueEntry(String givenEntryName){
-        return false;
-    }
+    //////////////////////////////////////////////////////////////////////
 
     private void loadInformation(){
         tourNameLabel.setText(currentEntry.getName());

@@ -1,9 +1,10 @@
 package at.fhtw.tourPlanner.model;
 
 import javafx.beans.property.*;
+import java.sql.Date;
 
-public class LogEntry {
-    private int id;
+public class LogEntry implements Entry{
+    private final IntegerProperty id;
     private final StringProperty date;
     private final StringProperty time;
     private final StringProperty comment;
@@ -11,12 +12,15 @@ public class LogEntry {
     private final DoubleProperty distance;
     private final DoubleProperty duration;
     private final IntegerProperty rating; // 1-5
+    private final StringProperty route;
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // constructor
 
-    public LogEntry(int id, String date, String time, String comment, int difficulty, double distance, double duration, int rating){
-        this.id = id;
+    public LogEntry(String date, String time, String comment,
+                     int difficulty, double distance, double duration,
+                     int rating, String route){
+        this.id = new SimpleIntegerProperty(0);
         this.date = new SimpleStringProperty(date);
         this.time = new SimpleStringProperty(time);
         this.comment = new SimpleStringProperty(comment);
@@ -24,24 +28,27 @@ public class LogEntry {
         this.distance = new SimpleDoubleProperty(distance);
         this.duration = new SimpleDoubleProperty(duration);
         this.rating = new SimpleIntegerProperty(rating);
+        this.route = new SimpleStringProperty(route);
     }
 
-    public LogEntry(StringProperty date, StringProperty time, StringProperty comment, IntegerProperty difficulty, DoubleProperty distance, DoubleProperty duration, IntegerProperty rating) {
-        this.date = date;
-        this.time = time;
-        this.comment = comment;
-        this.difficulty = difficulty;
-        this.distance = distance;
-        this.duration = duration;
-        this.rating = rating;
+    //Standard Constructor to convert json in Model
+    public LogEntry(){
+        this.id = new SimpleIntegerProperty(0);
+        this.date = new SimpleStringProperty("");
+        this.time = new SimpleStringProperty("");
+        this.comment = new SimpleStringProperty("");
+        this.difficulty = new SimpleIntegerProperty(0);
+        this.distance = new SimpleDoubleProperty(0.0f);
+        this.duration = new SimpleDoubleProperty(0.0f);
+        this.rating = new SimpleIntegerProperty(0);
+        this.route = new SimpleStringProperty("");
     }
+
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // getter + setter
 
-    public String getDate() {
-        return date.get();
-    }
+    public String getDate() {return date.get();}
 
     public StringProperty dateProperty() {
         return date;
@@ -51,17 +58,13 @@ public class LogEntry {
         this.date.set(date);
     }
 
-    public String getTime() {
-        return time.get();
-    }
+    public String getTime() {return time.get();}
 
     public StringProperty timeProperty() {
         return time;
     }
 
-    public void setTime(String time) {
-        this.time.set(time);
-    }
+    public void setTime(String time) {this.time.set(time);}
 
     public String getComment() {
         return comment.get();
@@ -124,10 +127,17 @@ public class LogEntry {
     }
 
     public int getId(){
+        return id.get();
+    }
+    public IntegerProperty idProperty() {
         return id;
     }
 
     public void setId(int newId){
-        this.id = newId;
+        this.id.set(newId);
     }
+
+    public String getRoute(){return route.get();}
+
+    public void setRoute(String route){this.route.set(route);}
 }
