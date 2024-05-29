@@ -57,6 +57,14 @@ public class EditTourLogController implements Initializable{
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         entry = LogMediator.getInstance().getCurrentLogEntry();
+
+        difficultyField.promptTextProperty().set(String.valueOf(entry.getDifficulty()));
+        totalDistanceField.promptTextProperty().set(String.valueOf(entry.getDistance()));
+        totalTimeField.promptTextProperty().set(String.valueOf(entry.getDuration()));
+        dateTimeField.promptTextProperty().set(String.valueOf(entry.getDate()));
+        commentField.promptTextProperty().set(String.valueOf(entry.getComment()));
+        ratingField.promptTextProperty().set(String.valueOf(entry.getRating()));
+
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

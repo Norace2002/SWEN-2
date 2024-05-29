@@ -18,7 +18,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.stage.FileChooser;
 
-public class MainViewController implements Initializable, Listener {
+public class MainViewController implements Initializable{
 
     private final MainViewModel viewModel = new MainViewModel();
 
@@ -33,14 +33,11 @@ public class MainViewController implements Initializable, Listener {
     private ListView<String> routeEntries;
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // interface methods
+    // Initialize & Mediator methods
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setListItemClickEvent();
-
-        // subscribe to Mediator
-        Mediator.getInstance().registerListener(this);
 
         // bind listview to observablelist
         routeEntries.setItems(viewModel.getRouteEntries());

@@ -45,6 +45,11 @@ public class EditRouteController implements Initializable{
     public void initialize(URL url, ResourceBundle resourceBundle) {
         entry = Mediator.getInstance().getCurrentRouteEntry();
         editTourTitle.setText("Edit Entry: " + entry.getName());
+
+        descriptionField.promptTextProperty().set(entry.getDescription());
+        startField.promptTextProperty().set(entry.getStart());
+        destinationField.promptTextProperty().set(entry.getDestination());
+        transportTypeField.promptTextProperty().set(entry.getTransportType());
     }
 
 

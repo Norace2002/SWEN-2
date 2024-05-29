@@ -1,5 +1,4 @@
 package at.fhtw.tourPlanner.view;
-import at.fhtw.tourPlanner.mediator.Listener;
 import at.fhtw.tourPlanner.mediator.LogMediator;
 import at.fhtw.tourPlanner.mediator.Mediator;
 import at.fhtw.tourPlanner.model.RouteEntry;
