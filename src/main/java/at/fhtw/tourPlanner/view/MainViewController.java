@@ -52,16 +52,10 @@ public class MainViewController implements Initializable, Listener {
         viewModel.updateRouteEntries(entry);
     }
 
-    public void getCurrentRoute(RouteEntry currentRoute){
-
-    }
-
     public boolean checkUniqueEntry(String givenEntryName){
         return viewModel.getRouteEntryByName(givenEntryName) == null;
     }
 
-    public void updateTourLogList(LogEntry entry){
-    }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Method to make list items clickable

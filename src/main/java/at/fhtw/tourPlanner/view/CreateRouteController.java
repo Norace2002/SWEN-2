@@ -16,7 +16,7 @@ import javafx.scene.layout.Pane;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class CreateRouteController implements Initializable, Listener {
+public class CreateRouteController implements Initializable{
 
 
     @FXML
@@ -39,23 +39,6 @@ public class CreateRouteController implements Initializable, Listener {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        // subscribe to Mediator
-        Mediator.getInstance().registerListener(this);
-    }
-
-    public void updateRouteList(RouteEntry entry){
-
-    }
-
-    @Override
-    public void getCurrentRoute(RouteEntry currentRoute){
-    }
-
-    public boolean checkUniqueEntry(String givenEntryName){
-        return false;
-    }
-
-    public void updateTourLogList(LogEntry entry){
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

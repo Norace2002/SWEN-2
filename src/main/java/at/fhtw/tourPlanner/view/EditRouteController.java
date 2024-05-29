@@ -17,7 +17,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 
-public class EditRouteController implements Initializable, Listener {
+public class EditRouteController implements Initializable{
     public Text editTourTitle;
 
     @FXML
@@ -43,27 +43,10 @@ public class EditRouteController implements Initializable, Listener {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        // subscribe to Mediator
-        Mediator.getInstance().registerListener(this);
         entry = Mediator.getInstance().getCurrentRouteEntry();
         editTourTitle.setText("Edit Entry: " + entry.getName());
     }
 
-    public void updateRouteList(RouteEntry entry){
-
-    }
-
-    @Override
-    public void getCurrentRoute(RouteEntry currentRoute){
-        entry = currentRoute;
-    }
-
-    public boolean checkUniqueEntry(String givenEntryName){
-        return false;
-    }
-
-    public void updateTourLogList(LogEntry entry){
-    }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // edit Route upon button

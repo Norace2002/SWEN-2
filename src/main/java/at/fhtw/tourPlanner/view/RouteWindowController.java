@@ -28,7 +28,7 @@ import javafx.event.ActionEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class RouteWindowController implements Initializable, Listener {
+public class RouteWindowController implements Initializable{
     private RouteEntry entry;
 
     @FXML
@@ -48,9 +48,6 @@ public class RouteWindowController implements Initializable, Listener {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setTableItemClickEvent();
 
-        // subscribe to Mediator
-        Mediator.getInstance().registerListener(this);
-
         // get currently chosen entry
         entry = Mediator.getInstance().getCurrentRouteEntry();
 
@@ -62,24 +59,6 @@ public class RouteWindowController implements Initializable, Listener {
         logTable.setItems(LogMediator.getInstance().getLogList());
     }
 
-    @Override
-    public void updateRouteList(RouteEntry entry) {
-
-    }
-
-    @Override
-    public void getCurrentRoute(RouteEntry currentRoute) {
-
-    }
-
-    @Override
-    public boolean checkUniqueEntry(String givenEntryName) {
-        return false;
-    }
-
-    public void updateTourLogList(LogEntry entry){
-        LogMediator.getInstance().addEntry(entry);
-    }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Method to make list items clickable

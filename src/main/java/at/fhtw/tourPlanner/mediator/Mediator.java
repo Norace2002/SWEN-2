@@ -14,7 +14,6 @@ import java.util.ArrayList;
 public class Mediator{
 
     private RouteEntry currentRoute;
-    private LogEntry currentLog;
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Singleton implementation
@@ -36,42 +35,18 @@ public class Mediator{
     public RouteEntry getCurrentRouteEntry(){
         return currentRoute;
     }
-    public LogEntry getCurrentLogEntry(){return currentLog; }
 
     public void registerListener(Listener newListener){
         listeners.add(newListener);
     }
 
+    //creates or edits a route depending on whether there is an existing entry in the db or not
     public void publishRouteUpdate(RouteEntry entry){
         for(var listener : listeners){
             listener.updateRouteList(entry);
         }
     }
 
-    public void publishLogEntry(LogEntry entry){
-        for(var listener : listeners){
-            listener.updateTourLogList(entry);
-        }
-    }
-
-
-    public void setCurrentRoute(RouteEntry entry){
-        currentRoute = entry;
-        System.out.println("currentRoute set");
-    }
-
-    public void setCurrentLog(LogEntry entry){
-        currentLog = entry;
-        System.out.println("currentLog set");
-    }
-
-    public void publishCurrentRoute(){
-        for(var listener : listeners){
-            listener.getCurrentRoute(currentRoute);
-        }
-
-        System.out.println("all listeners received currentRoute");
-    }
 
     public boolean checkUniqueRouteEntryIdentifier(String givenEntryName){
         for(var listener : listeners){
@@ -82,15 +57,14 @@ public class Mediator{
         return false;
     }
 
+    public void setCurrentRoute(RouteEntry entry){
+        currentRoute = entry;
+        System.out.println("currentRoute set");
+    }
+
 
     public void deselectCurrentRoute(){
         currentRoute = null;
     }
-
-    public void deselectCurrentLog(){
-        currentLog = null;
-    }
-
-
 
 }

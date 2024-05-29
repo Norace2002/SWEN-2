@@ -25,7 +25,7 @@ import java.text.SimpleDateFormat;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class EditTourLogController implements Initializable, Listener {
+public class EditTourLogController implements Initializable{
 
     private Stage stage;
 
@@ -54,29 +54,9 @@ public class EditTourLogController implements Initializable, Listener {
     private LogEntry entry;
 
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // interface methods
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        // subscribe to Mediator
-        Mediator.getInstance().registerListener(this);
-        entry = Mediator.getInstance().getCurrentLogEntry();
-    }
-
-    public void updateRouteList(RouteEntry entry){
-
-    }
-
-    @Override
-    public void getCurrentRoute(RouteEntry currentRoute){
-    }
-
-    public boolean checkUniqueEntry(String givenEntryName){
-        return false;
-    }
-
-    public void updateTourLogList(LogEntry entry){
+        entry = LogMediator.getInstance().getCurrentLogEntry();
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -85,8 +65,8 @@ public class EditTourLogController implements Initializable, Listener {
         this.stage = stage;
     }
 
+    // Checks if input field is empty - if so override the old data
     public void saveTourLogChanges(){
-
         if(!difficultyField.getText().isEmpty()){
             try{
                 entry.setDifficulty(Integer.parseInt(difficultyField.getText()));
@@ -112,8 +92,7 @@ public class EditTourLogController implements Initializable, Listener {
             try {
                 DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
                 LocalDate localDate = LocalDate.parse(dateTimeField.getValue().toString(), dateFormatter);
-                Date date = Date.valueOf(localDate);
-                entry.setDate(date);
+                entry.setDate(localDate.toString());
             } catch (Exception e) {
                 System.err.println("Invalid input for date");
             }

@@ -3,11 +3,17 @@ package at.fhtw.tourPlanner.viewmodel;
 import at.fhtw.tourPlanner.backend.LogService;
 import at.fhtw.tourPlanner.model.LogEntry;
 import at.fhtw.tourPlanner.model.RouteEntry;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import lombok.Getter;
 import lombok.extern.java.Log;
 
 import java.io.IOException;
+import java.util.List;
 
 public class LogViewModel {
 
@@ -15,9 +21,42 @@ public class LogViewModel {
     private final ObservableList<LogEntry> logList = FXCollections.observableArrayList();
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Object Mapper
+    @Getter
+    private ObjectMapper objectMapper;
+
+    public List<LogEntry> jsonToModel(String json){
+        try{
+            this.objectMapper = new ObjectMapper().enable(SerializationFeature.INDENT_OUTPUT);
+            return objectMapper.readValue(json, new TypeReference<List<LogEntry>>(){});
+        }
+        catch(JsonProcessingException e){
+            throw new RuntimeException(e);
+        }
+    }
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     public ObservableList<LogEntry> getLogList(){
-        return this.logList;
+        try {
+            // Clear all existing entries in logList
+            logList.clear();
+
+            //try to get entries form db
+            String json = logService.getAllEntries();
+
+            //Convert to observableList
+            List<LogEntry> logEntryList = jsonToModel(json);
+            logList.addAll(logEntryList);
+
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+
+        return logList;
     }
 
     public void getEntry(LogEntry entry){
