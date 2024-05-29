@@ -53,6 +53,8 @@ public class GeneralWindowController implements Initializable{
         tourDestinationLabel.setText(currentEntry.getDestination());
         tourTransportTypeLabel.setText(currentEntry.getTransportType());
         tourDescriptionText.setText(currentEntry.getDescription());
+        tourDistanceLabel.setText(currentEntry.getDistance() + "m");
+        tourDurationLabel.setText(currentEntry.getTime() + "s");
     }
 
 }

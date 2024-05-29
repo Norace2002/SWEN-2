@@ -1,14 +1,13 @@
 package at.fhtw.tourPlanner.viewmodel;
 import at.fhtw.tourPlanner.backend.RouteService;
+import at.fhtw.tourPlanner.backend.OpenrouteService;
 import at.fhtw.tourPlanner.model.RouteEntry;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.control.Label;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,6 +20,7 @@ public class MainViewModel {
     private final ObservableList<String> routeEntries = FXCollections.observableArrayList();
     private Map<String, RouteEntry> entryMap = new HashMap<>(); //final?
     private RouteService routeService = new RouteService();
+    private OpenrouteService openrouteService = new OpenrouteService();
 
 
 
@@ -75,8 +75,17 @@ public class MainViewModel {
 
     public void updateRouteEntries(RouteEntry entry){
 
-        //check if entry with same name already exits and if so,  instead edit altered values in db
+        // set coordinates from location input
+        this.setCoordinates(entry);
 
+        // update directions with potential new coordinates
+        this.updateDirections(entry);
+
+        // set distance/duration from location input
+        this.setDuration(entry);
+        this.setDistance(entry);
+
+        // check if entry with same name already exits and if so,  instead edit altered values in db
         if(entryMap.containsKey(entry.getName())){
             //edit values from existing routeEntry
             try {
@@ -123,6 +132,49 @@ public class MainViewModel {
         // remove Entry via Entry name
         entryMap.remove(entryName);
         routeEntries.remove(entryName);
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    private void updateDirections(RouteEntry entry){
+        openrouteService.updateDirections(entry);
+    }
+
+    private void setCoordinates(RouteEntry entry){
+        // get openRoute values by API call
+        List<Double> startCoordinates = openrouteService.getStartCoordinates(entry);
+        List<Double> destinationCoordinates = openrouteService.getDestinationCoordinates(entry);
+
+        try{
+            entry.setStartLongitude(startCoordinates.get(0));
+            entry.setStartLatitude(startCoordinates.get(1));
+
+            entry.setDestinationLongitude(destinationCoordinates.get(0));
+            entry.setDestinationLatitude(destinationCoordinates.get(1));
+
+            /*
+            System.out.println("Coordinates -> Start: "+ entry.getStartLatitude() +" | "+ entry.getStartLongitude() +
+                    " + Destination: "+entry.getDestinationLatitude()+" | "+entry.getDestinationLongitude());
+             */
+        }catch(RuntimeException e){
+            e.printStackTrace();
+        }
+    }
+
+    private void setDuration(RouteEntry entry){
+        try{
+            entry.setTime(this.openrouteService.getDuration());
+        }catch(RuntimeException e){
+            e.printStackTrace();
+        }
+    }
+
+    private void setDistance(RouteEntry entry){
+        try{
+            entry.setDistance(this.openrouteService.getDistance());
+        }catch(RuntimeException e){
+            e.printStackTrace();
+        }
     }
 
 }

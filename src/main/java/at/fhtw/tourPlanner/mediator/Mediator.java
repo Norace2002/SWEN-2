@@ -2,6 +2,11 @@ package at.fhtw.tourPlanner.mediator;
 
 import at.fhtw.tourPlanner.model.RouteEntry;
 
+import at.fhtw.tourPlanner.model.LogEntry;
+import com.fasterxml.jackson.databind.JsonNode;
+
+import java.util.ArrayList;
+
 /*
 * Implementing the Mediator as a Singleton with listeners is a solution hinted to us by our colleague.
 * We implemented the functionality without further assistance, yet we assume a certain similarity is bound to occur.
@@ -43,7 +48,6 @@ public class Mediator{
         System.out.println("currentRoute set");
     }
 
-
     public void deselectCurrentRoute(){
         currentRoute = null;
     }
@@ -60,4 +64,5 @@ public class Mediator{
     public boolean checkUniqueRouteEntryIdentifier(String givenEntryName){
         return listener.checkUniqueEntry(givenEntryName);
     }
+
 }
