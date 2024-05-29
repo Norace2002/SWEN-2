@@ -14,11 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"
-          xmlns="http://javafx.com/javafx/17"
-          xmlns:fx="http://javafx.com/fxml/1"
-          fx:controller="at.fhtw.tourPlanner.view.RouteWindowController"
->
+<GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.fhtw.tourPlanner.view.RouteWindowController">
   <columnConstraints>
     <ColumnConstraints hgrow="ALWAYS" percentWidth="100.0" />
   </columnConstraints>
@@ -30,7 +26,7 @@
    <children>
       <AnchorPane GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
          <children>
-            <Pane prefHeight="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" fx:id="imgPane"/>
+            <Pane fx:id="imgPane" prefHeight="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
          </children>
       </AnchorPane>
       <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="NEVER">
@@ -44,9 +40,9 @@
                   </Text>
                   <ButtonBar buttonMinWidth="5.0" HBox.hgrow="ALWAYS">
                     <buttons>
-                      <Button mnemonicParsing="false" text="+" onAction="#loadCreateTourLogWindow"/>
-                        <Button mnemonicParsing="false" text="-" onAction="#deleteEntry"/>
-                        <Button mnemonicParsing="false" text="..." onAction="#loadEditTourLogWindow"/>
+                      <Button mnemonicParsing="false" onAction="#loadCreateTourLogWindow" text="+" />
+                        <Button mnemonicParsing="false" onAction="#deleteEntry" text="-" />
+                        <Button mnemonicParsing="false" onAction="#loadEditTourLogWindow" text="..." />
                     </buttons>
                   </ButtonBar>
                </children>
@@ -59,9 +55,9 @@
                <content>
                   <TableView fx:id="logTable">
                     <columns>
-                      <TableColumn prefWidth="75.0" text="Date" fx:id="logDate"/>
-                      <TableColumn prefWidth="75.0" text="Duration" fx:id="logDuration"/>
-                        <TableColumn prefWidth="75.0" text="Distance" fx:id="logDistance"/>
+                      <TableColumn fx:id="logDate" prefWidth="75.0" text="Date" />
+                      <TableColumn fx:id="logDuration" prefWidth="75.0" text="Duration" />
+                        <TableColumn fx:id="logDistance" prefWidth="75.0" text="Distance" />
                     </columns>
                      <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
