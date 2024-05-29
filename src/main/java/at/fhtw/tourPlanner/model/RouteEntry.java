@@ -2,7 +2,7 @@ package at.fhtw.tourPlanner.model;
 
 import javafx.beans.property.*;
 
-public class RouteEntry extends Entry{
+public class RouteEntry implements Entry{
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // standard variables
     private final StringProperty name;

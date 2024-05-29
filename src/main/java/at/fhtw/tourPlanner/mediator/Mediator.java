@@ -1,6 +1,7 @@
 package at.fhtw.tourPlanner.mediator;
 
 import at.fhtw.tourPlanner.model.RouteEntry;
+
 import at.fhtw.tourPlanner.model.LogEntry;
 import com.fasterxml.jackson.databind.JsonNode;
 
@@ -15,12 +16,19 @@ import java.util.ArrayList;
 public class Mediator{
 
     private RouteEntry currentRoute;
-    private LogEntry currentLog;
+
+    private Listener listener;
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Singleton implementation
     private static Mediator instance;
     private Mediator(){};
+
+
+    public void registerListener(Listener newListener){
+        listener  = newListener;
+    }
+
 
     public static Mediator getInstance(){
         if(instance == null){
@@ -30,29 +38,9 @@ public class Mediator{
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // event
-
-    ArrayList<Listener> listeners = new ArrayList<Listener>();
-
+    //Basic functionality
     public RouteEntry getCurrentRouteEntry(){
         return currentRoute;
-    }
-    public LogEntry getCurrentLogEntry(){return currentLog; }
-
-    public void registerListener(Listener newListener){
-        listeners.add(newListener);
-    }
-
-    public void publishRouteUpdate(RouteEntry entry){
-        for(var listener : listeners){
-            listener.updateRouteList(entry);
-        }
-    }
-
-    public void publishLogEntry(LogEntry entry){
-        for(var listener : listeners){
-            listener.updateTourLogList(entry);
-        }
     }
 
     public void setCurrentRoute(RouteEntry entry){
@@ -60,16 +48,21 @@ public class Mediator{
         System.out.println("currentRoute set");
     }
 
-    public boolean checkUniqueRouteEntryIdentifier(String givenEntryName){
-        for(var listener : listeners){
-            if(listener.checkUniqueEntry(givenEntryName)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
     public void deselectCurrentRoute(){
         currentRoute = null;
     }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // events
+
+    //creates or edits a route depending on whether there is an existing entry in the db or not
+    public void publishRouteUpdate(RouteEntry entry){
+        listener.updateRouteList(entry);
+    }
+
+
+    public boolean checkUniqueRouteEntryIdentifier(String givenEntryName){
+        return listener.checkUniqueEntry(givenEntryName);
+    }
+
 }

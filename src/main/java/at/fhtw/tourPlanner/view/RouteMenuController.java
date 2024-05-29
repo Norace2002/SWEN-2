@@ -1,6 +1,5 @@
 package at.fhtw.tourPlanner.view;
 
-import at.fhtw.tourPlanner.mediator.Listener;
 import at.fhtw.tourPlanner.mediator.Mediator;
 import at.fhtw.tourPlanner.model.LogEntry;
 import at.fhtw.tourPlanner.model.RouteEntry;
@@ -12,7 +11,7 @@ import javafx.scene.layout.Pane;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class RouteMenuController implements Initializable, Listener {
+public class RouteMenuController implements Initializable{
 
     @FXML
     Pane contentWindowPane;
@@ -26,26 +25,6 @@ public class RouteMenuController implements Initializable, Listener {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // load general route information window
         loadGeneralWindow();
-
-        // subscribe to Mediator
-        Mediator.getInstance().registerListener(this);
-    }
-
-    @Override
-    public void updateRouteList(RouteEntry entry) {
-
-    }
-
-    @Override
-    public void getCurrentRoute(RouteEntry currentRoute){
-
-    }
-
-    public boolean checkUniqueEntry(String givenEntryName){
-        return false;
-    }
-
-    public void updateTourLogList(LogEntry entry){
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

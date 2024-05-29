@@ -1,5 +1,6 @@
 package at.fhtw.tourPlanner.backend;
 
+import at.fhtw.tourPlanner.mediator.Mediator;
 import at.fhtw.tourPlanner.model.Entry;
 import at.fhtw.tourPlanner.model.RouteEntry;
 import java.io.BufferedReader;
@@ -19,7 +20,7 @@ public class RouteService extends BaseService implements BackendServiceInterface
 
     @Override
     public Entry getEntry(Entry entry) throws IOException, InterruptedException{
-        // create new Route Entry in backend
+        // get specific route entry
         String url = "http://localhost:8080/route";
 
         // Create an HttpClient
@@ -42,7 +43,7 @@ public class RouteService extends BaseService implements BackendServiceInterface
     }
 
     public String getAllEntries() throws IOException, InterruptedException{
-        // create new Route Entry in backend
+        // get all existing route entries
         String url = "http://localhost:8080/route/all";
 
         // Create an HttpClient
@@ -95,7 +96,7 @@ public class RouteService extends BaseService implements BackendServiceInterface
             // Casting von Entry zu RouteEntry to extract the name only
             RouteEntry routeEntry = (RouteEntry) entry;
 
-            // create new Route Entry in backend
+            // delete specific route entry
             String url = "http://localhost:8080/route?name=" + URLEncoder.encode(routeEntry.getName(), StandardCharsets.UTF_8);
 
             // Create an HttpClient
@@ -122,7 +123,7 @@ public class RouteService extends BaseService implements BackendServiceInterface
 
     @Override
     public void editEntry(Entry entry) throws IOException, InterruptedException{
-        // create new Route Entry in backend
+        // edit specific route entry
         String url = "http://localhost:8080/route";
         String json = this.entryToJson(entry);
 

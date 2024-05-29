@@ -1,6 +1,5 @@
 package at.fhtw.tourPlanner.view;
 
-import at.fhtw.tourPlanner.mediator.Listener;
 import at.fhtw.tourPlanner.mediator.Mediator;
 import at.fhtw.tourPlanner.model.LogEntry;
 import at.fhtw.tourPlanner.model.RouteEntry;
@@ -17,7 +16,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 
-public class EditRouteController implements Initializable, Listener {
+public class EditRouteController implements Initializable{
     public Text editTourTitle;
 
     @FXML
@@ -43,27 +42,15 @@ public class EditRouteController implements Initializable, Listener {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        // subscribe to Mediator
-        Mediator.getInstance().registerListener(this);
         entry = Mediator.getInstance().getCurrentRouteEntry();
         editTourTitle.setText("Edit Entry: " + entry.getName());
+
+        descriptionField.promptTextProperty().set(entry.getDescription());
+        startField.promptTextProperty().set(entry.getStart());
+        destinationField.promptTextProperty().set(entry.getDestination());
+        transportTypeField.promptTextProperty().set(entry.getTransportType());
     }
 
-    public void updateRouteList(RouteEntry entry){
-
-    }
-
-    @Override
-    public void getCurrentRoute(RouteEntry currentRoute){
-        entry = currentRoute;
-    }
-
-    public boolean checkUniqueEntry(String givenEntryName){
-        return false;
-    }
-
-    public void updateTourLogList(LogEntry entry){
-    }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // edit Route upon button

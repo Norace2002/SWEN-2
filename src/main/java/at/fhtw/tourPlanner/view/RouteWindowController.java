@@ -1,8 +1,10 @@
 package at.fhtw.tourPlanner.view;
 
+
 import at.fhtw.tourPlanner.backend.OpenrouteService;
 import at.fhtw.tourPlanner.backend.OsmService;
 import at.fhtw.tourPlanner.mediator.Listener;
+
 import at.fhtw.tourPlanner.mediator.LogMediator;
 import at.fhtw.tourPlanner.mediator.Mediator;
 import at.fhtw.tourPlanner.model.LogEntry;
@@ -33,6 +35,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
+
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
 public class RouteWindowController implements Initializable, Listener {
@@ -46,6 +49,9 @@ public class RouteWindowController implements Initializable, Listener {
     private JsonNode geoJson;
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    private final LogViewModel viewModel = new LogViewModel();
+
 
     @FXML
     private TableView logTable;
@@ -67,9 +73,6 @@ public class RouteWindowController implements Initializable, Listener {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setTableItemClickEvent();
 
-        // subscribe to Mediator
-        Mediator.getInstance().registerListener(this);
-
         // get currently chosen entry
         entry = Mediator.getInstance().getCurrentRouteEntry();
 
@@ -88,24 +91,6 @@ public class RouteWindowController implements Initializable, Listener {
         logTable.setItems(LogMediator.getInstance().getLogList());
     }
 
-    @Override
-    public void updateRouteList(RouteEntry entry) {
-
-    }
-
-    @Override
-    public void getCurrentRoute(RouteEntry currentRoute) {
-
-    }
-
-    @Override
-    public boolean checkUniqueEntry(String givenEntryName) {
-        return false;
-    }
-
-    public void updateTourLogList(LogEntry entry){
-        LogMediator.getInstance().addEntry(entry);
-    }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Method to make list items clickable

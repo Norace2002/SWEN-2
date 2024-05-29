@@ -33,13 +33,24 @@ public class MainViewController implements Initializable, Listener {
     private ListView<String> routeEntries;
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // interface methods
+    // Singleton implementation
+    private static MainViewController instance;
+    public MainViewController(){};
+
+    public static MainViewController getInstance(){
+        if(instance == null){
+            instance = new MainViewController();
+        }
+        return instance;
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Initialize & Listener methods
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setListItemClickEvent();
 
-        // subscribe to Mediator
         Mediator.getInstance().registerListener(this);
 
         // bind listview to observablelist
@@ -52,16 +63,10 @@ public class MainViewController implements Initializable, Listener {
         viewModel.updateRouteEntries(entry);
     }
 
-    public void getCurrentRoute(RouteEntry currentRoute){
-
-    }
-
     public boolean checkUniqueEntry(String givenEntryName){
         return viewModel.getRouteEntryByName(givenEntryName) == null;
     }
 
-    public void updateTourLogList(LogEntry entry){
-    }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Method to make list items clickable

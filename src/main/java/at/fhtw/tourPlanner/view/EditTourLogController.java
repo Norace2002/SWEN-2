@@ -1,7 +1,6 @@
 package at.fhtw.tourPlanner.view;
 
 import at.fhtw.tourPlanner.backend.LogService;
-import at.fhtw.tourPlanner.mediator.Listener;
 import at.fhtw.tourPlanner.mediator.LogMediator;
 import at.fhtw.tourPlanner.mediator.Mediator;
 import at.fhtw.tourPlanner.model.LogEntry;
@@ -25,7 +24,7 @@ import java.text.SimpleDateFormat;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class EditTourLogController implements Initializable, Listener {
+public class EditTourLogController implements Initializable{
 
     private Stage stage;
 
@@ -54,29 +53,17 @@ public class EditTourLogController implements Initializable, Listener {
     private LogEntry entry;
 
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // interface methods
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        // subscribe to Mediator
-        Mediator.getInstance().registerListener(this);
-        entry = Mediator.getInstance().getCurrentLogEntry();
-    }
+        entry = LogMediator.getInstance().getCurrentLogEntry();
 
-    public void updateRouteList(RouteEntry entry){
+        difficultyField.promptTextProperty().set(String.valueOf(entry.getDifficulty()));
+        totalDistanceField.promptTextProperty().set(String.valueOf(entry.getDistance()));
+        totalTimeField.promptTextProperty().set(String.valueOf(entry.getDuration()));
+        dateTimeField.promptTextProperty().set(String.valueOf(entry.getDate()));
+        commentField.promptTextProperty().set(String.valueOf(entry.getComment()));
+        ratingField.promptTextProperty().set(String.valueOf(entry.getRating()));
 
-    }
-
-    @Override
-    public void getCurrentRoute(RouteEntry currentRoute){
-    }
-
-    public boolean checkUniqueEntry(String givenEntryName){
-        return false;
-    }
-
-    public void updateTourLogList(LogEntry entry){
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -85,8 +72,8 @@ public class EditTourLogController implements Initializable, Listener {
         this.stage = stage;
     }
 
+    // Checks if input field is empty - if so override the old data
     public void saveTourLogChanges(){
-
         if(!difficultyField.getText().isEmpty()){
             try{
                 entry.setDifficulty(Integer.parseInt(difficultyField.getText()));
@@ -112,8 +99,7 @@ public class EditTourLogController implements Initializable, Listener {
             try {
                 DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
                 LocalDate localDate = LocalDate.parse(dateTimeField.getValue().toString(), dateFormatter);
-                Date date = Date.valueOf(localDate);
-                entry.setDate(date);
+                entry.setDate(localDate.toString());
             } catch (Exception e) {
                 System.err.println("Invalid input for date");
             }
