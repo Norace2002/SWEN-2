@@ -1,6 +1,5 @@
 package at.fhtw.tourPlanner.view;
 
-import at.fhtw.tourPlanner.mediator.Listener;
 import at.fhtw.tourPlanner.mediator.LogMediator;
 import at.fhtw.tourPlanner.mediator.Mediator;
 import at.fhtw.tourPlanner.model.LogEntry;
@@ -30,6 +29,8 @@ import java.util.ResourceBundle;
 
 public class RouteWindowController implements Initializable{
     private RouteEntry entry;
+
+    private final LogViewModel viewModel = new LogViewModel();
 
     @FXML
     private TableView logTable;

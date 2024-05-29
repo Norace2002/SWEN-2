@@ -22,6 +22,9 @@ public class MainViewModel {
     private Map<String, RouteEntry> entryMap = new HashMap<>(); //final?
     private RouteService routeService = new RouteService();
 
+
+
+
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Object Mapper
     @Getter

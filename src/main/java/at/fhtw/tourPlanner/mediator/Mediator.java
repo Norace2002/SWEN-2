@@ -1,9 +1,6 @@
 package at.fhtw.tourPlanner.mediator;
 
 import at.fhtw.tourPlanner.model.RouteEntry;
-import at.fhtw.tourPlanner.view.MainViewController;
-
-import java.util.ArrayList;
 
 /*
 * Implementing the Mediator as a Singleton with listeners is a solution hinted to us by our colleague.
@@ -15,12 +12,18 @@ public class Mediator{
 
     private RouteEntry currentRoute;
 
-    private MainViewController mainViewController;
+    private Listener listener;
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Singleton implementation
     private static Mediator instance;
     private Mediator(){};
+
+
+    public void registerListener(Listener newListener){
+        listener  = newListener;
+    }
+
 
     public static Mediator getInstance(){
         if(instance == null){
@@ -50,11 +53,11 @@ public class Mediator{
 
     //creates or edits a route depending on whether there is an existing entry in the db or not
     public void publishRouteUpdate(RouteEntry entry){
-        mainViewController.updateRouteList(entry);
+        listener.updateRouteList(entry);
     }
 
 
     public boolean checkUniqueRouteEntryIdentifier(String givenEntryName){
-        return mainViewController.checkUniqueEntry(givenEntryName);
+        return listener.checkUniqueEntry(givenEntryName);
     }
 }
