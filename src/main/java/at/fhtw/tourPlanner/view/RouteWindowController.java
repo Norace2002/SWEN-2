@@ -234,10 +234,8 @@ public class RouteWindowController implements Initializable, Listener {
         imageView.setPreserveRatio(true);
         imageView.setSmooth(true);
         imageView.fitWidthProperty().bind(this.imgPane.widthProperty());
-        imageView.setFitHeight(USE_COMPUTED_SIZE);
+        // imageView.fitHeightProperty().bind(this.imgPane.heightProperty());
 
         this.imgPane.getChildren().add(imageView);
-
-        osmService.saveImage("test.png");
     }
 }
