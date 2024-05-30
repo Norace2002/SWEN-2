@@ -17,82 +17,82 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<GridPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.fhtw.tourPlanner.view.MainViewController">
-  <columnConstraints>
-    <ColumnConstraints hgrow="SOMETIMES" maxWidth="444.5" minWidth="10.0" prefWidth="285.5" />
-    <ColumnConstraints hgrow="SOMETIMES" minWidth="550.0" prefWidth="614.5" />
-  </columnConstraints>
-  <rowConstraints>
-    <RowConstraints maxHeight="472.0" minHeight="0.0" prefHeight="51.0" vgrow="SOMETIMES" />
-      <RowConstraints prefHeight="36.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="886.5" minHeight="0.0" prefHeight="452.5" vgrow="SOMETIMES" />
-  </rowConstraints>
-   <children>
-      <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.vgrow="NEVER">
-         <children>
-            <MenuBar prefHeight="25.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
-              <menus>
-                <Menu mnemonicParsing="false" text="File">
-                  <items>
-                      <MenuItem mnemonicParsing="false" text="Route Report" onAction="#generateRouteReport"/>
-                      <MenuItem mnemonicParsing="false" text="Summary Report" onAction="#generateSummaryReport"/>
-                      <MenuItem mnemonicParsing="false" text="Import" onAction="#importTourDataJSON"/>
-                      <MenuItem mnemonicParsing="false" text="Export" onAction="#exportTourDataJSON"/>
-                  </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Edit">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="Delete" />
-                  </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Options">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="About" />
-                  </items>
-                </Menu>
-                  <Menu mnemonicParsing="false" text="Help">
-                     <items>
-                        <MenuItem mnemonicParsing="false" text="There is no help" />
-                     </items>
-                  </Menu>
-              </menus>
-            </MenuBar>
-            <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="NEVER">
-               <children>
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="79.0" text="Search" HBox.hgrow="ALWAYS" />
-                  <TextField prefHeight="25.0" prefWidth="521.0" promptText="Type Here" HBox.hgrow="ALWAYS" />
-               </children>
-            </HBox>
-         </children>
-      </VBox>
-      <VBox prefHeight="200.0" prefWidth="100.0" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="TOP" GridPane.vgrow="NEVER">
-         <children>
-            <HBox minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="34.0" prefWidth="280.0" VBox.vgrow="NEVER">
-               <children>
-                  <Label prefHeight="34.0" prefWidth="93.0" text="Tours" HBox.hgrow="ALWAYS">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <ButtonBar buttonMinWidth="5.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="36.0" prefWidth="160.0" HBox.hgrow="ALWAYS">
-                    <buttons>
-                        <Button mnemonicParsing="false" text="+" onAction="#loadCreateRouteWindow"/>
-                        <Button mnemonicParsing="false" text="-" onAction="#deleteRoute"/>
-                        <Button mnemonicParsing="false" text="..." onAction="#loadEditRouteWindow"/>
-                    </buttons>
-                     <cursor>
-                        <Cursor fx:constant="DEFAULT" />
-                     </cursor>
-                  </ButtonBar>
-               </children>
-            </HBox>
-         </children>
-      </VBox>
-      <VBox prefHeight="291.0" prefWidth="293.0" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS">
-         <children>
-             <ListView fx:id="routeEntries" prefHeight="423.0" prefWidth="303.0" VBox.vgrow="ALWAYS"> </ListView>
-         </children>
-      </VBox>
-      <AnchorPane fx:id="hostPane" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.rowSpan="2" GridPane.vgrow="ALWAYS" />
-   </children>
+<GridPane stylesheets="@./CSS/mainWindow.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.fhtw.tourPlanner.view.MainViewController">
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="444.5" minWidth="10.0" prefWidth="285.5" />
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="550.0" prefWidth="614.5" />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints maxHeight="472.0" minHeight="0.0" prefHeight="51.0" vgrow="SOMETIMES" />
+        <RowConstraints prefHeight="36.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="886.5" minHeight="0.0" prefHeight="452.5" vgrow="SOMETIMES" />
+    </rowConstraints>
+    <children>
+        <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.vgrow="NEVER">
+            <children>
+                <MenuBar prefHeight="25.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
+                    <menus>
+                        <Menu mnemonicParsing="false" text="File">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="Route Report" onAction="#generateRouteReport"/>
+                                <MenuItem mnemonicParsing="false" text="Summary Report" onAction="#generateSummaryReport"/>
+                                <MenuItem mnemonicParsing="false" text="Import" onAction="#importTourDataJSON"/>
+                                <MenuItem mnemonicParsing="false" text="Export" onAction="#exportTourDataJSON"/>
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Edit">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="Delete" />
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Options">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="About" />
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Help">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="There is no help" />
+                            </items>
+                        </Menu>
+                    </menus>
+                </MenuBar>
+                <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="NEVER">
+                    <children>
+                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="79.0" text="Search" HBox.hgrow="ALWAYS" />
+                        <TextField prefHeight="25.0" prefWidth="521.0" promptText="Type Here" HBox.hgrow="ALWAYS" />
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+        <VBox prefHeight="200.0" prefWidth="100.0" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="TOP" GridPane.vgrow="NEVER">
+            <children>
+                <HBox minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="34.0" prefWidth="280.0" VBox.vgrow="NEVER">
+                    <children>
+                        <Label prefHeight="34.0" prefWidth="93.0" text="Tours" HBox.hgrow="ALWAYS">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Label>
+                        <ButtonBar buttonMinWidth="5.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="36.0" prefWidth="160.0" HBox.hgrow="ALWAYS">
+                            <buttons>
+                                <Button mnemonicParsing="false" text="+" onAction="#loadCreateRouteWindow"/>
+                                <Button mnemonicParsing="false" text="-" onAction="#deleteRoute"/>
+                                <Button mnemonicParsing="false" text="..." onAction="#loadEditRouteWindow"/>
+                            </buttons>
+                            <cursor>
+                                <Cursor fx:constant="DEFAULT" />
+                            </cursor>
+                        </ButtonBar>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+        <VBox prefHeight="291.0" prefWidth="293.0" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS">
+            <children>
+                <ListView fx:id="routeEntries" prefHeight="423.0" prefWidth="303.0" VBox.vgrow="ALWAYS"> </ListView>
+            </children>
+        </VBox>
+        <AnchorPane fx:id="hostPane" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.rowSpan="2" GridPane.vgrow="ALWAYS" />
+    </children>
 </GridPane>

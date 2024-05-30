@@ -13,6 +13,8 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 import java.sql.Date;
@@ -49,6 +51,11 @@ public class CreateTourLogController implements Initializable {
     @FXML
     private TextField ratingField;
 
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //Logger Set up
+    private static final Logger logger = LogManager.getLogger(CreateTourLogController.class);
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -103,13 +110,14 @@ public class CreateTourLogController implements Initializable {
                 //handle server response (id)
                 int id = LogMediator.getInstance().addEntry(newEntry);
                 newEntry.setId(id);
+                logger.info("successfully created an instance of a Tour Log entry - Sending to Log Mediator");
                 //----------------------------------------------
             } catch (NumberFormatException e) {
                 WrongLogInput(e);
-                System.err.println("Invalid input for one or more fields, Please try again");
+                logger.error("Invalid input for one or more fields while trying to create a new tour log for route: " + routeEntryName);
             }
         } else {
-            System.out.println("One or more fields are empty");
+            logger.error("Failed to create new Route Object - One or more fields were empty" );
         }
     }
 
@@ -117,6 +125,7 @@ public class CreateTourLogController implements Initializable {
     public void closeWindow(){
         Stage stage = (Stage) vbox.getScene().getWindow();
         stage.close();
+        logger.debug("'Create Tour Log' Window closed successfully");
     }
 
 

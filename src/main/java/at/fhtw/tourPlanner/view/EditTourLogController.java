@@ -12,6 +12,8 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -53,6 +55,12 @@ public class EditTourLogController implements Initializable{
     private LogEntry entry;
 
 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //Logger Set up
+    private static final Logger logger = LogManager.getLogger(EditTourLogController.class);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // initialization
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         entry = LogMediator.getInstance().getCurrentLogEntry();
@@ -78,21 +86,21 @@ public class EditTourLogController implements Initializable{
             try{
                 entry.setDifficulty(Integer.parseInt(difficultyField.getText()));
             } catch (NumberFormatException e){
-                System.err.println("Invalid inout for difficulty");
+                logger.error("Invalid input type for difficulty - !" + difficultyField.getText() + " is not a Integer");
             }
         }
         if(!totalDistanceField.getText().isEmpty()){
             try{
                 entry.setDistance(Integer.parseInt(totalDistanceField.getText()));
             } catch (NumberFormatException e) {
-                System.err.println("Invalid inout for distance");
+                logger.error("Invalid input type for distance - !" + totalDistanceField.getText() + " is not a Integer");
             }
         }
         if(!totalTimeField.getText().isEmpty()){
             try{
                 entry.setDuration(Integer.parseInt(totalTimeField.getText()));
             } catch (NumberFormatException e) {
-                System.err.println("Invalid inout for duration");
+                logger.error("Invalid input type for duration - !" + totalTimeField.getText() + " is not a Integer");
             }
         }
         if(dateTimeField.getValue() != null){
@@ -101,7 +109,7 @@ public class EditTourLogController implements Initializable{
                 LocalDate localDate = LocalDate.parse(dateTimeField.getValue().toString(), dateFormatter);
                 entry.setDate(localDate.toString());
             } catch (Exception e) {
-                System.err.println("Invalid input for date");
+                logger.error("Invalid input type for date - !" + dateTimeField.getValue().toString() + " is not a valid pattern -> (dd-MM-yyyy)");
             }
         }
         if(!commentField.getText().isEmpty()){
@@ -111,12 +119,12 @@ public class EditTourLogController implements Initializable{
             try {
                 entry.setRating(Integer.parseInt(ratingField.getText()));
             } catch (NumberFormatException e) {
-                System.err.println("Invalid input for rating");
+                logger.error("Invalid input type for rating - !" + ratingField.getText() + " is not a Integer");
             }
         }
 
 
-        System.out.println("Saved new input");
+        logger.info("Input is valid - Entry will be send to DB");
         //send to viewModel - DB
         LogMediator.getInstance().editEntry(entry);
 
@@ -125,6 +133,7 @@ public class EditTourLogController implements Initializable{
     public void closeWindow(){
         Stage stage = (Stage) vbox.getScene().getWindow();
         stage.close();
+        logger.debug("'Edit Tour Log' Window closed successfully");
     }
 
 }

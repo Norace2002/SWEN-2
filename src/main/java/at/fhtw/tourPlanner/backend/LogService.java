@@ -6,6 +6,8 @@ import at.fhtw.tourPlanner.model.LogEntry;
 import at.fhtw.tourPlanner.model.RouteEntry;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -20,6 +22,12 @@ import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
 
 public class LogService extends BaseService implements BackendServiceInterface{
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //Logger Set up
+    private static final Logger logger = LogManager.getLogger(LogService.class);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     @Override
     public Entry getEntry(Entry entry) throws IOException, InterruptedException{
@@ -39,7 +47,7 @@ public class LogService extends BaseService implements BackendServiceInterface{
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
         // Print the response
-        System.out.println("Response from server: " + response.body());
+        logger.info("Response from server: " + response.body() + " - Methode (GET/.../log)");
 
         //Convert jackson into entry
         return null;
@@ -64,7 +72,7 @@ public class LogService extends BaseService implements BackendServiceInterface{
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
         // Print the response
-        System.out.println("Response from server: " + response.body());
+        logger.info("Response from server: " + response.body() + " - Methode (GET/.../log/all/" + routeName + ")");
 
         //Convert jackson into entry
         return response.body();
@@ -91,7 +99,7 @@ public class LogService extends BaseService implements BackendServiceInterface{
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
         // Print the response
-        System.out.println("Response from server: " + response.body());
+        logger.info("Response from server: " + response.body() + " - Methode (POST/.../log)");
 
         return response.body();
     }
@@ -118,9 +126,9 @@ public class LogService extends BaseService implements BackendServiceInterface{
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
             // Print the response
-            System.out.println("Response from server: " + response.body());
+            logger.info("Response from server: " + response.body() + " - Methode (DELETE/.../log/" + logEntry.getId() + ")");
         } else {
-            System.out.println("Problem occurred while passing entry from type LogEntry");
+            logger.error("Problem occurred while passing entry from type LogEntry");
         }
     }
 
@@ -143,7 +151,7 @@ public class LogService extends BaseService implements BackendServiceInterface{
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
         // Print the response
-        System.out.println("Response from server: " + response.body());
+        logger.info("Response from server: " + response.body() + " - Methode (PUT/.../log)");
 
     }
 }

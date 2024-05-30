@@ -1,5 +1,8 @@
 package at.fhtw.tourPlanner.view;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import at.fhtw.tourPlanner.mediator.Mediator;
 import at.fhtw.tourPlanner.model.LogEntry;
 import at.fhtw.tourPlanner.model.RouteEntry;
@@ -32,6 +35,10 @@ public class CreateRouteController implements Initializable{
     @FXML
     private TextField transportTypeField;
 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //Logger Set up
+    private static final Logger logger = LogManager.getLogger(CreateRouteController.class);
+
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // interface methods
@@ -45,7 +52,6 @@ public class CreateRouteController implements Initializable{
     public void createNewRouteEntry(){
         RouteEntry newEntry = null;
 
-
         if(!nameField.getText().isEmpty() && Mediator.getInstance().checkUniqueRouteEntryIdentifier(nameField.getText())){
             // check if input is not null
             if(!nameField.getText().isEmpty() && !descriptionField.getText().isEmpty() && !startField.getText().isEmpty()
@@ -58,13 +64,14 @@ public class CreateRouteController implements Initializable{
             // relay information to mainview controller over mediator
             if(newEntry != null){
                 Mediator.getInstance().publishRouteUpdate(newEntry);
+                logger.info("New route entry created and published - Route entry name: " + newEntry.getName());
             }
             else{
-                System.out.println("Couldnt create new Route Object");
+                logger.error("Failed to create new Route Object - One or more fields were empty" );
             }
         }
         else{
-            System.out.println("Current tour name isn't available");
+            logger.error("Tour name is not available or already exists");
         }
 
 
@@ -78,8 +85,9 @@ public class CreateRouteController implements Initializable{
         if (parent instanceof Pane) {
             // Remove the child (VBox) from the parent container's list of children
             ((Pane) parent).getChildren().remove(vbox);
+            logger.debug("'Create Route' Window closed successfully");
         } else {
-            System.out.println("Parent is not a Pane.");
+            logger.error("Failed to close window, because given Window is not a child of a parent with type pane");
         }
     }
 

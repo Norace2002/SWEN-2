@@ -13,10 +13,19 @@ import java.net.http.HttpResponse;
 import java.net.http.HttpRequest.BodyPublishers;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 
 public class RouteService extends BaseService implements BackendServiceInterface{
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //Logger Set up
+    private static final Logger logger = LogManager.getLogger(RouteService.class);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     @Override
     public Entry getEntry(Entry entry) throws IOException, InterruptedException{
@@ -36,9 +45,9 @@ public class RouteService extends BaseService implements BackendServiceInterface
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
         // Print the response
-        System.out.println("Response from server: " + response.body());
+        logger.info("Response from server: " + response.body() + " - Methode (GET/.../route)");
 
-        //Convert jackson into entry
+        //--- Convert jackson into entry - we currently don't need getEntry ---
         return null;
     }
 
@@ -59,7 +68,7 @@ public class RouteService extends BaseService implements BackendServiceInterface
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
         // Print the response
-        System.out.println("Response from server: " + response.body());
+        logger.info("Response from server: " + response.body() + " - Methode (GET/.../route/all)");
 
         //Convert jackson into entry
         return response.body();
@@ -84,8 +93,9 @@ public class RouteService extends BaseService implements BackendServiceInterface
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
         // Print the response
-        System.out.println("Response from server : successfully created entry");
+        logger.info("Response from server : successfully created entry - Methode (POST/.../route)");
 
+        //Because addEntry is an Interface method and LogService needs to return id - function can't be void
         return "";
     }
 
@@ -112,10 +122,10 @@ public class RouteService extends BaseService implements BackendServiceInterface
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
             // Print the response
-            System.out.println("Response from server: " + response.body());
+            logger.info("Response from server: " + response.body() + " - Methode (DELETE/.../route/ " + routeEntry.getName() + ")");
         }
         else {
-            System.out.println("Problem occurred while passing entry from type RouteEntry");
+            logger.error("Problem occurred while passing entry from type RouteEntry");
         }
 
 
@@ -140,7 +150,7 @@ public class RouteService extends BaseService implements BackendServiceInterface
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
         // Print the response
-        System.out.println("Response from server: " + response.body());
+        System.out.println("Response from server: " + response.body() + " - Methode (PUT/.../route)");
 
     }
 }
