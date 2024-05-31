@@ -20,10 +20,6 @@ public class MainViewModel {
     private final ObservableList<String> routeEntries = FXCollections.observableArrayList();
     private Map<String, RouteEntry> entryMap = new HashMap<>(); //final?
     private RouteService routeService = new RouteService();
-    private OpenrouteService openrouteService = new OpenrouteService();
-
-
-
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Object Mapper
@@ -73,18 +69,7 @@ public class MainViewModel {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // functions related routeEntries
 
-    public void updateRouteEntries(RouteEntry entry){
-
-        // set coordinates from location input
-        this.setCoordinates(entry);
-
-        // update directions with potential new coordinates
-        this.updateDirections(entry);
-
-        // set distance/duration from location input
-        this.setDuration(entry);
-        this.setDistance(entry);
-
+    public void updateRouteEntries(RouteEntry entry) {
         // check if entry with same name already exits and if so,  instead edit altered values in db
         if(entryMap.containsKey(entry.getName())){
             //edit values from existing routeEntry
@@ -96,10 +81,6 @@ public class MainViewModel {
                 e.printStackTrace();
             }
         } else {
-            //If entry is new add it to Map/Listview
-            entryMap.put(entry.getName(), entry);
-            routeEntries.add(entry.getName());
-
             // add Route to DB through backend service
             try {
                 routeService.addEntry(entry);
@@ -108,6 +89,12 @@ public class MainViewModel {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+
+            //If entry is new add it to Map/Listview
+            RouteEntry dbEntry = (RouteEntry) routeService.getEntry(entry);
+
+            entryMap.put(dbEntry.getName(), dbEntry);
+            routeEntries.add(dbEntry.getName());
         }
 
     }
@@ -133,48 +120,4 @@ public class MainViewModel {
         entryMap.remove(entryName);
         routeEntries.remove(entryName);
     }
-
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    private void updateDirections(RouteEntry entry){
-        openrouteService.updateDirections(entry);
-    }
-
-    private void setCoordinates(RouteEntry entry){
-        // get openRoute values by API call
-        List<Double> startCoordinates = openrouteService.getStartCoordinates(entry);
-        List<Double> destinationCoordinates = openrouteService.getDestinationCoordinates(entry);
-
-        try{
-            entry.setStartLongitude(startCoordinates.get(0));
-            entry.setStartLatitude(startCoordinates.get(1));
-
-            entry.setDestinationLongitude(destinationCoordinates.get(0));
-            entry.setDestinationLatitude(destinationCoordinates.get(1));
-
-            /*
-            System.out.println("Coordinates -> Start: "+ entry.getStartLatitude() +" | "+ entry.getStartLongitude() +
-                    " + Destination: "+entry.getDestinationLatitude()+" | "+entry.getDestinationLongitude());
-             */
-        }catch(RuntimeException e){
-            e.printStackTrace();
-        }
-    }
-
-    private void setDuration(RouteEntry entry){
-        try{
-            entry.setTime(this.openrouteService.getDuration());
-        }catch(RuntimeException e){
-            e.printStackTrace();
-        }
-    }
-
-    private void setDistance(RouteEntry entry){
-        try{
-            entry.setDistance(this.openrouteService.getDistance());
-        }catch(RuntimeException e){
-            e.printStackTrace();
-        }
-    }
-
 }

@@ -1,5 +1,6 @@
 package at.fhtw.tourPlanner.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import javafx.beans.property.*;
 import java.sql.Date;
 
@@ -47,6 +48,11 @@ public class LogEntry implements Entry{
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // getter + setter
+
+    @JsonIgnore
+    public String getIdentifier(){
+        return Integer.toString(this.id.get());
+    }
 
     public String getDate() {return date.get();}
 
