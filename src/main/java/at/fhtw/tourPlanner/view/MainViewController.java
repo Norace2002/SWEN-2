@@ -1,5 +1,6 @@
 package at.fhtw.tourPlanner.view;
 
+import at.fhtw.tourPlanner.backend.ReportService;
 import at.fhtw.tourPlanner.mediator.Listener;
 import at.fhtw.tourPlanner.mediator.Mediator;
 import at.fhtw.tourPlanner.model.LogEntry;
@@ -14,6 +15,7 @@ import javafx.scene.layout.Pane;
 import javax.print.attribute.standard.Media;
 import javax.sound.midi.Soundbank;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.stage.FileChooser;
@@ -23,6 +25,8 @@ public class MainViewController implements Initializable, Listener {
     private final MainViewModel viewModel = new MainViewModel();
 
     FileChooser fileChooser = new FileChooser();
+
+    ReportService reportService = new ReportService();
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -237,8 +241,12 @@ public class MainViewController implements Initializable, Listener {
             }
 
             // generate Report based on current Route
+            byte[] pdfData = reportService.getRouteReport(Mediator.getInstance().getCurrentRouteEntry());
 
-            // ...
+            try(FileOutputStream fos = new FileOutputStream(directory)){
+                fos.write(pdfData);
+                System.out.println("PDF report saved to " + directory);
+            }
 
             System.out.println("Generating Report for: " + route.getName() + " on location: " + directory);
         }catch(Exception e){
@@ -269,8 +277,12 @@ public class MainViewController implements Initializable, Listener {
             }
 
             // generate summary report
+            byte[] pdfData = reportService.getSummaryReport();
 
-            // ...
+            try(FileOutputStream fos = new FileOutputStream(directory)){
+                fos.write(pdfData);
+                System.out.println("PDF report saved to " + directory);
+            }
 
             System.out.println("Generating summary report on location: " + directory);
         }catch(Exception e){
