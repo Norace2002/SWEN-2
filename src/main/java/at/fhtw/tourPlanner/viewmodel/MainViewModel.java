@@ -1,6 +1,5 @@
 package at.fhtw.tourPlanner.viewmodel;
 import at.fhtw.tourPlanner.backend.RouteService;
-import at.fhtw.tourPlanner.backend.OpenrouteService;
 import at.fhtw.tourPlanner.model.RouteEntry;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -26,7 +25,16 @@ public class MainViewModel {
     @Getter
     private ObjectMapper objectMapper;
 
-    public List<RouteEntry> jsonToModel(String json){
+    public RouteEntry jsonToModel(String json){
+        try{
+            return this.objectMapper.readValue(json, new TypeReference<RouteEntry>(){});
+        }
+        catch(JsonProcessingException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    public List<RouteEntry> jsonListToModel(String json){
         try{
             this.objectMapper = new ObjectMapper().enable(SerializationFeature.INDENT_OUTPUT);
             return objectMapper.readValue(json, new TypeReference<List<RouteEntry>>(){});
@@ -35,6 +43,16 @@ public class MainViewModel {
             throw new RuntimeException(e);
         }
     }
+
+    public String modelToJson(RouteEntry model){
+        try{
+            return this.objectMapper.writeValueAsString(model);
+        }
+        catch(JsonProcessingException e){
+            throw new RuntimeException(e);
+        }
+    }
+
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     public ObservableList<String> getRouteEntries(){
@@ -49,7 +67,7 @@ public class MainViewModel {
 
 
 
-            List<RouteEntry> routeEntryList = jsonToModel(json);
+            List<RouteEntry> routeEntryList = jsonListToModel(json);
             //Copy everything into entryMap
             for (RouteEntry entry : routeEntryList) {
                 entryMap.put(entry.getName(), entry);
