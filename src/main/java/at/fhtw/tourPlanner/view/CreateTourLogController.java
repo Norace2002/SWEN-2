@@ -92,6 +92,8 @@ public class CreateTourLogController implements Initializable {
                 LocalDate date = dateTimeField.getValue();
                 String dateString = date.toString();
 
+                System.out.println("Hiiiiiiiiilllllfe: " + dateTimeField.getValue());
+
                 // ------ Get the current time ------
                 LocalTime now = LocalTime.now();
 
@@ -117,6 +119,7 @@ public class CreateTourLogController implements Initializable {
                 logger.error("Invalid input for one or more fields while trying to create a new tour log for route: " + routeEntryName);
             }
         } else {
+            System.out.println("Helpppppppp: " + dateTimeField.getValue());
             logger.error("Failed to create new Route Object - One or more fields were empty" );
         }
     }

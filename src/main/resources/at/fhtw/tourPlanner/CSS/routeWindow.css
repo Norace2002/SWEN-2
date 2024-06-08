@@ -1,0 +1,23 @@
+
+.table-row-cell:focused:selected, .table-row-cell:selected {
+    -fx-text-fill: black;
+    -fx-background-color: #8FC28D;
+}
+
+
+.table-row-cell:odd {
+    -fx-background-color: #FFE9B3;
+}
+
+.table-row-cell:even {
+    -fx-background-color: #FFF8CC;
+}
+
+
+#deleteEntry{
+    -fx-background-color: #F5AEBF;
+}
+
+#loadCreateTourLogWindow{
+    -fx-background-color: #8FC28D;
+}

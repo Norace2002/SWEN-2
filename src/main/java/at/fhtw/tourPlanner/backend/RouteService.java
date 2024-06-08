@@ -45,7 +45,7 @@ public class RouteService extends BaseService implements BackendServiceInterface
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
         // Print the response
-        logger.info("Response from server: " + response.body() + " - Methode (GET/.../route)");
+        logger.info("Response from server: " + response.statusCode() + " - Methode (GET/.../route)");
 
         //--- Convert jackson into entry - we currently don't need getEntry ---
         return null;
@@ -68,7 +68,7 @@ public class RouteService extends BaseService implements BackendServiceInterface
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
         // Print the response
-        logger.info("Response from server: " + response.body() + " - Methode (GET/.../route/all)");
+        logger.info("Response from server: " + response.statusCode() +  " - Methode (GET/.../route/all)");
 
         //Convert jackson into entry
         return response.body();

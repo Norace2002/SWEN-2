@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<GridPane stylesheets="@./CSS/mainWindow.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.fhtw.tourPlanner.view.MainViewController">
+<GridPane stylesheets="@CSS/mainWindow.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.fhtw.tourPlanner.view.MainViewController">
     <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" maxWidth="444.5" minWidth="10.0" prefWidth="285.5" />
         <ColumnConstraints hgrow="SOMETIMES" minWidth="550.0" prefWidth="614.5" />
@@ -34,10 +34,10 @@
                     <menus>
                         <Menu mnemonicParsing="false" text="File">
                             <items>
-                                <MenuItem mnemonicParsing="false" text="Route Report" onAction="#generateRouteReport"/>
-                                <MenuItem mnemonicParsing="false" text="Summary Report" onAction="#generateSummaryReport"/>
-                                <MenuItem mnemonicParsing="false" text="Import" onAction="#importTourDataJSON"/>
-                                <MenuItem mnemonicParsing="false" text="Export" onAction="#exportTourDataJSON"/>
+                                <MenuItem mnemonicParsing="false" onAction="#generateRouteReport" text="Route Report" />
+                                <MenuItem mnemonicParsing="false" onAction="#generateSummaryReport" text="Summary Report" />
+                                <MenuItem mnemonicParsing="false" onAction="#importTourDataJSON" text="Import" />
+                                <MenuItem mnemonicParsing="false" onAction="#exportTourDataJSON" text="Export" />
                             </items>
                         </Menu>
                         <Menu mnemonicParsing="false" text="Edit">
@@ -76,9 +76,9 @@
                         </Label>
                         <ButtonBar buttonMinWidth="5.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="36.0" prefWidth="160.0" HBox.hgrow="ALWAYS">
                             <buttons>
-                                <Button mnemonicParsing="false" text="+" onAction="#loadCreateRouteWindow"/>
-                                <Button mnemonicParsing="false" text="-" onAction="#deleteRoute"/>
-                                <Button mnemonicParsing="false" text="..." onAction="#loadEditRouteWindow"/>
+                                <Button fx:id="loadCreateRouteButton" mnemonicParsing="false" onAction="#loadCreateRouteWindow"   stylesheets="@CSS/mainWindow.css" text="+" />
+                                <Button fx:id="deletingRoute" mnemonicParsing="false" onAction="#deleteRoute"  text="-" />
+                                <Button fx:id="loadEditRouteButton" mnemonicParsing="false" onAction="#loadEditRouteWindow"  stylesheets="@CSS/mainWindow.css" text="..." />
                             </buttons>
                             <cursor>
                                 <Cursor fx:constant="DEFAULT" />
@@ -90,7 +90,7 @@
         </VBox>
         <VBox prefHeight="291.0" prefWidth="293.0" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS">
             <children>
-                <ListView fx:id="routeEntries" prefHeight="423.0" prefWidth="303.0" VBox.vgrow="ALWAYS"> </ListView>
+                <ListView fx:id="routeEntries" prefHeight="423.0" prefWidth="303.0"  stylesheets="@CSS/mainWindow.css" VBox.vgrow="ALWAYS"> </ListView>
             </children>
         </VBox>
         <AnchorPane fx:id="hostPane" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.rowSpan="2" GridPane.vgrow="ALWAYS" />

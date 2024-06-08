@@ -15,7 +15,7 @@
 <?import javafx.scene.text.Text?>
 
 
-<GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.fhtw.tourPlanner.view.RouteWindowController">
+<GridPane stylesheets="@./CSS/routeWindow.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.fhtw.tourPlanner.view.RouteWindowController">
     <columnConstraints>
         <ColumnConstraints hgrow="ALWAYS" percentWidth="100.0" />
     </columnConstraints>
@@ -41,9 +41,9 @@
                         </Text>
                         <ButtonBar buttonMinWidth="5.0" HBox.hgrow="ALWAYS">
                             <buttons>
-                                <Button mnemonicParsing="false" onAction="#loadCreateTourLogWindow" text="+" />
-                                <Button mnemonicParsing="false" onAction="#deleteEntry" text="-" />
-                                <Button mnemonicParsing="false" onAction="#loadEditTourLogWindow" text="..." />
+                                <Button fx:id="loadCreateTourLogWindow" mnemonicParsing="false" onAction="#loadCreateTourLogWindow" text="+" />
+                                <Button fx:id="deleteEntry" mnemonicParsing="false" onAction="#deleteEntry" text="-" />
+                                <Button fx:id="loadEditTourLogWindow" mnemonicParsing="false" onAction="#loadEditTourLogWindow" text="..." />
                             </buttons>
                         </ButtonBar>
                     </children>

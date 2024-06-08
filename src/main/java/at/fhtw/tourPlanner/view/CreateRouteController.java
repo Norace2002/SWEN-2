@@ -25,19 +25,19 @@ public class CreateRouteController implements Initializable{
     public VBox vbox; //current Window
 
     @FXML
-    private TextField nameField;
+    TextField nameField;
     @FXML
-    private TextField descriptionField;
+    TextField descriptionField;
     @FXML
-    private TextField startField;
+    TextField startField;
     @FXML
-    private TextField destinationField;
+    TextField destinationField;
     @FXML
-    private TextField transportTypeField;
+    TextField transportTypeField;
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //Logger Set up
-    private static final Logger logger = LogManager.getLogger(CreateRouteController.class);
+    static Logger logger = LogManager.getLogger(CreateRouteController.class);
 
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
