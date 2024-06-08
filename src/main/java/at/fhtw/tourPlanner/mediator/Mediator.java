@@ -4,6 +4,8 @@ import at.fhtw.tourPlanner.model.RouteEntry;
 
 import at.fhtw.tourPlanner.model.LogEntry;
 import com.fasterxml.jackson.databind.JsonNode;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
 
@@ -38,6 +40,10 @@ public class Mediator{
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //Logger Set up
+    private static final Logger logger = LogManager.getLogger(Mediator.class);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //Basic functionality
     public RouteEntry getCurrentRouteEntry(){
         return currentRoute;
@@ -45,7 +51,7 @@ public class Mediator{
 
     public void setCurrentRoute(RouteEntry entry){
         currentRoute = entry;
-        System.out.println("currentRoute set");
+        logger.debug("currentRoute set");
     }
 
     public void deselectCurrentRoute(){
@@ -57,6 +63,7 @@ public class Mediator{
 
     //creates or edits a route depending on whether there is an existing entry in the db or not
     public void publishRouteUpdate(RouteEntry entry){
+        logger.info("Mediator - inform MainViewController to update entry list - new Entry: " + entry.getName());
         listener.updateRouteList(entry);
     }
 

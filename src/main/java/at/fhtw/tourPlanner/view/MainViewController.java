@@ -19,6 +19,8 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.ResourceBundle;
 import javafx.stage.FileChooser;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class MainViewController implements Initializable, Listener {
 
@@ -29,7 +31,10 @@ public class MainViewController implements Initializable, Listener {
     ReportService reportService = new ReportService();
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //Logger Set up
+    private static final Logger logger = LogManager.getLogger(MainViewController.class);
 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // references used to setup data-binding
     @FXML
     private Pane hostPane;
@@ -68,7 +73,7 @@ public class MainViewController implements Initializable, Listener {
     }
 
     public void updateRouteList(RouteEntry entry){
-        System.out.println("MainViewController updates RouteList");
+        logger.info("MainViewController updates RouteList");
         viewModel.updateRouteEntries(entry);
     }
 
@@ -94,28 +99,29 @@ public class MainViewController implements Initializable, Listener {
                 loadRouteMenu(selectedItem);
             }
         });
+        logger.debug("Added clickable property to routeEntries");
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // UI interaction methods
 
     public void loadCreateRouteWindow(){
-        System.out.println("load route creation window");
+        logger.debug("load route creation window");
 
         try{
             hostPane.getChildren().clear();
             Pane newLoadedPane =  FXMLLoader.load(getClass().getResource("/at/fhtw/tourPlanner/createTour.fxml"));
             hostPane.getChildren().add(newLoadedPane);
         } catch(Exception e){
-            System.out.println("Problem loading CreateTour FXML into Pane");
+            logger.error("Problem loading CreateTour FXML into Pane - something went wrong with loading newPane into hostPane");
             e.printStackTrace();
         }
     }
 
     public void loadEditRouteWindow(){
-        System.out.println("load route editing window");
+        logger.debug("load route editing window");
         if(Mediator.getInstance().getCurrentRouteEntry() == null) {
-            System.out.println("current Route not set");
+            logger.info("current Route is not set - therefore you are not able to edit a route");
         }
         else{
             try{
@@ -123,7 +129,7 @@ public class MainViewController implements Initializable, Listener {
                 Pane newLoadedPane =  FXMLLoader.load(getClass().getResource("/at/fhtw/tourPlanner/editTour.fxml"));
                 hostPane.getChildren().add(newLoadedPane);
             } catch(Exception e){
-                System.out.println("Problem loading EditTour FXML into Pane");
+                logger.error("Problem loading EditTour FXML into Pane - something went wrong with loading newPane into hostPane");
                 e.printStackTrace();
             }
         }
@@ -135,7 +141,7 @@ public class MainViewController implements Initializable, Listener {
             Pane newLoadedPane =  FXMLLoader.load(getClass().getResource("/at/fhtw/tourPlanner/routeMenu.fxml"));
             hostPane.getChildren().add(newLoadedPane);
         } catch(Exception e){
-            System.out.println("Problem loading RouteMenu FXML into Pane");
+            logger.error("Problem loading RouteMenu FXML into Pane - something went wrong with loading newPane into hostPane");
             e.printStackTrace();
         }
     }
@@ -175,9 +181,9 @@ public class MainViewController implements Initializable, Listener {
             // check if a directory was selected
             if (selectedDirectory != null) {
                 directory = selectedDirectory.getAbsolutePath();
-                System.out.println("Selected Directory: " + directory);
+                logger.debug("Selected Directory: " + directory);
             } else {
-                System.out.println("No directory selected.");
+                logger.debug("No directory selected.");
             }
 
             // turn route into json string
@@ -189,8 +195,9 @@ public class MainViewController implements Initializable, Listener {
                 System.out.println("Route JSON saved to " + directory);
             }
 
-        } catch (Exception e) {
-            System.out.println("Couldn't export data");
+            logger.info("Exporting Tourdata for: " + route.getName() + " on location: " + directory);
+        }catch(Exception e){
+            logger.error("Couldn't export data");
             e.printStackTrace();
         }
     }
@@ -208,7 +215,8 @@ public class MainViewController implements Initializable, Listener {
             // Check if a file was selected
             if (selectedFile != null) {
                 String filePath = selectedFile.getAbsolutePath();
-                System.out.println("Selected File: " + filePath);
+              
+                logger.debug("Selected File: " + filePath);
 
                 // Read JSON data from file
                 String json;
@@ -224,12 +232,18 @@ public class MainViewController implements Initializable, Listener {
                 // Add route accordingly to db and ViewModel
                 updateRouteList(route);
                 Mediator.getInstance().setCurrentRoute(route);
-                System.out.println("Route imported from " + filePath);
+                logger.debug("Route imported from " + filePath);
+              
             } else {
-                System.out.println("No file selected.");
+                logger.debug("No file selected.");
             }
-        } catch (Exception e) {
-            System.out.println("Couldn't import data");
+
+            // map json data to route entry object
+
+            // ...
+
+        }catch(Exception e){
+            logger.error("Couldn't import data");
             e.printStackTrace();
         }
     }
@@ -251,9 +265,9 @@ public class MainViewController implements Initializable, Listener {
             // Check if a directory was selected
             if (selectedDirectory != null) {
                 directory = selectedDirectory.getAbsolutePath();
-                System.out.println("Selected Directory: " + directory);
+                logger.debug("Selected Directory: " + directory);
             } else {
-                System.out.println("No directory selected.");
+                logger.debug("No directory selected.");
             }
 
             // generate Report based on current Route
@@ -264,9 +278,9 @@ public class MainViewController implements Initializable, Listener {
                 System.out.println("PDF report saved to " + directory);
             }
 
-            System.out.println("Generating Report for: " + route.getName() + " on location: " + directory);
+            logger.info("Generating Report for: " + route.getName() + " on location: " + directory);
         }catch(Exception e){
-            System.out.println("Couldn't generate route report");
+            logger.error("Couldn't generate route report");
             e.printStackTrace();
         }
     }
@@ -287,9 +301,9 @@ public class MainViewController implements Initializable, Listener {
             // Check if a directory was selected
             if (selectedDirectory != null) {
                 directory = selectedDirectory.getAbsolutePath();
-                System.out.println("Selected Directory: " + directory);
+                logger.debug("Selected Directory: " + directory);
             } else {
-                System.out.println("No directory selected.");
+                logger.debug("No directory selected.");
             }
 
             // generate summary report
@@ -300,9 +314,9 @@ public class MainViewController implements Initializable, Listener {
                 System.out.println("PDF report saved to " + directory);
             }
 
-            System.out.println("Generating summary report on location: " + directory);
+            logger.info("Generating summary report on location: " + directory);
         }catch(Exception e){
-            System.out.println("Couldn't generate summary report");
+            logger.error("Couldn't generate summary report");
             e.printStackTrace();
         }
     }

@@ -30,6 +30,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import javafx.scene.Node;
 import javafx.event.ActionEvent;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.net.URL;
 import java.util.List;
@@ -38,7 +40,9 @@ import java.util.ResourceBundle;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
-public class RouteWindowController implements Initializable {
+
+public class RouteWindowController implements Initializable{
+
     OpenrouteService openrouteService = new OpenrouteService();
     OsmService osmService = new OsmService();
 
@@ -63,6 +67,10 @@ public class RouteWindowController implements Initializable {
     @FXML
     public Pane imgPane;
 
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //Logger Set up
+    private static final Logger logger = LogManager.getLogger(RouteWindowController.class);
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // interface methods
@@ -99,6 +107,7 @@ public class RouteWindowController implements Initializable {
                 LogMediator.getInstance().setCurrentLog(selectedItem);
             }
         });
+        logger.debug("Added clickable property to logTable");
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -114,17 +123,17 @@ public class RouteWindowController implements Initializable {
             //deselect current Route
             LogMediator.getInstance().deselectCurrentLog();
 
-            System.out.println("Log with id: '" + selectedItem.getId() + "' deleted");
+            logger.info("Log with id: '" + selectedItem.getId() + "' deleted");
         }
         else {
-            System.out.println("You have select a log entry before deleting");
+            logger.error("You have to select a log entry before deleting");
         }
 
 
     }
 
     public void loadCreateTourLogWindow(ActionEvent event) {
-        System.out.println("load route Log creation window");
+        logger.debug("load route Log creation window");
 
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/at/fhtw/tourPlanner/createTourLog.fxml"));
@@ -152,7 +161,7 @@ public class RouteWindowController implements Initializable {
 
     public void loadEditTourLogWindow(ActionEvent event){
         if (LogMediator.getInstance().getCurrentLogEntry() != null){
-            System.out.println("load route Log creation window");
+            logger.debug("load route Log creation window");
 
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/at/fhtw/tourPlanner/editTourLog.fxml"));
@@ -177,7 +186,7 @@ public class RouteWindowController implements Initializable {
                 e.printStackTrace();
             }
         } else {
-            System.out.println("You have select a log entry before editing");
+            logger.error("You have to select a log entry before editing");
         }
 
     }
@@ -204,5 +213,6 @@ public class RouteWindowController implements Initializable {
         // imageView.fitHeightProperty().bind(this.imgPane.heightProperty());
 
         this.imgPane.getChildren().add(imageView);
+        logger.info("Image Pain from route: " + entry.getName() + " is Ready to be displayed");
     }
 }

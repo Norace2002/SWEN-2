@@ -10,73 +10,49 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox fx:id="vbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.fhtw.tourPlanner.view.CreateRouteController"
+<VBox stylesheets="@./CSS/createTour.css" fx:id="vbox" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.fhtw.tourPlanner.view.CreateRouteController"
       AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
    <children>
-      <HBox alignment="CENTER" prefHeight="52.0" prefWidth="600.0">
+      <HBox styleClass="headerHBox">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Create Tour" underline="true">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Text>
+            <Text styleClass="headerText" text="Create Tour"> </Text>
          </children>
       </HBox>
       <AnchorPane VBox.vgrow="ALWAYS">
          <children>
-            <HBox alignment="CENTER_LEFT" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="10.0">
+            <HBox AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="10.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Name: " wrappingWidth="180.0" HBox.hgrow="ALWAYS">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Text>
-                  <TextField fx:id="nameField" prefHeight="25.0" prefWidth="400.0" HBox.hgrow="ALWAYS" />
+                  <Text text="Name: " wrappingWidth="180.0" HBox.hgrow="ALWAYS"> </Text>
+                  <TextField fx:id="nameField"  HBox.hgrow="ALWAYS" />
                </children>
             </HBox>
-            <HBox alignment="CENTER_LEFT" fillHeight="false" layoutY="30.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="10.0">
+            <HBox fillHeight="false" layoutY="30.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="10.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tour Description:" wrappingWidth="180.0" HBox.hgrow="ALWAYS">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Text>
-                  <TextField fx:id="descriptionField" prefHeight="25.0" prefWidth="400.0" HBox.hgrow="ALWAYS" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tour Description:" wrappingWidth="180.0" HBox.hgrow="ALWAYS"> </Text>
+                  <TextField fx:id="descriptionField"  HBox.hgrow="ALWAYS" />
                </children>
             </HBox>
-            <HBox alignment="CENTER_LEFT" layoutY="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="10.0">
+            <HBox layoutY="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="10.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="From: " wrappingWidth="180.0" HBox.hgrow="ALWAYS">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Text>
-                  <TextField fx:id="startField" prefHeight="25.0" prefWidth="400.0" HBox.hgrow="ALWAYS" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="From: " wrappingWidth="180.0" HBox.hgrow="ALWAYS"> </Text>
+                  <TextField fx:id="startField"  HBox.hgrow="ALWAYS" />
                </children>
             </HBox>
-            <HBox alignment="CENTER_LEFT" layoutY="90.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="10.0">
+            <HBox layoutY="90.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="10.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="To:" wrappingWidth="180.0" HBox.hgrow="ALWAYS">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Text>
-                  <TextField fx:id="destinationField" prefHeight="25.0" prefWidth="400.0" HBox.hgrow="ALWAYS" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="To:" wrappingWidth="180.0" HBox.hgrow="ALWAYS"> </Text>
+                  <TextField fx:id="destinationField" HBox.hgrow="ALWAYS" />
                </children>
             </HBox>
-            <HBox alignment="CENTER_LEFT" layoutY="120.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="10.0">
+            <HBox layoutY="120.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="10.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Transport Type:" wrappingWidth="180.0" HBox.hgrow="ALWAYS">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Text>
-                  <TextField fx:id="transportTypeField" prefHeight="25.0" prefWidth="400.0" HBox.hgrow="ALWAYS" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Transport Type:" wrappingWidth="180.0" HBox.hgrow="ALWAYS"> </Text>
+                  <TextField fx:id="transportTypeField"  HBox.hgrow="ALWAYS" />
                </children>
             </HBox>
             <HBox layoutY="240.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="10.0">
                <children>
-                  <ButtonBar buttonMinWidth="120.0" prefHeight="25.0" prefWidth="593.0" HBox.hgrow="ALWAYS">
+                  <ButtonBar HBox.hgrow="ALWAYS">
                      <buttons>
                         <Button mnemonicParsing="false" text="Exit without saving" fx:id="exitButton" onAction="#closeWindow"/>
                         <Button mnemonicParsing="false" text="Save Tour" fx:id="createEntryButton" onAction="#createNewRouteEntry"/>

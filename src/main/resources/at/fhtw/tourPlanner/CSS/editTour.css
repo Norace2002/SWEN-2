@@ -1,0 +1,11 @@
+#vbox{    -fx-background-color: #FFF8CC;
+
+}
+
+#exitButton{
+    -fx-background-color: #F5AEBF;
+}
+
+#saveChangesButton{
+    -fx-background-color: #8FC28D;
+}

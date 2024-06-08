@@ -7,6 +7,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.text.Text;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -31,7 +33,11 @@ public class GeneralWindowController implements Initializable{
     private RouteEntry currentEntry;
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // interface methods
+    //Logger Set up
+    private static final Logger logger = LogManager.getLogger(GeneralWindowController.class);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // initialization
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -40,7 +46,7 @@ public class GeneralWindowController implements Initializable{
         currentEntry = Mediator.getInstance().getCurrentRouteEntry();
 
         // set URL for discerning windows
-        System.out.println("calling loadInformation()");
+        logger.debug("loading general information for route: " + currentEntry.getName());
         this.loadInformation();
     }
 

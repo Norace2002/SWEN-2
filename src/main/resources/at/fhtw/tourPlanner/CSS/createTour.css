@@ -1,0 +1,56 @@
+
+#vbox{
+    -fx-max-height: 1000000.0; /*instead of infinity*/
+    -fx-max-width: 1000000.0;  /*instead of infinity*/
+    -fx-min-height: 0.0;       /*instead of -infinity*/
+    -fx-min-width: 0.0;        /*instead of -infinity*/
+    -fx-pref-height: 400.0;
+    -fx-pref-width: 600.0;
+    -fx-background-color: #FFF8CC;
+
+}
+
+.headerHBox{
+    -fx-alignment: CENTER;
+    -fx-pref-height: 52.0;
+    -fx-pref-width: 600.0;
+}
+
+
+.headerText{
+    -fx-strokeType: OUTSIDE;
+    -fx-strokeWidth: 0.0;
+    -fx-underline: true;
+    -fx-font-size: 24px;
+}
+HBox {
+    -fx-alignment: CENTER_LEFT;
+}
+
+Text {
+    -fx-stroke-type: outside;
+    -fx-stroke-width: 0.0;
+    -fx-font-size: 18px;
+}
+
+
+TextField {
+    -fx-pref-height: 25.0;
+    -fx-pref-width: 400.0;
+}
+
+ButtonBar {
+    -fx-buttonMinWidth: 120.0;
+    -fx-prefHeight: 25.0;
+    -fx-prefWidth: 593.0;
+}
+
+#exitButton{
+    -fx-background-color: #F5AEBF;
+}
+
+#createEntryButton{
+    -fx-background-color: #8FC28D;
+}
+
+

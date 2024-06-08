@@ -1,0 +1,116 @@
+GridPane{
+    -fx-background-color: C0D9A3;
+}
+
+#loadCreateRouteButton{
+    -fx-background-color: #8FC28D;
+    -fx-font-weight: bold;
+}
+
+#deletingRoute{
+    -fx-background-color: #F5AEBF;
+    -fx-font-weight: bold;
+}
+
+#loadEditRouteButton{
+    -fx-background-color: white;
+    -fx-font-weight: bold;
+}
+
+.list-cell:odd {
+    -fx-background-color: #FFE9B3;
+}
+
+.list-cell:even {
+    -fx-background-color: #FFF8CC;
+}
+
+.list-cell:focused:selected {
+    -fx-text-fill:black;
+    -fx-background-color: #8FC28D;
+}
+
+
+
+#secondColumn {
+    -fx-min-width: 550.0;
+    -fx-pref-width: 614.5;
+}
+
+/* RowConstraints Styles */
+#firstRow {
+    -fx-max-height: 472.0;
+    -fx-min-height: 0.0;
+    -fx-pref-height: 51.0;
+}
+
+#secondRow {
+    -fx-pref-height: 36.0;
+}
+
+#thirdRow {
+    -fx-max-height: 886.5;
+    -fx-min-height: 0.0;
+    -fx-pref-height: 452.5;
+}
+
+/* VBox Styles */
+#menuVBox {
+    -fx-pref-height: 200.0;
+    -fx-pref-width: 100.0;
+}
+
+#toursVBox {
+    -fx-pref-height: 200.0;
+    -fx-pref-width: 100.0;
+}
+
+#listViewVBox {
+    -fx-pref-height: 291.0;
+    -fx-pref-width: 293.0;
+}
+
+/* HBox Styles */
+#searchHBox {
+    -fx-pref-height: 100.0;
+    -fx-pref-width: 200.0;
+}
+
+/* MenuBar Styles */
+#menuBar {
+    -fx-pref-height: 25.0;
+    -fx-pref-width: 600.0;
+}
+
+/* Button Styles */
+#searchButton {
+    -fx-pref-height: 25.0;
+    -fx-pref-width: 79.0;
+}
+
+/* TextField Styles */
+#searchTextField {
+    -fx-pref-height: 25.0;
+    -fx-pref-width: 521.0;
+}
+
+/* Label Styles */
+#toursLabel {
+    -fx-pref-height: 34.0;
+    -fx-pref-width: 93.0;
+    -fx-font-size: 18.0;
+}
+
+/* ButtonBar Styles */
+#toursButtonBar {
+    -fx-button-min-width: 5.0;
+    -fx-pref-height: 36.0;
+    -fx-pref-width: 160.0;
+}
+
+/* ListView Styles */
+#routeEntries {
+    -fx-pref-height: 423.0;
+    -fx-pref-width: 303.0;
+}
+

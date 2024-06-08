@@ -11,6 +11,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -38,7 +40,11 @@ public class EditRouteController implements Initializable{
     private RouteEntry entry;
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // interface methods
+    //Logger Set up
+    private static final Logger logger = LogManager.getLogger(EditRouteController.class);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // initialization
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -55,11 +61,6 @@ public class EditRouteController implements Initializable{
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // edit Route upon button
     public void saveChanges(){
-        /* check if input is not null - if so replace it with new input
-        if(!nameField.getText().isEmpty()){
-            entry.setName(nameField.getText());
-        }
-        */
         if(!descriptionField.getText().isEmpty()){
             entry.setDescription(descriptionField.getText());
         }
@@ -75,7 +76,7 @@ public class EditRouteController implements Initializable{
 
         Mediator.getInstance().publishRouteUpdate(entry);
 
-        System.out.println("Saved new input");
+        logger.info("No problems occurred while altering route entry - Sending build entry to Mediator");
 
     }
 
@@ -87,8 +88,9 @@ public class EditRouteController implements Initializable{
         if (parent instanceof Pane) {
             // Remove the child (VBox) from the parent container's list of children
             ((Pane) parent).getChildren().remove(vbox);
+            logger.debug("'Edit Route' Window closed successfully");
         } else {
-            System.out.println("Parent is not a Pane.");
+            logger.error("Failed to close window, because given Window is not a child of a parent with type pane");
         }
     }
 }
