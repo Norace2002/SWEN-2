@@ -1,20 +1,22 @@
 package at.fhtw.tourPlanner.view;
 
+import at.fhtw.tourPlanner.backend.ReportService;
 import at.fhtw.tourPlanner.mediator.Listener;
 import at.fhtw.tourPlanner.mediator.Mediator;
-import at.fhtw.tourPlanner.model.LogEntry;
 import at.fhtw.tourPlanner.model.RouteEntry;
 import at.fhtw.tourPlanner.viewmodel.MainViewModel;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 
-import javax.print.attribute.standard.Media;
-import javax.sound.midi.Soundbank;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.util.ResourceBundle;
 import javafx.stage.FileChooser;
 import org.apache.logging.log4j.LogManager;
@@ -26,6 +28,8 @@ public class MainViewController implements Initializable, Listener {
 
     FileChooser fileChooser = new FileChooser();
 
+    ReportService reportService = new ReportService();
+
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //Logger Set up
     private static final Logger logger = LogManager.getLogger(MainViewController.class);
@@ -36,6 +40,8 @@ public class MainViewController implements Initializable, Listener {
     private Pane hostPane;
     @FXML
     private ListView<String> routeEntries;
+    @FXML
+    private TextField searchTextField;
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Singleton implementation
@@ -60,6 +66,9 @@ public class MainViewController implements Initializable, Listener {
 
         // bind listview to observablelist
         routeEntries.setItems(viewModel.getRouteEntries());
+
+        // serachfield
+        searchTextField.textProperty().addListener((observable, oldText, newText) -> routeEntries.setItems(viewModel.filterRoutes(newText)));
 
     }
 
@@ -154,20 +163,22 @@ public class MainViewController implements Initializable, Listener {
     // imports/exports
 
     public void exportTourDataJSON(){
-        try{
+        try {
             RouteEntry route = Mediator.getInstance().getCurrentRouteEntry();
+            if (route == null) {
+                System.out.println("No route selected");
+            }
+
             String directory = "empty";
 
             fileChooser.setTitle("Choose a Directory to Save File");
             fileChooser.setInitialDirectory(new File(System.getProperty("user.home")));
-            fileChooser.getExtensionFilters().addAll(
-                    new FileChooser.ExtensionFilter("JSON Files", "*.json")
-            );
+            fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("JSON Files", "*.json"));
 
-            // Show directory selection dialog
+            // show directory selection dialog
             File selectedDirectory = fileChooser.showSaveDialog(null);
 
-            // Check if a directory was selected
+            // check if a directory was selected
             if (selectedDirectory != null) {
                 directory = selectedDirectory.getAbsolutePath();
                 logger.debug("Selected Directory: " + directory);
@@ -175,13 +186,14 @@ public class MainViewController implements Initializable, Listener {
                 logger.debug("No directory selected.");
             }
 
-            // map current route entry + log objects to JSON
+            // turn route into json string
+            String json = viewModel.routeModelToJson(route);
 
-            // ...
-
-            // store JSON as file in directory
-
-            // ...
+            // Store JSON as file
+            try(FileOutputStream fos = new FileOutputStream(directory)){
+                fos.write(json.getBytes());
+                System.out.println("Route JSON saved to " + directory);
+            }
 
             logger.info("Exporting Tourdata for: " + route.getName() + " on location: " + directory);
         }catch(Exception e){
@@ -190,14 +202,12 @@ public class MainViewController implements Initializable, Listener {
         }
     }
 
-    public void importTourDataJSON(){
-        String filepath = "empty";
-
-        try{
-            fileChooser.setTitle("Choose a Resource File");
-            fileChooser.getExtensionFilters().addAll(
-                    new FileChooser.ExtensionFilter("JSON Files", "*.json")
-            );
+    public void importTourDataJSON() {
+        try {
+            FileChooser fileChooser = new FileChooser();
+            fileChooser.setTitle("Choose a JSON File to Import");
+            fileChooser.setInitialDirectory(new File(System.getProperty("user.home")));
+            fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("JSON Files", "*.json"));
 
             // Show open file dialog
             File selectedFile = fileChooser.showOpenDialog(null);
@@ -205,7 +215,25 @@ public class MainViewController implements Initializable, Listener {
             // Check if a file was selected
             if (selectedFile != null) {
                 String filePath = selectedFile.getAbsolutePath();
+              
                 logger.debug("Selected File: " + filePath);
+
+                // Read JSON data from file
+                String json;
+                try (FileInputStream fis = new FileInputStream(filePath)) {
+                    byte[] data = new byte[(int) selectedFile.length()];
+                    fis.read(data);
+                    json = new String(data, StandardCharsets.UTF_8);
+                }
+
+                // Convert JSON string to RouteEntry object
+                RouteEntry route = viewModel.routeJsonToModel(json);
+
+                // Add route accordingly to db and ViewModel
+                updateRouteList(route);
+                Mediator.getInstance().setCurrentRoute(route);
+                logger.debug("Route imported from " + filePath);
+              
             } else {
                 logger.debug("No file selected.");
             }
@@ -243,8 +271,12 @@ public class MainViewController implements Initializable, Listener {
             }
 
             // generate Report based on current Route
+            byte[] pdfData = reportService.getRouteReport(Mediator.getInstance().getCurrentRouteEntry());
 
-            // ...
+            try(FileOutputStream fos = new FileOutputStream(directory)){
+                fos.write(pdfData);
+                System.out.println("PDF report saved to " + directory);
+            }
 
             logger.info("Generating Report for: " + route.getName() + " on location: " + directory);
         }catch(Exception e){
@@ -275,8 +307,12 @@ public class MainViewController implements Initializable, Listener {
             }
 
             // generate summary report
+            byte[] pdfData = reportService.getSummaryReport();
 
-            // ...
+            try(FileOutputStream fos = new FileOutputStream(directory)){
+                fos.write(pdfData);
+                System.out.println("PDF report saved to " + directory);
+            }
 
             logger.info("Generating summary report on location: " + directory);
         }catch(Exception e){

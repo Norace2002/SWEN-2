@@ -12,12 +12,14 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.net.http.HttpRequest.BodyPublishers;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+import java.util.List;
 
 public class RouteService extends BaseService implements BackendServiceInterface{
 
@@ -28,27 +30,37 @@ public class RouteService extends BaseService implements BackendServiceInterface
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     @Override
-    public Entry getEntry(Entry entry) throws IOException, InterruptedException{
-        // get specific route entry
-        String url = "http://localhost:8080/route";
+    public Entry getEntry(Entry entry){
+        try{
+            // get specific route entry
+            String url = "http://localhost:8080/route/"+ entry.getIdentifier();
 
-        // Create an HttpClient
-        HttpClient client = HttpClient.newHttpClient();
+            // Create an HttpClient
+            HttpClient client = HttpClient.newHttpClient();
 
-        // Create a request
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(url))
-                .GET()
-                .build();
+            // Create a request
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create(url))
+                    .GET()
+                    .build();
 
-        // Send the request and get the response
-        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+            // Send the request and get the response
+            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
-        // Print the response
-        logger.info("Response from server: " + response.statusCode() + " - Methode (GET/.../route)");
+            // Print the response
+            logger.info("Response from server: " + response.statusCode() + " - Methode (GET/.../route)");
 
-        //--- Convert jackson into entry - we currently don't need getEntry ---
-        return null;
+
+
+
+            //Convert jackson into entry
+            RouteEntry dbEntry = getObjectMapper().readValue(response.body(), new TypeReference<RouteEntry>() {});
+            return dbEntry;
+        }catch(IOException | InterruptedException e){
+            logger.info("Error trying to get route via identifier");
+            e.printStackTrace();
+            return new RouteEntry();
+        }
     }
 
     public String getAllEntries() throws IOException, InterruptedException{
@@ -107,7 +119,7 @@ public class RouteService extends BaseService implements BackendServiceInterface
             RouteEntry routeEntry = (RouteEntry) entry;
 
             // delete specific route entry
-            String url = "http://localhost:8080/route?name=" + URLEncoder.encode(routeEntry.getName(), StandardCharsets.UTF_8);
+            String url = "http://localhost:8080/route/" + entry.getIdentifier();
 
             // Create an HttpClient
             HttpClient client = HttpClient.newHttpClient();

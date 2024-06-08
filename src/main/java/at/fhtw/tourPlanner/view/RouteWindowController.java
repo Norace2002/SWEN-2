@@ -40,7 +40,9 @@ import java.util.ResourceBundle;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
+
 public class RouteWindowController implements Initializable{
+
     OpenrouteService openrouteService = new OpenrouteService();
     OsmService osmService = new OsmService();
 
@@ -79,9 +81,6 @@ public class RouteWindowController implements Initializable{
 
         // get currently chosen entry
         entry = Mediator.getInstance().getCurrentRouteEntry();
-
-        // update current entry
-        updateGeoJson(entry);
 
         // create tileMap
         addImage(entry);
@@ -195,21 +194,8 @@ public class RouteWindowController implements Initializable{
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // methods concerning tileMap
 
-    private void updateGeoJson(RouteEntry entry){
-        openrouteService.updateDirections(entry);
-    }
-
-    private JsonNode getGeoJson(RouteEntry entry){
-        return openrouteService.getDirectionsGeoJson(entry);
-    }
-
-    private List<Double> getBbox(JsonNode geoJson){
-        return openrouteService.getDirectionsBbox(entry);
-    }
-
     private void addImage(RouteEntry entry){
-        JsonNode geoJson = getGeoJson(entry);
-        List<Double> bbox = getBbox(geoJson);
+        List<Double> bbox = openrouteService.getDirectionsBbox(entry);
 
         osmService.setZoom(17);
         osmService.getMarkers().add(new OsmService.GeoCoordinate(bbox.get(0), bbox.get(1)));
