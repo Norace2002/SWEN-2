@@ -3,16 +3,9 @@ package at.fhtw.tourPlanner.backend;
 import at.fhtw.tourPlanner.mediator.Mediator;
 import at.fhtw.tourPlanner.model.Entry;
 import at.fhtw.tourPlanner.model.LogEntry;
-import at.fhtw.tourPlanner.model.RouteEntry;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializationFeature;
-
-import java.io.BufferedReader;
+import com.fasterxml.jackson.core.type.TypeReference;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
 import java.net.URI;
-import java.net.URL;
 import java.net.URLEncoder;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -24,7 +17,7 @@ public class LogService extends BaseService implements BackendServiceInterface{
     @Override
     public Entry getEntry(Entry entry) throws IOException, InterruptedException{
         // get specific log entry
-        String url = "http://localhost:8080/log";
+        String url = "http://localhost:8080/log/" + entry.getIdentifier();
 
         // Create an HttpClient
         HttpClient client = HttpClient.newHttpClient();
@@ -42,12 +35,37 @@ public class LogService extends BaseService implements BackendServiceInterface{
         System.out.println("Response from server: " + response.body());
 
         //Convert jackson into entry
-        return null;
+        LogEntry log = getObjectMapper().readValue(response.body(), new TypeReference<LogEntry>() {});
+
+        return log;
     }
 
     public String getAllEntries() throws IOException, InterruptedException{
         String routeName = Mediator.getInstance().getCurrentRouteEntry().getName();
 
+        // get all existing log entries from current route entry
+        String url = "http://localhost:8080/log/all?route=" + URLEncoder.encode(routeName, StandardCharsets.UTF_8);
+
+        // Create an HttpClient
+        HttpClient client = HttpClient.newHttpClient();
+
+        // Create a request
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(url))
+                .GET()
+                .build();
+
+        // Send the request and get the response
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+        // Print the response
+        System.out.println("Response from server: " + response.body());
+
+        //Convert jackson into entry
+        return response.body();
+    }
+
+    public String getEntriesPerRoute(String routeName) throws IOException, InterruptedException{
         // get all existing log entries from current route entry
         String url = "http://localhost:8080/log/all?route=" + URLEncoder.encode(routeName, StandardCharsets.UTF_8);
 
@@ -103,7 +121,7 @@ public class LogService extends BaseService implements BackendServiceInterface{
             LogEntry logEntry = (LogEntry) entry;
 
             // delete specific log entry
-            String url = "http://localhost:8080/log?name=" + URLEncoder.encode(Integer.toString(logEntry.getId()), StandardCharsets.UTF_8);
+            String url = "http://localhost:8080/log/" + entry.getIdentifier();
 
             // Create an HttpClient
             HttpClient client = HttpClient.newHttpClient();

@@ -1,5 +1,6 @@
 package at.fhtw.tourPlanner.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import javafx.beans.property.*;
 
 public class RouteEntry implements Entry{
@@ -66,6 +67,11 @@ public class RouteEntry implements Entry{
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // getter + setter
+
+    @JsonIgnore
+    public String getIdentifier(){
+        return this.name.get();
+    }
 
     public String getName() {
         return name.get();
