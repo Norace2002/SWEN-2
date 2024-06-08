@@ -181,7 +181,7 @@ public class MainViewController implements Initializable, Listener {
             }
 
             // turn route into json string
-            String json = viewModel.modelToJson(route);
+            String json = viewModel.routeModelToJson(route);
 
             // Store JSON as file
             try(FileOutputStream fos = new FileOutputStream(directory)){
@@ -219,7 +219,7 @@ public class MainViewController implements Initializable, Listener {
                 }
 
                 // Convert JSON string to RouteEntry object
-                RouteEntry route = viewModel.jsonToModel(json);
+                RouteEntry route = viewModel.routeJsonToModel(json);
 
                 // Add route accordingly to db and ViewModel
                 updateRouteList(route);

@@ -65,6 +65,29 @@ public class LogService extends BaseService implements BackendServiceInterface{
         return response.body();
     }
 
+    public String getEntriesPerRoute(String routeName) throws IOException, InterruptedException{
+        // get all existing log entries from current route entry
+        String url = "http://localhost:8080/log/all?route=" + URLEncoder.encode(routeName, StandardCharsets.UTF_8);
+
+        // Create an HttpClient
+        HttpClient client = HttpClient.newHttpClient();
+
+        // Create a request
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(url))
+                .GET()
+                .build();
+
+        // Send the request and get the response
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+        // Print the response
+        System.out.println("Response from server: " + response.body());
+
+        //Convert jackson into entry
+        return response.body();
+    }
+
     @Override
     public String addEntry(Entry entry)  throws IOException, InterruptedException{
         // create new Route Entry in backend
