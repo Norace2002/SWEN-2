@@ -9,12 +9,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.ResourceBundle;
@@ -35,6 +35,8 @@ public class MainViewController implements Initializable, Listener {
     private Pane hostPane;
     @FXML
     private ListView<String> routeEntries;
+    @FXML
+    private TextField searchTextField;
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Singleton implementation
@@ -59,6 +61,9 @@ public class MainViewController implements Initializable, Listener {
 
         // bind listview to observablelist
         routeEntries.setItems(viewModel.getRouteEntries());
+
+        // serachfield
+        searchTextField.textProperty().addListener((observable, oldText, newText) -> routeEntries.setItems(viewModel.filterRoutes(newText)));
 
     }
 

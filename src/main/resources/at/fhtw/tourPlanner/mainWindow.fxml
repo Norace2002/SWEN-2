@@ -60,7 +60,7 @@
             <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="NEVER">
                <children>
                   <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="79.0" text="Search" HBox.hgrow="ALWAYS" />
-                  <TextField prefHeight="25.0" prefWidth="521.0" promptText="Type Here" HBox.hgrow="ALWAYS" />
+                  <TextField prefHeight="25.0" prefWidth="521.0" promptText="Type Here" HBox.hgrow="ALWAYS" fx:id="searchTextField"/>
                </children>
             </HBox>
          </children>

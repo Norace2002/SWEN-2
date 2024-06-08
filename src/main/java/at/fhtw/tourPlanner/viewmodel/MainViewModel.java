@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -137,5 +138,44 @@ public class MainViewModel {
         // remove Entry via Entry name
         entryMap.remove(entryName);
         routeEntries.remove(entryName);
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // full text search feature
+
+    public ObservableList<String> filterRoutes(String query){
+        if(Objects.equals(query, "") || query == null){
+            return routeEntries;
+        }
+
+        ObservableList<String> filteredEntries = FXCollections.observableArrayList();
+        Map<String, RouteEntry> filteredEntryMap = new HashMap<>();
+
+        for(RouteEntry route : entryMap.values()){
+            if(matchingQuery(route, query)){
+                filteredEntryMap.put(route.getName(), route);
+                filteredEntries.add(route.getName());
+            }
+        }
+
+        return filteredEntries;
+    }
+
+    public boolean matchingQuery(RouteEntry entry, String query){
+        if(entry.getName().contains(query)){
+            return true;
+        }
+        else if(entry.getDescription().contains(query)){
+            return true;
+        }
+        else if(entry.getStart().contains(query)){
+            return true;
+        }
+        else if(entry.getDestination().contains(query)){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 }
