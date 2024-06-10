@@ -1,6 +1,7 @@
 package at.fhtw.tourPlanner.view;
 
 
+import at.fhtw.tourPlanner.Main;
 import at.fhtw.tourPlanner.backend.OpenrouteService;
 import at.fhtw.tourPlanner.backend.OsmService;
 import at.fhtw.tourPlanner.mediator.Listener;
@@ -27,11 +28,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+
+import java.io.FileWriter;
 import java.io.IOException;
 import javafx.scene.Node;
 import javafx.event.ActionEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import java.io.File;
 
 import java.net.URL;
 import java.util.List;
@@ -82,8 +86,10 @@ public class RouteWindowController implements Initializable{
         // get currently chosen entry
         entry = Mediator.getInstance().getCurrentRouteEntry();
 
-        // create tileMap
-        addImage(entry);
+        // ------------- create tileMap --------------
+        //addImage(entry);
+        generateWebViewImage(entry);
+        // -------------------------------------------
 
 
         // bind tableView to list
@@ -144,10 +150,6 @@ public class RouteWindowController implements Initializable{
             popupStage.initOwner((Stage)((Node)event.getSource()).getScene().getWindow());
             popupStage.initModality(Modality.WINDOW_MODAL);
 
-
-            //**************** Frage an Prof ob das so passt  *****************************
-            //popupStage.initStyle(StageStyle.UNDECORATED);
-
             Scene scene = new Scene(root);
             popupStage.setScene(scene);
 
@@ -171,10 +173,6 @@ public class RouteWindowController implements Initializable{
                 Stage popupStage = new Stage();
                 popupStage.initOwner((Stage)((Node)event.getSource()).getScene().getWindow());
                 popupStage.initModality(Modality.WINDOW_MODAL);
-
-
-                //**************** Frage an Prof ob das so passt  *****************************
-                //popupStage.initStyle(StageStyle.UNDECORATED);
 
                 Scene scene = new Scene(root);
                 popupStage.setScene(scene);
@@ -214,5 +212,38 @@ public class RouteWindowController implements Initializable{
 
         this.imgPane.getChildren().add(imageView);
         logger.info("Image Pain from route: " + entry.getName() + " is Ready to be displayed");
+    }
+
+
+    //---- Required for Webview ----
+
+    //Generates directions
+    private void generateWebViewImage(RouteEntry entry){
+        //Show Image in default browser
+        writeGeoJsonToFile(openrouteService.getDirections(entry));
+
+        //Main.showMapInDefaultBrowser();
+
+        //Reload Browser to show the updated directions.js
+        try {
+            // Pfad zur HTML-Datei, die die Karte anzeigt
+            String htmlFilePath = new File("src/main/resources/leaflet.html").toURI().toURL().toString();
+            java.awt.Desktop.getDesktop().browse(java.net.URI.create(htmlFilePath));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        logger.info("WebView from route: " + entry.getName() + " is Ready to be displayed");
+    }
+
+    //Write geoJson to directions.js
+    private void writeGeoJsonToFile(String geoJson){
+        try (FileWriter writer = new FileWriter("src/main/resources/directions.js")) {
+            writer.write("var directions = ");
+            writer.write(geoJson);
+            writer.write(";");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -91,3 +91,1614 @@
 } ] - Methode (GET/.../log/all/test1)
 2024-06-10 19:00:46.734 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteWindowController - load route Log creation window
 2024-06-10 19:00:49.226 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.CreateTourLogController - 'Create Tour Log' Window closed successfully
+2024-06-10 19:34:56.507 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.MainViewController - Added clickable property to routeEntries
+2024-06-10 19:34:57.047 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.backend.RouteService - Response from server: 200 - Methode (GET/.../route/all)
+2024-06-10 19:35:00.040 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.mediator.Mediator - currentRoute set
+2024-06-10 19:35:00.048 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteMenuController - load general window
+2024-06-10 19:35:00.076 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.GeneralWindowController - loading general information for route: PopularityTest
+2024-06-10 19:35:04.391 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.mediator.Mediator - currentRoute set
+2024-06-10 19:35:04.396 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteMenuController - load general window
+2024-06-10 19:35:04.411 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.GeneralWindowController - loading general information for route: nino_uni_tour
+2024-06-10 19:35:05.252 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteMenuController - load route window
+2024-06-10 19:35:05.298 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteWindowController - Added clickable property to logTable
+2024-06-10 19:35:06.553 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.view.RouteWindowController - Image Pain from route: nino_uni_tour is Ready to be displayed
+2024-06-10 19:35:06.569 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.backend.LogService - Response from server: [ {
+  "id" : 352,
+  "route" : "nino_uni_tour",
+  "date" : "2024-05-29",
+  "time" : "18:50:52",
+  "distance" : 2.0,
+  "duration" : 2.0,
+  "difficulty" : 2,
+  "rating" : 2,
+  "comment" : "Testnormal"
+}, {
+  "id" : 353,
+  "route" : "nino_uni_tour",
+  "date" : "2024-05-29",
+  "time" : "18:51:17",
+  "distance" : 2.0,
+  "duration" : 2.0,
+  "difficulty" : 5,
+  "rating" : 1,
+  "comment" : "TestOutOfBounds"
+}, {
+  "id" : 354,
+  "route" : "nino_uni_tour",
+  "date" : "2024-06-06",
+  "time" : "18:52:45",
+  "distance" : 2.0,
+  "duration" : 2.0,
+  "difficulty" : 3,
+  "rating" : 4,
+  "comment" : "defeffe"
+}, {
+  "id" : 355,
+  "route" : "nino_uni_tour",
+  "date" : "2024-06-10",
+  "time" : "18:59:08",
+  "distance" : 43.0,
+  "duration" : 34.0,
+  "difficulty" : 1,
+  "rating" : 5,
+  "comment" : "test"
+} ] - Methode (GET/.../log/all/nino_uni_tour)
+2024-06-10 22:07:50.311 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.MainViewController - Added clickable property to routeEntries
+2024-06-10 22:07:50.773 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.backend.RouteService - Response from server: 200 - Methode (GET/.../route/all)
+2024-06-10 22:07:54.280 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.mediator.Mediator - currentRoute set
+2024-06-10 22:07:54.335 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteMenuController - load general window
+2024-06-10 22:07:54.380 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.GeneralWindowController - loading general information for route: nino
+2024-06-10 22:07:55.984 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteMenuController - load route window
+2024-06-10 22:07:56.073 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteWindowController - Added clickable property to logTable
+2024-06-10 22:07:59.207 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.backend.OpenrouteService - Response from server: [ 16.377897, 48.235558, 16.379489, 48.238904 ]
+2024-06-10 22:08:00.234 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.view.RouteWindowController - Image Pain from route: nino is Ready to be displayed
+2024-06-10 22:08:00.349 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.backend.LogService - Response from server: [ ] - Methode (GET/.../log/all/nino)
+2024-06-10 22:08:49.552 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.MainViewController - Added clickable property to routeEntries
+2024-06-10 22:08:50.280 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.backend.RouteService - Response from server: 200 - Methode (GET/.../route/all)
+2024-06-10 22:08:56.182 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.mediator.Mediator - currentRoute set
+2024-06-10 22:08:56.192 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteMenuController - load general window
+2024-06-10 22:08:56.220 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.GeneralWindowController - loading general information for route: nino
+2024-06-10 22:08:57.813 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteMenuController - load route window
+2024-06-10 22:08:57.929 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteWindowController - Added clickable property to logTable
+2024-06-10 22:08:58.549 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.backend.OpenrouteService - Response from server: [ 16.377897, 48.235558, 16.379489, 48.238904 ]
+2024-06-10 22:09:01.930 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.view.RouteWindowController - Image Pain from route: nino is Ready to be displayed
+2024-06-10 22:09:01.955 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.backend.LogService - Response from server: [ ] - Methode (GET/.../log/all/nino)
+2024-06-10 22:20:42.995 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.MainViewController - Added clickable property to routeEntries
+2024-06-10 22:20:43.368 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.backend.RouteService - Response from server: 200 - Methode (GET/.../route/all)
+2024-06-10 22:20:45.296 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.mediator.Mediator - currentRoute set
+2024-06-10 22:20:45.307 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteMenuController - load general window
+2024-06-10 22:20:45.332 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.GeneralWindowController - loading general information for route: nino
+2024-06-10 22:20:46.185 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteMenuController - load route window
+2024-06-10 22:20:46.234 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteWindowController - Added clickable property to logTable
+2024-06-10 22:20:46.248 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.backend.LogService - Response from server: [ ] - Methode (GET/.../log/all/nino)
+2024-06-10 22:20:51.256 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.mediator.Mediator - currentRoute set
+2024-06-10 22:20:51.262 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteMenuController - load general window
+2024-06-10 22:20:51.278 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.GeneralWindowController - loading general information for route: nino_uni_tour
+2024-06-10 22:20:51.850 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteMenuController - load route window
+2024-06-10 22:20:51.870 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteWindowController - Added clickable property to logTable
+2024-06-10 22:20:51.890 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.backend.LogService - Response from server: [ {
+  "id" : 352,
+  "route" : "nino_uni_tour",
+  "date" : "2024-05-29",
+  "time" : "18:50:52",
+  "distance" : 2.0,
+  "duration" : 2.0,
+  "difficulty" : 2,
+  "rating" : 2,
+  "comment" : "Testnormal"
+}, {
+  "id" : 353,
+  "route" : "nino_uni_tour",
+  "date" : "2024-05-29",
+  "time" : "18:51:17",
+  "distance" : 2.0,
+  "duration" : 2.0,
+  "difficulty" : 5,
+  "rating" : 1,
+  "comment" : "TestOutOfBounds"
+}, {
+  "id" : 354,
+  "route" : "nino_uni_tour",
+  "date" : "2024-06-06",
+  "time" : "18:52:45",
+  "distance" : 2.0,
+  "duration" : 2.0,
+  "difficulty" : 3,
+  "rating" : 4,
+  "comment" : "defeffe"
+}, {
+  "id" : 355,
+  "route" : "nino_uni_tour",
+  "date" : "2024-06-10",
+  "time" : "18:59:08",
+  "distance" : 43.0,
+  "duration" : 34.0,
+  "difficulty" : 1,
+  "rating" : 5,
+  "comment" : "test"
+} ] - Methode (GET/.../log/all/nino_uni_tour)
+2024-06-10 22:42:09.058 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.MainViewController - Added clickable property to routeEntries
+2024-06-10 22:42:09.523 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.backend.RouteService - Response from server: 200 - Methode (GET/.../route/all)
+2024-06-10 22:42:17.586 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.mediator.Mediator - currentRoute set
+2024-06-10 22:42:17.594 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteMenuController - load general window
+2024-06-10 22:42:17.625 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.GeneralWindowController - loading general information for route: nino
+2024-06-10 22:42:18.873 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteMenuController - load route window
+2024-06-10 22:42:18.940 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteWindowController - Added clickable property to logTable
+2024-06-10 22:42:19.415 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.backend.OpenrouteService - Response from server: {
+  "type" : "FeatureCollection",
+  "bbox" : [ 16.377897, 48.235558, 16.379489, 48.238904 ],
+  "features" : [ {
+    "bbox" : [ 16.377897, 48.235558, 16.379489, 48.238904 ],
+    "type" : "Feature",
+    "properties" : {
+      "segments" : [ {
+        "distance" : 812.6,
+        "duration" : 142.9,
+        "steps" : [ {
+          "distance" : 276.0,
+          "duration" : 49.7,
+          "type" : 11,
+          "instruction" : "Head southeast",
+          "name" : "-",
+          "way_points" : [ 0, 5 ]
+        }, {
+          "distance" : 78.4,
+          "duration" : 18.8,
+          "type" : 1,
+          "instruction" : "Turn right",
+          "name" : "-",
+          "way_points" : [ 5, 7 ]
+        }, {
+          "distance" : 46.4,
+          "duration" : 11.1,
+          "type" : 1,
+          "instruction" : "Turn right onto Winarskystraße",
+          "name" : "Winarskystraße",
+          "way_points" : [ 7, 12 ]
+        }, {
+          "distance" : 164.4,
+          "duration" : 14.8,
+          "type" : 0,
+          "instruction" : "Turn left onto Dresdner Straße",
+          "name" : "Dresdner Straße",
+          "way_points" : [ 12, 15 ]
+        }, {
+          "distance" : 133.7,
+          "duration" : 21.2,
+          "type" : 1,
+          "instruction" : "Turn right onto Hellwagstraße",
+          "name" : "Hellwagstraße",
+          "way_points" : [ 15, 19 ]
+        }, {
+          "distance" : 113.8,
+          "duration" : 27.3,
+          "type" : 2,
+          "instruction" : "Turn sharp left onto Universumstraße",
+          "name" : "Universumstraße",
+          "way_points" : [ 19, 21 ]
+        }, {
+          "distance" : 0.0,
+          "duration" : 0.0,
+          "type" : 10,
+          "instruction" : "Arrive at Universumstraße, straight ahead",
+          "name" : "-",
+          "way_points" : [ 21, 21 ]
+        } ]
+      } ],
+      "summary" : {
+        "distance" : 812.6,
+        "duration" : 142.9
+      },
+      "way_points" : [ 0, 21 ]
+    },
+    "geometry" : {
+      "coordinates" : [ [ 16.378109, 48.238885 ], [ 16.378926, 48.238171 ], [ 16.379105, 48.238014 ], [ 16.37894, 48.23793 ], [ 16.377897, 48.238842 ], [ 16.378022, 48.238904 ], [ 16.378406, 48.238563 ], [ 16.378667, 48.238345 ], [ 16.378606, 48.238316 ], [ 16.378553, 48.238292 ], [ 16.378385, 48.238205 ], [ 16.378272, 48.238147 ], [ 16.378167, 48.238093 ], [ 16.378695, 48.237624 ], [ 16.378893, 48.237416 ], [ 16.379489, 48.236907 ], [ 16.379426, 48.236863 ], [ 16.37892, 48.236619 ], [ 16.378661, 48.236543 ], [ 16.377999, 48.236236 ], [ 16.378088, 48.236189 ], [ 16.379149, 48.235558 ] ],
+      "type" : "LineString"
+    }
+  } ],
+  "metadata" : {
+    "attribution" : "openrouteservice.org | OpenStreetMap contributors",
+    "service" : "routing",
+    "timestamp" : 1718052139385,
+    "query" : {
+      "coordinates" : [ [ 16.378317, 48.23899 ], [ 16.37915, 48.235558 ] ],
+      "profile" : "driving-car",
+      "format" : "json"
+    },
+    "engine" : {
+      "version" : "8.1.0",
+      "build_date" : "2024-06-05T10:07:23Z",
+      "graph_date" : "2024-06-05T21:56:03Z"
+    }
+  }
+}
+2024-06-10 22:42:19.439 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.view.RouteWindowController - WebView from route: nino is Ready to be displayed
+2024-06-10 22:42:19.464 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.backend.LogService - Response from server: [ ] - Methode (GET/.../log/all/nino)
+2024-06-10 22:53:50.748 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.MainViewController - Added clickable property to routeEntries
+2024-06-10 22:53:51.321 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.backend.RouteService - Response from server: 200 - Methode (GET/.../route/all)
+2024-06-10 22:53:53.387 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.mediator.Mediator - currentRoute set
+2024-06-10 22:53:53.395 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteMenuController - load general window
+2024-06-10 22:53:53.415 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.GeneralWindowController - loading general information for route: nino
+2024-06-10 22:53:54.642 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteMenuController - load route window
+2024-06-10 22:53:54.676 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteWindowController - Added clickable property to logTable
+2024-06-10 22:53:55.383 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.backend.OpenrouteService - Response from server: {
+  "type" : "FeatureCollection",
+  "bbox" : [ 16.377897, 48.235558, 16.379489, 48.238904 ],
+  "features" : [ {
+    "bbox" : [ 16.377897, 48.235558, 16.379489, 48.238904 ],
+    "type" : "Feature",
+    "properties" : {
+      "segments" : [ {
+        "distance" : 812.6,
+        "duration" : 142.9,
+        "steps" : [ {
+          "distance" : 276.0,
+          "duration" : 49.7,
+          "type" : 11,
+          "instruction" : "Head southeast",
+          "name" : "-",
+          "way_points" : [ 0, 5 ]
+        }, {
+          "distance" : 78.4,
+          "duration" : 18.8,
+          "type" : 1,
+          "instruction" : "Turn right",
+          "name" : "-",
+          "way_points" : [ 5, 7 ]
+        }, {
+          "distance" : 46.4,
+          "duration" : 11.1,
+          "type" : 1,
+          "instruction" : "Turn right onto Winarskystraße",
+          "name" : "Winarskystraße",
+          "way_points" : [ 7, 12 ]
+        }, {
+          "distance" : 164.4,
+          "duration" : 14.8,
+          "type" : 0,
+          "instruction" : "Turn left onto Dresdner Straße",
+          "name" : "Dresdner Straße",
+          "way_points" : [ 12, 15 ]
+        }, {
+          "distance" : 133.7,
+          "duration" : 21.2,
+          "type" : 1,
+          "instruction" : "Turn right onto Hellwagstraße",
+          "name" : "Hellwagstraße",
+          "way_points" : [ 15, 19 ]
+        }, {
+          "distance" : 113.8,
+          "duration" : 27.3,
+          "type" : 2,
+          "instruction" : "Turn sharp left onto Universumstraße",
+          "name" : "Universumstraße",
+          "way_points" : [ 19, 21 ]
+        }, {
+          "distance" : 0.0,
+          "duration" : 0.0,
+          "type" : 10,
+          "instruction" : "Arrive at Universumstraße, straight ahead",
+          "name" : "-",
+          "way_points" : [ 21, 21 ]
+        } ]
+      } ],
+      "summary" : {
+        "distance" : 812.6,
+        "duration" : 142.9
+      },
+      "way_points" : [ 0, 21 ]
+    },
+    "geometry" : {
+      "coordinates" : [ [ 16.378109, 48.238885 ], [ 16.378926, 48.238171 ], [ 16.379105, 48.238014 ], [ 16.37894, 48.23793 ], [ 16.377897, 48.238842 ], [ 16.378022, 48.238904 ], [ 16.378406, 48.238563 ], [ 16.378667, 48.238345 ], [ 16.378606, 48.238316 ], [ 16.378553, 48.238292 ], [ 16.378385, 48.238205 ], [ 16.378272, 48.238147 ], [ 16.378167, 48.238093 ], [ 16.378695, 48.237624 ], [ 16.378893, 48.237416 ], [ 16.379489, 48.236907 ], [ 16.379426, 48.236863 ], [ 16.37892, 48.236619 ], [ 16.378661, 48.236543 ], [ 16.377999, 48.236236 ], [ 16.378088, 48.236189 ], [ 16.379149, 48.235558 ] ],
+      "type" : "LineString"
+    }
+  } ],
+  "metadata" : {
+    "attribution" : "openrouteservice.org | OpenStreetMap contributors",
+    "service" : "routing",
+    "timestamp" : 1718052835329,
+    "query" : {
+      "coordinates" : [ [ 16.378317, 48.23899 ], [ 16.37915, 48.235558 ] ],
+      "profile" : "driving-car",
+      "format" : "json"
+    },
+    "engine" : {
+      "version" : "8.1.0",
+      "build_date" : "2024-06-05T10:07:23Z",
+      "graph_date" : "2024-06-05T21:56:03Z"
+    }
+  }
+}
+2024-06-10 22:53:55.398 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.view.RouteWindowController - WebView from route: nino is Ready to be displayed
+2024-06-10 22:53:55.416 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.backend.LogService - Response from server: [ ] - Methode (GET/.../log/all/nino)
+2024-06-10 22:54:41.385 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.mediator.Mediator - currentRoute set
+2024-06-10 22:54:41.391 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteMenuController - load general window
+2024-06-10 22:54:41.407 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.GeneralWindowController - loading general information for route: nino_uni_tour
+2024-06-10 22:54:42.622 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.mediator.Mediator - currentRoute set
+2024-06-10 22:54:42.628 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteMenuController - load general window
+2024-06-10 22:54:42.645 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.GeneralWindowController - loading general information for route: json_import_test
+2024-06-10 22:54:44.346 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteMenuController - load route window
+2024-06-10 22:54:44.362 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteWindowController - Added clickable property to logTable
+2024-06-10 22:54:44.625 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.backend.OpenrouteService - Response from server: {
+  "type" : "FeatureCollection",
+  "bbox" : [ 16.4395, 48.265967, 16.445019, 48.268802 ],
+  "features" : [ {
+    "bbox" : [ 16.4395, 48.265967, 16.445019, 48.268802 ],
+    "type" : "Feature",
+    "properties" : {
+      "segments" : [ {
+        "distance" : 771.2,
+        "duration" : 122.9,
+        "steps" : [ {
+          "distance" : 231.6,
+          "duration" : 55.6,
+          "type" : 11,
+          "instruction" : "Head south on Jerusalemgasse",
+          "name" : "Jerusalemgasse",
+          "way_points" : [ 0, 2 ]
+        }, {
+          "distance" : 65.5,
+          "duration" : 15.7,
+          "type" : 1,
+          "instruction" : "Turn right onto St.-Michael-Gasse",
+          "name" : "St.-Michael-Gasse",
+          "way_points" : [ 2, 3 ]
+        }, {
+          "distance" : 76.0,
+          "duration" : 10.9,
+          "type" : 0,
+          "instruction" : "Turn left onto Großfeldstraße",
+          "name" : "Großfeldstraße",
+          "way_points" : [ 3, 7 ]
+        }, {
+          "distance" : 398.1,
+          "duration" : 40.7,
+          "type" : 0,
+          "instruction" : "Turn left onto Julius-Ficker-Straße, B229",
+          "name" : "Julius-Ficker-Straße, B229",
+          "way_points" : [ 7, 15 ]
+        }, {
+          "distance" : 0.0,
+          "duration" : 0.0,
+          "type" : 10,
+          "instruction" : "Arrive at Julius-Ficker-Straße, B229, straight ahead",
+          "name" : "-",
+          "way_points" : [ 15, 15 ]
+        } ]
+      } ],
+      "summary" : {
+        "distance" : 771.2,
+        "duration" : 122.9
+      },
+      "way_points" : [ 0, 15 ]
+    },
+    "geometry" : {
+      "coordinates" : [ [ 16.440822, 48.268802 ], [ 16.440812, 48.268755 ], [ 16.440371, 48.266741 ], [ 16.4395, 48.266641 ], [ 16.439517, 48.266577 ], [ 16.439544, 48.266469 ], [ 16.439655, 48.266061 ], [ 16.43968, 48.265967 ], [ 16.440389, 48.266066 ], [ 16.440837, 48.266132 ], [ 16.441907, 48.266222 ], [ 16.442821, 48.266254 ], [ 16.443786, 48.266251 ], [ 16.444093, 48.266231 ], [ 16.444366, 48.266213 ], [ 16.445019, 48.266224 ] ],
+      "type" : "LineString"
+    }
+  } ],
+  "metadata" : {
+    "attribution" : "openrouteservice.org | OpenStreetMap contributors",
+    "service" : "routing",
+    "timestamp" : 1718052884617,
+    "query" : {
+      "coordinates" : [ [ 16.440512, 48.26883 ], [ 16.445019, 48.266224 ] ],
+      "profile" : "driving-car",
+      "format" : "json"
+    },
+    "engine" : {
+      "version" : "8.1.0",
+      "build_date" : "2024-06-05T10:07:23Z",
+      "graph_date" : "2024-06-05T21:56:03Z"
+    }
+  }
+}
+2024-06-10 22:54:44.629 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.view.RouteWindowController - WebView from route: json_import_test is Ready to be displayed
+2024-06-10 22:54:44.642 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.backend.LogService - Response from server: [ ] - Methode (GET/.../log/all/json_import_test)
+2024-06-10 22:55:07.043 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.mediator.Mediator - currentRoute set
+2024-06-10 22:55:07.049 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteMenuController - load general window
+2024-06-10 22:55:07.069 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.GeneralWindowController - loading general information for route: test1
+2024-06-10 22:55:07.541 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.mediator.Mediator - currentRoute set
+2024-06-10 22:55:07.546 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteMenuController - load general window
+2024-06-10 22:55:07.560 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.GeneralWindowController - loading general information for route: json_import_test
+2024-06-10 22:55:08.704 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteMenuController - load route window
+2024-06-10 22:55:08.715 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteWindowController - Added clickable property to logTable
+2024-06-10 22:55:08.860 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.backend.OpenrouteService - Response from server: {
+  "type" : "FeatureCollection",
+  "bbox" : [ 16.4395, 48.265967, 16.445019, 48.268802 ],
+  "features" : [ {
+    "bbox" : [ 16.4395, 48.265967, 16.445019, 48.268802 ],
+    "type" : "Feature",
+    "properties" : {
+      "segments" : [ {
+        "distance" : 771.2,
+        "duration" : 122.9,
+        "steps" : [ {
+          "distance" : 231.6,
+          "duration" : 55.6,
+          "type" : 11,
+          "instruction" : "Head south on Jerusalemgasse",
+          "name" : "Jerusalemgasse",
+          "way_points" : [ 0, 2 ]
+        }, {
+          "distance" : 65.5,
+          "duration" : 15.7,
+          "type" : 1,
+          "instruction" : "Turn right onto St.-Michael-Gasse",
+          "name" : "St.-Michael-Gasse",
+          "way_points" : [ 2, 3 ]
+        }, {
+          "distance" : 76.0,
+          "duration" : 10.9,
+          "type" : 0,
+          "instruction" : "Turn left onto Großfeldstraße",
+          "name" : "Großfeldstraße",
+          "way_points" : [ 3, 7 ]
+        }, {
+          "distance" : 398.1,
+          "duration" : 40.7,
+          "type" : 0,
+          "instruction" : "Turn left onto Julius-Ficker-Straße, B229",
+          "name" : "Julius-Ficker-Straße, B229",
+          "way_points" : [ 7, 15 ]
+        }, {
+          "distance" : 0.0,
+          "duration" : 0.0,
+          "type" : 10,
+          "instruction" : "Arrive at Julius-Ficker-Straße, B229, straight ahead",
+          "name" : "-",
+          "way_points" : [ 15, 15 ]
+        } ]
+      } ],
+      "summary" : {
+        "distance" : 771.2,
+        "duration" : 122.9
+      },
+      "way_points" : [ 0, 15 ]
+    },
+    "geometry" : {
+      "coordinates" : [ [ 16.440822, 48.268802 ], [ 16.440812, 48.268755 ], [ 16.440371, 48.266741 ], [ 16.4395, 48.266641 ], [ 16.439517, 48.266577 ], [ 16.439544, 48.266469 ], [ 16.439655, 48.266061 ], [ 16.43968, 48.265967 ], [ 16.440389, 48.266066 ], [ 16.440837, 48.266132 ], [ 16.441907, 48.266222 ], [ 16.442821, 48.266254 ], [ 16.443786, 48.266251 ], [ 16.444093, 48.266231 ], [ 16.444366, 48.266213 ], [ 16.445019, 48.266224 ] ],
+      "type" : "LineString"
+    }
+  } ],
+  "metadata" : {
+    "attribution" : "openrouteservice.org | OpenStreetMap contributors",
+    "service" : "routing",
+    "timestamp" : 1718052908851,
+    "query" : {
+      "coordinates" : [ [ 16.440512, 48.26883 ], [ 16.445019, 48.266224 ] ],
+      "profile" : "driving-car",
+      "format" : "json"
+    },
+    "engine" : {
+      "version" : "8.1.0",
+      "build_date" : "2024-06-05T10:07:23Z",
+      "graph_date" : "2024-06-05T21:56:03Z"
+    }
+  }
+}
+2024-06-10 22:55:08.868 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.view.RouteWindowController - WebView from route: json_import_test is Ready to be displayed
+2024-06-10 22:55:08.881 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.backend.LogService - Response from server: [ ] - Methode (GET/.../log/all/json_import_test)
+2024-06-10 22:57:05.595 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.mediator.Mediator - currentRoute set
+2024-06-10 22:57:05.604 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteMenuController - load general window
+2024-06-10 22:57:05.618 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.GeneralWindowController - loading general information for route: test1
+2024-06-10 22:57:07.006 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.mediator.Mediator - currentRoute set
+2024-06-10 22:57:07.011 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteMenuController - load general window
+2024-06-10 22:57:07.021 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.GeneralWindowController - loading general information for route: nino_uni_tour
+2024-06-10 22:57:08.167 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteMenuController - load route window
+2024-06-10 22:57:08.175 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteWindowController - Added clickable property to logTable
+2024-06-10 22:57:08.502 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.backend.OpenrouteService - Response from server: {
+  "type" : "FeatureCollection",
+  "bbox" : [ 16.377897, 48.235558, 16.379489, 48.238904 ],
+  "features" : [ {
+    "bbox" : [ 16.377897, 48.235558, 16.379489, 48.238904 ],
+    "type" : "Feature",
+    "properties" : {
+      "segments" : [ {
+        "distance" : 812.6,
+        "duration" : 142.9,
+        "steps" : [ {
+          "distance" : 276.0,
+          "duration" : 49.7,
+          "type" : 11,
+          "instruction" : "Head southeast",
+          "name" : "-",
+          "way_points" : [ 0, 5 ]
+        }, {
+          "distance" : 78.4,
+          "duration" : 18.8,
+          "type" : 1,
+          "instruction" : "Turn right",
+          "name" : "-",
+          "way_points" : [ 5, 7 ]
+        }, {
+          "distance" : 46.4,
+          "duration" : 11.1,
+          "type" : 1,
+          "instruction" : "Turn right onto Winarskystraße",
+          "name" : "Winarskystraße",
+          "way_points" : [ 7, 12 ]
+        }, {
+          "distance" : 164.4,
+          "duration" : 14.8,
+          "type" : 0,
+          "instruction" : "Turn left onto Dresdner Straße",
+          "name" : "Dresdner Straße",
+          "way_points" : [ 12, 15 ]
+        }, {
+          "distance" : 133.7,
+          "duration" : 21.2,
+          "type" : 1,
+          "instruction" : "Turn right onto Hellwagstraße",
+          "name" : "Hellwagstraße",
+          "way_points" : [ 15, 19 ]
+        }, {
+          "distance" : 113.8,
+          "duration" : 27.3,
+          "type" : 2,
+          "instruction" : "Turn sharp left onto Universumstraße",
+          "name" : "Universumstraße",
+          "way_points" : [ 19, 21 ]
+        }, {
+          "distance" : 0.0,
+          "duration" : 0.0,
+          "type" : 10,
+          "instruction" : "Arrive at Universumstraße, straight ahead",
+          "name" : "-",
+          "way_points" : [ 21, 21 ]
+        } ]
+      } ],
+      "summary" : {
+        "distance" : 812.6,
+        "duration" : 142.9
+      },
+      "way_points" : [ 0, 21 ]
+    },
+    "geometry" : {
+      "coordinates" : [ [ 16.378109, 48.238885 ], [ 16.378926, 48.238171 ], [ 16.379105, 48.238014 ], [ 16.37894, 48.23793 ], [ 16.377897, 48.238842 ], [ 16.378022, 48.238904 ], [ 16.378406, 48.238563 ], [ 16.378667, 48.238345 ], [ 16.378606, 48.238316 ], [ 16.378553, 48.238292 ], [ 16.378385, 48.238205 ], [ 16.378272, 48.238147 ], [ 16.378167, 48.238093 ], [ 16.378695, 48.237624 ], [ 16.378893, 48.237416 ], [ 16.379489, 48.236907 ], [ 16.379426, 48.236863 ], [ 16.37892, 48.236619 ], [ 16.378661, 48.236543 ], [ 16.377999, 48.236236 ], [ 16.378088, 48.236189 ], [ 16.379149, 48.235558 ] ],
+      "type" : "LineString"
+    }
+  } ],
+  "metadata" : {
+    "attribution" : "openrouteservice.org | OpenStreetMap contributors",
+    "service" : "routing",
+    "timestamp" : 1718053028471,
+    "query" : {
+      "coordinates" : [ [ 16.378317, 48.23899 ], [ 16.37915, 48.235558 ] ],
+      "profile" : "driving-car",
+      "format" : "json"
+    },
+    "engine" : {
+      "version" : "8.1.0",
+      "build_date" : "2024-06-05T10:07:23Z",
+      "graph_date" : "2024-06-05T21:56:03Z"
+    }
+  }
+}
+2024-06-10 22:57:08.511 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.view.RouteWindowController - WebView from route: nino_uni_tour is Ready to be displayed
+2024-06-10 22:57:08.538 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.backend.LogService - Response from server: [ {
+  "id" : 352,
+  "route" : "nino_uni_tour",
+  "date" : "2024-05-29",
+  "time" : "18:50:52",
+  "distance" : 2.0,
+  "duration" : 2.0,
+  "difficulty" : 2,
+  "rating" : 2,
+  "comment" : "Testnormal"
+}, {
+  "id" : 353,
+  "route" : "nino_uni_tour",
+  "date" : "2024-05-29",
+  "time" : "18:51:17",
+  "distance" : 2.0,
+  "duration" : 2.0,
+  "difficulty" : 5,
+  "rating" : 1,
+  "comment" : "TestOutOfBounds"
+}, {
+  "id" : 354,
+  "route" : "nino_uni_tour",
+  "date" : "2024-06-06",
+  "time" : "18:52:45",
+  "distance" : 2.0,
+  "duration" : 2.0,
+  "difficulty" : 3,
+  "rating" : 4,
+  "comment" : "defeffe"
+}, {
+  "id" : 355,
+  "route" : "nino_uni_tour",
+  "date" : "2024-06-10",
+  "time" : "18:59:08",
+  "distance" : 43.0,
+  "duration" : 34.0,
+  "difficulty" : 1,
+  "rating" : 5,
+  "comment" : "test"
+} ] - Methode (GET/.../log/all/nino_uni_tour)
+2024-06-10 22:57:50.620 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.mediator.Mediator - currentRoute set
+2024-06-10 22:57:50.624 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteMenuController - load general window
+2024-06-10 22:57:50.633 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.GeneralWindowController - loading general information for route: json_import_test
+2024-06-10 22:57:51.613 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteMenuController - load route window
+2024-06-10 22:57:51.622 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteWindowController - Added clickable property to logTable
+2024-06-10 22:57:52.083 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.backend.OpenrouteService - Response from server: {
+  "type" : "FeatureCollection",
+  "bbox" : [ 16.4395, 48.265967, 16.445019, 48.268802 ],
+  "features" : [ {
+    "bbox" : [ 16.4395, 48.265967, 16.445019, 48.268802 ],
+    "type" : "Feature",
+    "properties" : {
+      "segments" : [ {
+        "distance" : 771.2,
+        "duration" : 122.9,
+        "steps" : [ {
+          "distance" : 231.6,
+          "duration" : 55.6,
+          "type" : 11,
+          "instruction" : "Head south on Jerusalemgasse",
+          "name" : "Jerusalemgasse",
+          "way_points" : [ 0, 2 ]
+        }, {
+          "distance" : 65.5,
+          "duration" : 15.7,
+          "type" : 1,
+          "instruction" : "Turn right onto St.-Michael-Gasse",
+          "name" : "St.-Michael-Gasse",
+          "way_points" : [ 2, 3 ]
+        }, {
+          "distance" : 76.0,
+          "duration" : 10.9,
+          "type" : 0,
+          "instruction" : "Turn left onto Großfeldstraße",
+          "name" : "Großfeldstraße",
+          "way_points" : [ 3, 7 ]
+        }, {
+          "distance" : 398.1,
+          "duration" : 40.7,
+          "type" : 0,
+          "instruction" : "Turn left onto Julius-Ficker-Straße, B229",
+          "name" : "Julius-Ficker-Straße, B229",
+          "way_points" : [ 7, 15 ]
+        }, {
+          "distance" : 0.0,
+          "duration" : 0.0,
+          "type" : 10,
+          "instruction" : "Arrive at Julius-Ficker-Straße, B229, straight ahead",
+          "name" : "-",
+          "way_points" : [ 15, 15 ]
+        } ]
+      } ],
+      "summary" : {
+        "distance" : 771.2,
+        "duration" : 122.9
+      },
+      "way_points" : [ 0, 15 ]
+    },
+    "geometry" : {
+      "coordinates" : [ [ 16.440822, 48.268802 ], [ 16.440812, 48.268755 ], [ 16.440371, 48.266741 ], [ 16.4395, 48.266641 ], [ 16.439517, 48.266577 ], [ 16.439544, 48.266469 ], [ 16.439655, 48.266061 ], [ 16.43968, 48.265967 ], [ 16.440389, 48.266066 ], [ 16.440837, 48.266132 ], [ 16.441907, 48.266222 ], [ 16.442821, 48.266254 ], [ 16.443786, 48.266251 ], [ 16.444093, 48.266231 ], [ 16.444366, 48.266213 ], [ 16.445019, 48.266224 ] ],
+      "type" : "LineString"
+    }
+  } ],
+  "metadata" : {
+    "attribution" : "openrouteservice.org | OpenStreetMap contributors",
+    "service" : "routing",
+    "timestamp" : 1718053072026,
+    "query" : {
+      "coordinates" : [ [ 16.440512, 48.26883 ], [ 16.445019, 48.266224 ] ],
+      "profile" : "driving-car",
+      "format" : "json"
+    },
+    "engine" : {
+      "version" : "8.1.0",
+      "build_date" : "2024-06-05T10:07:23Z",
+      "graph_date" : "2024-06-05T21:56:03Z"
+    }
+  }
+}
+2024-06-10 22:57:52.093 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.view.RouteWindowController - WebView from route: json_import_test is Ready to be displayed
+2024-06-10 22:57:52.119 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.backend.LogService - Response from server: [ ] - Methode (GET/.../log/all/json_import_test)
+2024-06-10 22:59:58.952 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.MainViewController - Added clickable property to routeEntries
+2024-06-10 22:59:59.364 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.backend.RouteService - Response from server: 200 - Methode (GET/.../route/all)
+2024-06-10 23:00:01.671 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.mediator.Mediator - currentRoute set
+2024-06-10 23:00:01.680 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteMenuController - load general window
+2024-06-10 23:00:01.711 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.GeneralWindowController - loading general information for route: nino_uni_tour
+2024-06-10 23:00:02.612 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteMenuController - load route window
+2024-06-10 23:00:02.653 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteWindowController - Added clickable property to logTable
+2024-06-10 23:00:03.019 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.backend.OpenrouteService - Response from server: {
+  "type" : "FeatureCollection",
+  "bbox" : [ 16.377897, 48.235557, 16.379489, 48.238904 ],
+  "features" : [ {
+    "bbox" : [ 16.377897, 48.235557, 16.379489, 48.238904 ],
+    "type" : "Feature",
+    "properties" : {
+      "segments" : [ {
+        "distance" : 812.8,
+        "duration" : 142.9,
+        "steps" : [ {
+          "distance" : 276.0,
+          "duration" : 49.7,
+          "type" : 11,
+          "instruction" : "Head southeast",
+          "name" : "-",
+          "way_points" : [ 0, 5 ]
+        }, {
+          "distance" : 78.4,
+          "duration" : 18.8,
+          "type" : 1,
+          "instruction" : "Turn right",
+          "name" : "-",
+          "way_points" : [ 5, 7 ]
+        }, {
+          "distance" : 46.4,
+          "duration" : 11.1,
+          "type" : 1,
+          "instruction" : "Turn right onto Winarskystraße",
+          "name" : "Winarskystraße",
+          "way_points" : [ 7, 12 ]
+        }, {
+          "distance" : 164.4,
+          "duration" : 14.8,
+          "type" : 0,
+          "instruction" : "Turn left onto Dresdner Straße",
+          "name" : "Dresdner Straße",
+          "way_points" : [ 12, 15 ]
+        }, {
+          "distance" : 133.7,
+          "duration" : 21.2,
+          "type" : 1,
+          "instruction" : "Turn right onto Hellwagstraße",
+          "name" : "Hellwagstraße",
+          "way_points" : [ 15, 19 ]
+        }, {
+          "distance" : 113.9,
+          "duration" : 27.3,
+          "type" : 2,
+          "instruction" : "Turn sharp left onto Universumstraße",
+          "name" : "Universumstraße",
+          "way_points" : [ 19, 21 ]
+        }, {
+          "distance" : 0.0,
+          "duration" : 0.0,
+          "type" : 10,
+          "instruction" : "Arrive at Universumstraße, straight ahead",
+          "name" : "-",
+          "way_points" : [ 21, 21 ]
+        } ]
+      } ],
+      "summary" : {
+        "distance" : 812.8,
+        "duration" : 142.9
+      },
+      "way_points" : [ 0, 21 ]
+    },
+    "geometry" : {
+      "coordinates" : [ [ 16.378109, 48.238885 ], [ 16.378926, 48.238171 ], [ 16.379105, 48.238014 ], [ 16.37894, 48.23793 ], [ 16.377897, 48.238842 ], [ 16.378022, 48.238904 ], [ 16.378406, 48.238563 ], [ 16.378667, 48.238345 ], [ 16.378606, 48.238316 ], [ 16.378553, 48.238292 ], [ 16.378385, 48.238205 ], [ 16.378272, 48.238147 ], [ 16.378167, 48.238093 ], [ 16.378695, 48.237624 ], [ 16.378893, 48.237416 ], [ 16.379489, 48.236907 ], [ 16.379426, 48.236863 ], [ 16.37892, 48.236619 ], [ 16.378661, 48.236543 ], [ 16.377999, 48.236236 ], [ 16.378088, 48.236189 ], [ 16.37915, 48.235557 ] ],
+      "type" : "LineString"
+    }
+  } ],
+  "metadata" : {
+    "attribution" : "openrouteservice.org | OpenStreetMap contributors",
+    "service" : "routing",
+    "timestamp" : 1718053202997,
+    "query" : {
+      "coordinates" : [ [ 16.37831687927246, 48.238990783691406 ], [ 16.379150390625, 48.235557556152344 ] ],
+      "profile" : "driving-car",
+      "format" : "json"
+    },
+    "engine" : {
+      "version" : "8.1.0",
+      "build_date" : "2024-06-05T10:07:23Z",
+      "graph_date" : "2024-06-05T21:56:03Z"
+    }
+  }
+}
+2024-06-10 23:00:03.048 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.view.RouteWindowController - WebView from route: nino_uni_tour is Ready to be displayed
+2024-06-10 23:00:03.083 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.backend.LogService - Response from server: [ {
+  "id" : 352,
+  "route" : "nino_uni_tour",
+  "date" : "2024-05-29",
+  "time" : "18:50:52",
+  "distance" : 2.0,
+  "duration" : 2.0,
+  "difficulty" : 2,
+  "rating" : 2,
+  "comment" : "Testnormal"
+}, {
+  "id" : 353,
+  "route" : "nino_uni_tour",
+  "date" : "2024-05-29",
+  "time" : "18:51:17",
+  "distance" : 2.0,
+  "duration" : 2.0,
+  "difficulty" : 5,
+  "rating" : 1,
+  "comment" : "TestOutOfBounds"
+}, {
+  "id" : 354,
+  "route" : "nino_uni_tour",
+  "date" : "2024-06-06",
+  "time" : "18:52:45",
+  "distance" : 2.0,
+  "duration" : 2.0,
+  "difficulty" : 3,
+  "rating" : 4,
+  "comment" : "defeffe"
+}, {
+  "id" : 355,
+  "route" : "nino_uni_tour",
+  "date" : "2024-06-10",
+  "time" : "18:59:08",
+  "distance" : 43.0,
+  "duration" : 34.0,
+  "difficulty" : 1,
+  "rating" : 5,
+  "comment" : "test"
+} ] - Methode (GET/.../log/all/nino_uni_tour)
+2024-06-10 23:00:15.973 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.mediator.Mediator - currentRoute set
+2024-06-10 23:00:15.982 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteMenuController - load general window
+2024-06-10 23:00:16.005 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.GeneralWindowController - loading general information for route: nino
+2024-06-10 23:00:16.943 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteMenuController - load route window
+2024-06-10 23:00:16.956 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteWindowController - Added clickable property to logTable
+2024-06-10 23:00:17.051 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.backend.OpenrouteService - Response from server: {
+  "type" : "FeatureCollection",
+  "bbox" : [ 16.377897, 48.235557, 16.379489, 48.238904 ],
+  "features" : [ {
+    "bbox" : [ 16.377897, 48.235557, 16.379489, 48.238904 ],
+    "type" : "Feature",
+    "properties" : {
+      "segments" : [ {
+        "distance" : 812.8,
+        "duration" : 142.9,
+        "steps" : [ {
+          "distance" : 276.0,
+          "duration" : 49.7,
+          "type" : 11,
+          "instruction" : "Head southeast",
+          "name" : "-",
+          "way_points" : [ 0, 5 ]
+        }, {
+          "distance" : 78.4,
+          "duration" : 18.8,
+          "type" : 1,
+          "instruction" : "Turn right",
+          "name" : "-",
+          "way_points" : [ 5, 7 ]
+        }, {
+          "distance" : 46.4,
+          "duration" : 11.1,
+          "type" : 1,
+          "instruction" : "Turn right onto Winarskystraße",
+          "name" : "Winarskystraße",
+          "way_points" : [ 7, 12 ]
+        }, {
+          "distance" : 164.4,
+          "duration" : 14.8,
+          "type" : 0,
+          "instruction" : "Turn left onto Dresdner Straße",
+          "name" : "Dresdner Straße",
+          "way_points" : [ 12, 15 ]
+        }, {
+          "distance" : 133.7,
+          "duration" : 21.2,
+          "type" : 1,
+          "instruction" : "Turn right onto Hellwagstraße",
+          "name" : "Hellwagstraße",
+          "way_points" : [ 15, 19 ]
+        }, {
+          "distance" : 113.9,
+          "duration" : 27.3,
+          "type" : 2,
+          "instruction" : "Turn sharp left onto Universumstraße",
+          "name" : "Universumstraße",
+          "way_points" : [ 19, 21 ]
+        }, {
+          "distance" : 0.0,
+          "duration" : 0.0,
+          "type" : 10,
+          "instruction" : "Arrive at Universumstraße, straight ahead",
+          "name" : "-",
+          "way_points" : [ 21, 21 ]
+        } ]
+      } ],
+      "summary" : {
+        "distance" : 812.8,
+        "duration" : 142.9
+      },
+      "way_points" : [ 0, 21 ]
+    },
+    "geometry" : {
+      "coordinates" : [ [ 16.378109, 48.238885 ], [ 16.378926, 48.238171 ], [ 16.379105, 48.238014 ], [ 16.37894, 48.23793 ], [ 16.377897, 48.238842 ], [ 16.378022, 48.238904 ], [ 16.378406, 48.238563 ], [ 16.378667, 48.238345 ], [ 16.378606, 48.238316 ], [ 16.378553, 48.238292 ], [ 16.378385, 48.238205 ], [ 16.378272, 48.238147 ], [ 16.378167, 48.238093 ], [ 16.378695, 48.237624 ], [ 16.378893, 48.237416 ], [ 16.379489, 48.236907 ], [ 16.379426, 48.236863 ], [ 16.37892, 48.236619 ], [ 16.378661, 48.236543 ], [ 16.377999, 48.236236 ], [ 16.378088, 48.236189 ], [ 16.37915, 48.235557 ] ],
+      "type" : "LineString"
+    }
+  } ],
+  "metadata" : {
+    "attribution" : "openrouteservice.org | OpenStreetMap contributors",
+    "service" : "routing",
+    "timestamp" : 1718053217036,
+    "query" : {
+      "coordinates" : [ [ 16.37831687927246, 48.238990783691406 ], [ 16.379150390625, 48.235557556152344 ] ],
+      "profile" : "driving-car",
+      "format" : "json"
+    },
+    "engine" : {
+      "version" : "8.1.0",
+      "build_date" : "2024-06-05T10:07:23Z",
+      "graph_date" : "2024-06-05T21:56:03Z"
+    }
+  }
+}
+2024-06-10 23:00:17.060 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.view.RouteWindowController - WebView from route: nino is Ready to be displayed
+2024-06-10 23:00:17.081 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.backend.LogService - Response from server: [ ] - Methode (GET/.../log/all/nino)
+2024-06-10 23:06:00.003 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.MainViewController - Added clickable property to routeEntries
+2024-06-10 23:06:00.376 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.backend.RouteService - Response from server: 200 - Methode (GET/.../route/all)
+2024-06-10 23:06:02.980 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.mediator.Mediator - currentRoute set
+2024-06-10 23:06:02.987 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteMenuController - load general window
+2024-06-10 23:06:03.007 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.GeneralWindowController - loading general information for route: nino
+2024-06-10 23:06:04.693 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteMenuController - load route window
+2024-06-10 23:06:04.730 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteWindowController - Added clickable property to logTable
+2024-06-10 23:06:05.208 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.backend.OpenrouteService - Response from server: {
+  "type" : "FeatureCollection",
+  "bbox" : [ 16.377897, 48.235557, 16.379489, 48.238904 ],
+  "features" : [ {
+    "bbox" : [ 16.377897, 48.235557, 16.379489, 48.238904 ],
+    "type" : "Feature",
+    "properties" : {
+      "segments" : [ {
+        "distance" : 812.8,
+        "duration" : 142.9,
+        "steps" : [ {
+          "distance" : 276.0,
+          "duration" : 49.7,
+          "type" : 11,
+          "instruction" : "Head southeast",
+          "name" : "-",
+          "way_points" : [ 0, 5 ]
+        }, {
+          "distance" : 78.4,
+          "duration" : 18.8,
+          "type" : 1,
+          "instruction" : "Turn right",
+          "name" : "-",
+          "way_points" : [ 5, 7 ]
+        }, {
+          "distance" : 46.4,
+          "duration" : 11.1,
+          "type" : 1,
+          "instruction" : "Turn right onto Winarskystraße",
+          "name" : "Winarskystraße",
+          "way_points" : [ 7, 12 ]
+        }, {
+          "distance" : 164.4,
+          "duration" : 14.8,
+          "type" : 0,
+          "instruction" : "Turn left onto Dresdner Straße",
+          "name" : "Dresdner Straße",
+          "way_points" : [ 12, 15 ]
+        }, {
+          "distance" : 133.7,
+          "duration" : 21.2,
+          "type" : 1,
+          "instruction" : "Turn right onto Hellwagstraße",
+          "name" : "Hellwagstraße",
+          "way_points" : [ 15, 19 ]
+        }, {
+          "distance" : 113.9,
+          "duration" : 27.3,
+          "type" : 2,
+          "instruction" : "Turn sharp left onto Universumstraße",
+          "name" : "Universumstraße",
+          "way_points" : [ 19, 21 ]
+        }, {
+          "distance" : 0.0,
+          "duration" : 0.0,
+          "type" : 10,
+          "instruction" : "Arrive at Universumstraße, straight ahead",
+          "name" : "-",
+          "way_points" : [ 21, 21 ]
+        } ]
+      } ],
+      "summary" : {
+        "distance" : 812.8,
+        "duration" : 142.9
+      },
+      "way_points" : [ 0, 21 ]
+    },
+    "geometry" : {
+      "coordinates" : [ [ 16.378109, 48.238885 ], [ 16.378926, 48.238171 ], [ 16.379105, 48.238014 ], [ 16.37894, 48.23793 ], [ 16.377897, 48.238842 ], [ 16.378022, 48.238904 ], [ 16.378406, 48.238563 ], [ 16.378667, 48.238345 ], [ 16.378606, 48.238316 ], [ 16.378553, 48.238292 ], [ 16.378385, 48.238205 ], [ 16.378272, 48.238147 ], [ 16.378167, 48.238093 ], [ 16.378695, 48.237624 ], [ 16.378893, 48.237416 ], [ 16.379489, 48.236907 ], [ 16.379426, 48.236863 ], [ 16.37892, 48.236619 ], [ 16.378661, 48.236543 ], [ 16.377999, 48.236236 ], [ 16.378088, 48.236189 ], [ 16.37915, 48.235557 ] ],
+      "type" : "LineString"
+    }
+  } ],
+  "metadata" : {
+    "attribution" : "openrouteservice.org | OpenStreetMap contributors",
+    "service" : "routing",
+    "timestamp" : 1718053565192,
+    "query" : {
+      "coordinates" : [ [ 16.37831687927246, 48.238990783691406 ], [ 16.379150390625, 48.235557556152344 ] ],
+      "profile" : "driving-car",
+      "format" : "json"
+    },
+    "engine" : {
+      "version" : "8.1.0",
+      "build_date" : "2024-06-05T10:07:23Z",
+      "graph_date" : "2024-06-05T21:56:03Z"
+    }
+  }
+}
+2024-06-10 23:06:05.233 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.view.RouteWindowController - WebView from route: nino is Ready to be displayed
+2024-06-10 23:06:05.257 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.backend.LogService - Response from server: [ ] - Methode (GET/.../log/all/nino)
+2024-06-10 23:06:19.343 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteMenuController - load route window
+2024-06-10 23:06:19.357 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteWindowController - Added clickable property to logTable
+2024-06-10 23:06:19.469 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.backend.OpenrouteService - Response from server: {
+  "type" : "FeatureCollection",
+  "bbox" : [ 16.377897, 48.235557, 16.379489, 48.238904 ],
+  "features" : [ {
+    "bbox" : [ 16.377897, 48.235557, 16.379489, 48.238904 ],
+    "type" : "Feature",
+    "properties" : {
+      "segments" : [ {
+        "distance" : 812.8,
+        "duration" : 142.9,
+        "steps" : [ {
+          "distance" : 276.0,
+          "duration" : 49.7,
+          "type" : 11,
+          "instruction" : "Head southeast",
+          "name" : "-",
+          "way_points" : [ 0, 5 ]
+        }, {
+          "distance" : 78.4,
+          "duration" : 18.8,
+          "type" : 1,
+          "instruction" : "Turn right",
+          "name" : "-",
+          "way_points" : [ 5, 7 ]
+        }, {
+          "distance" : 46.4,
+          "duration" : 11.1,
+          "type" : 1,
+          "instruction" : "Turn right onto Winarskystraße",
+          "name" : "Winarskystraße",
+          "way_points" : [ 7, 12 ]
+        }, {
+          "distance" : 164.4,
+          "duration" : 14.8,
+          "type" : 0,
+          "instruction" : "Turn left onto Dresdner Straße",
+          "name" : "Dresdner Straße",
+          "way_points" : [ 12, 15 ]
+        }, {
+          "distance" : 133.7,
+          "duration" : 21.2,
+          "type" : 1,
+          "instruction" : "Turn right onto Hellwagstraße",
+          "name" : "Hellwagstraße",
+          "way_points" : [ 15, 19 ]
+        }, {
+          "distance" : 113.9,
+          "duration" : 27.3,
+          "type" : 2,
+          "instruction" : "Turn sharp left onto Universumstraße",
+          "name" : "Universumstraße",
+          "way_points" : [ 19, 21 ]
+        }, {
+          "distance" : 0.0,
+          "duration" : 0.0,
+          "type" : 10,
+          "instruction" : "Arrive at Universumstraße, straight ahead",
+          "name" : "-",
+          "way_points" : [ 21, 21 ]
+        } ]
+      } ],
+      "summary" : {
+        "distance" : 812.8,
+        "duration" : 142.9
+      },
+      "way_points" : [ 0, 21 ]
+    },
+    "geometry" : {
+      "coordinates" : [ [ 16.378109, 48.238885 ], [ 16.378926, 48.238171 ], [ 16.379105, 48.238014 ], [ 16.37894, 48.23793 ], [ 16.377897, 48.238842 ], [ 16.378022, 48.238904 ], [ 16.378406, 48.238563 ], [ 16.378667, 48.238345 ], [ 16.378606, 48.238316 ], [ 16.378553, 48.238292 ], [ 16.378385, 48.238205 ], [ 16.378272, 48.238147 ], [ 16.378167, 48.238093 ], [ 16.378695, 48.237624 ], [ 16.378893, 48.237416 ], [ 16.379489, 48.236907 ], [ 16.379426, 48.236863 ], [ 16.37892, 48.236619 ], [ 16.378661, 48.236543 ], [ 16.377999, 48.236236 ], [ 16.378088, 48.236189 ], [ 16.37915, 48.235557 ] ],
+      "type" : "LineString"
+    }
+  } ],
+  "metadata" : {
+    "attribution" : "openrouteservice.org | OpenStreetMap contributors",
+    "service" : "routing",
+    "timestamp" : 1718053579452,
+    "query" : {
+      "coordinates" : [ [ 16.37831687927246, 48.238990783691406 ], [ 16.379150390625, 48.235557556152344 ] ],
+      "profile" : "driving-car",
+      "format" : "json"
+    },
+    "engine" : {
+      "version" : "8.1.0",
+      "build_date" : "2024-06-05T10:07:23Z",
+      "graph_date" : "2024-06-05T21:56:03Z"
+    }
+  }
+}
+2024-06-10 23:06:19.479 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.view.RouteWindowController - WebView from route: nino is Ready to be displayed
+2024-06-10 23:06:19.499 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.backend.LogService - Response from server: [ ] - Methode (GET/.../log/all/nino)
+2024-06-10 23:06:29.897 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.MainViewController - Added clickable property to routeEntries
+2024-06-10 23:06:30.242 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.backend.RouteService - Response from server: 200 - Methode (GET/.../route/all)
+2024-06-10 23:06:32.007 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.mediator.Mediator - currentRoute set
+2024-06-10 23:06:32.018 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteMenuController - load general window
+2024-06-10 23:06:32.048 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.GeneralWindowController - loading general information for route: nino
+2024-06-10 23:06:33.075 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteMenuController - load route window
+2024-06-10 23:06:33.115 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteWindowController - Added clickable property to logTable
+2024-06-10 23:06:33.208 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.backend.OpenrouteService - Response from server: {
+  "type" : "FeatureCollection",
+  "bbox" : [ 16.377897, 48.235557, 16.379489, 48.238904 ],
+  "features" : [ {
+    "bbox" : [ 16.377897, 48.235557, 16.379489, 48.238904 ],
+    "type" : "Feature",
+    "properties" : {
+      "segments" : [ {
+        "distance" : 812.8,
+        "duration" : 142.9,
+        "steps" : [ {
+          "distance" : 276.0,
+          "duration" : 49.7,
+          "type" : 11,
+          "instruction" : "Head southeast",
+          "name" : "-",
+          "way_points" : [ 0, 5 ]
+        }, {
+          "distance" : 78.4,
+          "duration" : 18.8,
+          "type" : 1,
+          "instruction" : "Turn right",
+          "name" : "-",
+          "way_points" : [ 5, 7 ]
+        }, {
+          "distance" : 46.4,
+          "duration" : 11.1,
+          "type" : 1,
+          "instruction" : "Turn right onto Winarskystraße",
+          "name" : "Winarskystraße",
+          "way_points" : [ 7, 12 ]
+        }, {
+          "distance" : 164.4,
+          "duration" : 14.8,
+          "type" : 0,
+          "instruction" : "Turn left onto Dresdner Straße",
+          "name" : "Dresdner Straße",
+          "way_points" : [ 12, 15 ]
+        }, {
+          "distance" : 133.7,
+          "duration" : 21.2,
+          "type" : 1,
+          "instruction" : "Turn right onto Hellwagstraße",
+          "name" : "Hellwagstraße",
+          "way_points" : [ 15, 19 ]
+        }, {
+          "distance" : 113.9,
+          "duration" : 27.3,
+          "type" : 2,
+          "instruction" : "Turn sharp left onto Universumstraße",
+          "name" : "Universumstraße",
+          "way_points" : [ 19, 21 ]
+        }, {
+          "distance" : 0.0,
+          "duration" : 0.0,
+          "type" : 10,
+          "instruction" : "Arrive at Universumstraße, straight ahead",
+          "name" : "-",
+          "way_points" : [ 21, 21 ]
+        } ]
+      } ],
+      "summary" : {
+        "distance" : 812.8,
+        "duration" : 142.9
+      },
+      "way_points" : [ 0, 21 ]
+    },
+    "geometry" : {
+      "coordinates" : [ [ 16.378109, 48.238885 ], [ 16.378926, 48.238171 ], [ 16.379105, 48.238014 ], [ 16.37894, 48.23793 ], [ 16.377897, 48.238842 ], [ 16.378022, 48.238904 ], [ 16.378406, 48.238563 ], [ 16.378667, 48.238345 ], [ 16.378606, 48.238316 ], [ 16.378553, 48.238292 ], [ 16.378385, 48.238205 ], [ 16.378272, 48.238147 ], [ 16.378167, 48.238093 ], [ 16.378695, 48.237624 ], [ 16.378893, 48.237416 ], [ 16.379489, 48.236907 ], [ 16.379426, 48.236863 ], [ 16.37892, 48.236619 ], [ 16.378661, 48.236543 ], [ 16.377999, 48.236236 ], [ 16.378088, 48.236189 ], [ 16.37915, 48.235557 ] ],
+      "type" : "LineString"
+    }
+  } ],
+  "metadata" : {
+    "attribution" : "openrouteservice.org | OpenStreetMap contributors",
+    "service" : "routing",
+    "timestamp" : 1718053593194,
+    "query" : {
+      "coordinates" : [ [ 16.37831687927246, 48.238990783691406 ], [ 16.379150390625, 48.235557556152344 ] ],
+      "profile" : "driving-car",
+      "format" : "json"
+    },
+    "engine" : {
+      "version" : "8.1.0",
+      "build_date" : "2024-06-05T10:07:23Z",
+      "graph_date" : "2024-06-05T21:56:03Z"
+    }
+  }
+}
+2024-06-10 23:06:33.234 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.view.RouteWindowController - WebView from route: nino is Ready to be displayed
+2024-06-10 23:06:33.259 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.backend.LogService - Response from server: [ ] - Methode (GET/.../log/all/nino)
+2024-06-10 23:06:45.222 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.mediator.Mediator - currentRoute set
+2024-06-10 23:06:45.229 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteMenuController - load general window
+2024-06-10 23:06:45.246 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.GeneralWindowController - loading general information for route: nino_uni_tour
+2024-06-10 23:06:45.985 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteMenuController - load route window
+2024-06-10 23:06:45.999 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteWindowController - Added clickable property to logTable
+2024-06-10 23:06:46.216 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.backend.OpenrouteService - Response from server: {
+  "type" : "FeatureCollection",
+  "bbox" : [ 16.377897, 48.235557, 16.379489, 48.238904 ],
+  "features" : [ {
+    "bbox" : [ 16.377897, 48.235557, 16.379489, 48.238904 ],
+    "type" : "Feature",
+    "properties" : {
+      "segments" : [ {
+        "distance" : 812.8,
+        "duration" : 142.9,
+        "steps" : [ {
+          "distance" : 276.0,
+          "duration" : 49.7,
+          "type" : 11,
+          "instruction" : "Head southeast",
+          "name" : "-",
+          "way_points" : [ 0, 5 ]
+        }, {
+          "distance" : 78.4,
+          "duration" : 18.8,
+          "type" : 1,
+          "instruction" : "Turn right",
+          "name" : "-",
+          "way_points" : [ 5, 7 ]
+        }, {
+          "distance" : 46.4,
+          "duration" : 11.1,
+          "type" : 1,
+          "instruction" : "Turn right onto Winarskystraße",
+          "name" : "Winarskystraße",
+          "way_points" : [ 7, 12 ]
+        }, {
+          "distance" : 164.4,
+          "duration" : 14.8,
+          "type" : 0,
+          "instruction" : "Turn left onto Dresdner Straße",
+          "name" : "Dresdner Straße",
+          "way_points" : [ 12, 15 ]
+        }, {
+          "distance" : 133.7,
+          "duration" : 21.2,
+          "type" : 1,
+          "instruction" : "Turn right onto Hellwagstraße",
+          "name" : "Hellwagstraße",
+          "way_points" : [ 15, 19 ]
+        }, {
+          "distance" : 113.9,
+          "duration" : 27.3,
+          "type" : 2,
+          "instruction" : "Turn sharp left onto Universumstraße",
+          "name" : "Universumstraße",
+          "way_points" : [ 19, 21 ]
+        }, {
+          "distance" : 0.0,
+          "duration" : 0.0,
+          "type" : 10,
+          "instruction" : "Arrive at Universumstraße, straight ahead",
+          "name" : "-",
+          "way_points" : [ 21, 21 ]
+        } ]
+      } ],
+      "summary" : {
+        "distance" : 812.8,
+        "duration" : 142.9
+      },
+      "way_points" : [ 0, 21 ]
+    },
+    "geometry" : {
+      "coordinates" : [ [ 16.378109, 48.238885 ], [ 16.378926, 48.238171 ], [ 16.379105, 48.238014 ], [ 16.37894, 48.23793 ], [ 16.377897, 48.238842 ], [ 16.378022, 48.238904 ], [ 16.378406, 48.238563 ], [ 16.378667, 48.238345 ], [ 16.378606, 48.238316 ], [ 16.378553, 48.238292 ], [ 16.378385, 48.238205 ], [ 16.378272, 48.238147 ], [ 16.378167, 48.238093 ], [ 16.378695, 48.237624 ], [ 16.378893, 48.237416 ], [ 16.379489, 48.236907 ], [ 16.379426, 48.236863 ], [ 16.37892, 48.236619 ], [ 16.378661, 48.236543 ], [ 16.377999, 48.236236 ], [ 16.378088, 48.236189 ], [ 16.37915, 48.235557 ] ],
+      "type" : "LineString"
+    }
+  } ],
+  "metadata" : {
+    "attribution" : "openrouteservice.org | OpenStreetMap contributors",
+    "service" : "routing",
+    "timestamp" : 1718053606200,
+    "query" : {
+      "coordinates" : [ [ 16.37831687927246, 48.238990783691406 ], [ 16.379150390625, 48.235557556152344 ] ],
+      "profile" : "driving-car",
+      "format" : "json"
+    },
+    "engine" : {
+      "version" : "8.1.0",
+      "build_date" : "2024-06-05T10:07:23Z",
+      "graph_date" : "2024-06-05T21:56:03Z"
+    }
+  }
+}
+2024-06-10 23:06:46.225 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.view.RouteWindowController - WebView from route: nino_uni_tour is Ready to be displayed
+2024-06-10 23:06:46.248 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.backend.LogService - Response from server: [ {
+  "id" : 352,
+  "route" : "nino_uni_tour",
+  "date" : "2024-05-29",
+  "time" : "18:50:52",
+  "distance" : 2.0,
+  "duration" : 2.0,
+  "difficulty" : 2,
+  "rating" : 2,
+  "comment" : "Testnormal"
+}, {
+  "id" : 353,
+  "route" : "nino_uni_tour",
+  "date" : "2024-05-29",
+  "time" : "18:51:17",
+  "distance" : 2.0,
+  "duration" : 2.0,
+  "difficulty" : 5,
+  "rating" : 1,
+  "comment" : "TestOutOfBounds"
+}, {
+  "id" : 354,
+  "route" : "nino_uni_tour",
+  "date" : "2024-06-06",
+  "time" : "18:52:45",
+  "distance" : 2.0,
+  "duration" : 2.0,
+  "difficulty" : 3,
+  "rating" : 4,
+  "comment" : "defeffe"
+}, {
+  "id" : 355,
+  "route" : "nino_uni_tour",
+  "date" : "2024-06-10",
+  "time" : "18:59:08",
+  "distance" : 43.0,
+  "duration" : 34.0,
+  "difficulty" : 1,
+  "rating" : 5,
+  "comment" : "test"
+} ] - Methode (GET/.../log/all/nino_uni_tour)
+2024-06-10 23:06:58.506 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.mediator.Mediator - currentRoute set
+2024-06-10 23:06:58.513 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteMenuController - load general window
+2024-06-10 23:06:58.527 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.GeneralWindowController - loading general information for route: PopularityTest
+2024-06-10 23:06:58.923 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.mediator.Mediator - currentRoute set
+2024-06-10 23:06:58.928 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteMenuController - load general window
+2024-06-10 23:06:58.943 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.GeneralWindowController - loading general information for route: nino_uni_tour
+2024-06-10 23:07:00.147 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.mediator.Mediator - currentRoute set
+2024-06-10 23:07:00.153 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteMenuController - load general window
+2024-06-10 23:07:00.164 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.GeneralWindowController - loading general information for route: PopularityTest
+2024-06-10 23:07:02.792 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.mediator.Mediator - currentRoute set
+2024-06-10 23:07:02.796 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteMenuController - load general window
+2024-06-10 23:07:02.807 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.GeneralWindowController - loading general information for route: test
+2024-06-10 23:07:04.242 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.mediator.Mediator - currentRoute set
+2024-06-10 23:07:04.246 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteMenuController - load general window
+2024-06-10 23:07:04.258 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.GeneralWindowController - loading general information for route: nino_uni_tour
+2024-06-10 23:07:05.428 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.mediator.Mediator - currentRoute set
+2024-06-10 23:07:05.432 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteMenuController - load general window
+2024-06-10 23:07:05.443 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.GeneralWindowController - loading general information for route: json_import_test
+2024-06-10 23:07:07.405 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteMenuController - load route window
+2024-06-10 23:07:07.418 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteWindowController - Added clickable property to logTable
+2024-06-10 23:07:07.537 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.backend.OpenrouteService - Response from server: {
+  "type" : "FeatureCollection",
+  "bbox" : [ 16.4395, 48.265967, 16.445019, 48.268801 ],
+  "features" : [ {
+    "bbox" : [ 16.4395, 48.265967, 16.445019, 48.268801 ],
+    "type" : "Feature",
+    "properties" : {
+      "segments" : [ {
+        "distance" : 771.1,
+        "duration" : 122.9,
+        "steps" : [ {
+          "distance" : 231.5,
+          "duration" : 55.6,
+          "type" : 11,
+          "instruction" : "Head south on Jerusalemgasse",
+          "name" : "Jerusalemgasse",
+          "way_points" : [ 0, 2 ]
+        }, {
+          "distance" : 65.5,
+          "duration" : 15.7,
+          "type" : 1,
+          "instruction" : "Turn right onto St.-Michael-Gasse",
+          "name" : "St.-Michael-Gasse",
+          "way_points" : [ 2, 3 ]
+        }, {
+          "distance" : 76.0,
+          "duration" : 10.9,
+          "type" : 0,
+          "instruction" : "Turn left onto Großfeldstraße",
+          "name" : "Großfeldstraße",
+          "way_points" : [ 3, 7 ]
+        }, {
+          "distance" : 398.1,
+          "duration" : 40.7,
+          "type" : 0,
+          "instruction" : "Turn left onto Julius-Ficker-Straße, B229",
+          "name" : "Julius-Ficker-Straße, B229",
+          "way_points" : [ 7, 15 ]
+        }, {
+          "distance" : 0.0,
+          "duration" : 0.0,
+          "type" : 10,
+          "instruction" : "Arrive at Julius-Ficker-Straße, B229, straight ahead",
+          "name" : "-",
+          "way_points" : [ 15, 15 ]
+        } ]
+      } ],
+      "summary" : {
+        "distance" : 771.1,
+        "duration" : 122.9
+      },
+      "way_points" : [ 0, 15 ]
+    },
+    "geometry" : {
+      "coordinates" : [ [ 16.440822, 48.268801 ], [ 16.440812, 48.268755 ], [ 16.440371, 48.266741 ], [ 16.4395, 48.266641 ], [ 16.439517, 48.266577 ], [ 16.439544, 48.266469 ], [ 16.439655, 48.266061 ], [ 16.43968, 48.265967 ], [ 16.440389, 48.266066 ], [ 16.440837, 48.266132 ], [ 16.441907, 48.266222 ], [ 16.442821, 48.266254 ], [ 16.443786, 48.266251 ], [ 16.444093, 48.266231 ], [ 16.444366, 48.266213 ], [ 16.445019, 48.266224 ] ],
+      "type" : "LineString"
+    }
+  } ],
+  "metadata" : {
+    "attribution" : "openrouteservice.org | OpenStreetMap contributors",
+    "service" : "routing",
+    "timestamp" : 1718053627508,
+    "query" : {
+      "coordinates" : [ [ 16.44051170349121, 48.268829345703125 ], [ 16.445018768310547, 48.2662239074707 ] ],
+      "profile" : "driving-car",
+      "format" : "json"
+    },
+    "engine" : {
+      "version" : "8.1.0",
+      "build_date" : "2024-06-05T10:07:23Z",
+      "graph_date" : "2024-06-05T21:56:03Z"
+    }
+  }
+}
+2024-06-10 23:07:07.546 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.view.RouteWindowController - WebView from route: json_import_test is Ready to be displayed
+2024-06-10 23:07:07.566 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.backend.LogService - Response from server: [ ] - Methode (GET/.../log/all/json_import_test)
+2024-06-10 23:08:51.952 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.MainViewController - Added clickable property to routeEntries
+2024-06-10 23:09:01.233 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.MainViewController - Added clickable property to routeEntries
+2024-06-10 23:09:02.019 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.backend.RouteService - Response from server: 200 - Methode (GET/.../route/all)
+2024-06-10 23:09:04.347 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.mediator.Mediator - currentRoute set
+2024-06-10 23:09:04.355 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteMenuController - load general window
+2024-06-10 23:09:04.375 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.GeneralWindowController - loading general information for route: nino
+2024-06-10 23:09:05.181 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteMenuController - load route window
+2024-06-10 23:09:05.234 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteWindowController - Added clickable property to logTable
+2024-06-10 23:09:06.061 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.backend.OpenrouteService - Response from server: 200
+2024-06-10 23:09:06.086 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.view.RouteWindowController - WebView from route: nino is Ready to be displayed
+2024-06-10 23:09:06.110 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.backend.LogService - Response from server: [ ] - Methode (GET/.../log/all/nino)
+2024-06-10 23:14:40.648 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.MainViewController - Added clickable property to routeEntries
+2024-06-10 23:14:40.971 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.backend.RouteService - Response from server: 200 - Methode (GET/.../route/all)
+2024-06-10 23:15:10.821 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.MainViewController - Added clickable property to routeEntries
+2024-06-10 23:15:11.206 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.backend.RouteService - Response from server: 200 - Methode (GET/.../route/all)
+2024-06-10 23:15:14.166 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.mediator.Mediator - currentRoute set
+2024-06-10 23:15:14.173 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteMenuController - load general window
+2024-06-10 23:15:14.191 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.GeneralWindowController - loading general information for route: nino
+2024-06-10 23:15:15.214 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteMenuController - load route window
+2024-06-10 23:15:15.266 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteWindowController - Added clickable property to logTable
+2024-06-10 23:15:15.800 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.backend.OpenrouteService - Response from server: 200
+2024-06-10 23:15:16.240 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.view.RouteWindowController - WebView from route: nino is Ready to be displayed
+2024-06-10 23:15:16.262 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.backend.LogService - Response from server: [ ] - Methode (GET/.../log/all/nino)
+2024-06-10 23:15:32.082 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.mediator.Mediator - currentRoute set
+2024-06-10 23:15:32.089 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteMenuController - load general window
+2024-06-10 23:15:32.105 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.GeneralWindowController - loading general information for route: test1
+2024-06-10 23:15:34.525 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteMenuController - load route window
+2024-06-10 23:15:34.539 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteWindowController - Added clickable property to logTable
+2024-06-10 23:15:34.760 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.backend.OpenrouteService - Response from server: 200
+2024-06-10 23:15:34.831 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.view.RouteWindowController - WebView from route: test1 is Ready to be displayed
+2024-06-10 23:15:34.846 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.backend.LogService - Response from server: [ {
+  "id" : 652,
+  "route" : "test1",
+  "date" : "2024-05-30",
+  "time" : "12:34:34",
+  "distance" : 1000.0,
+  "duration" : 20.0,
+  "difficulty" : 1,
+  "rating" : 2,
+  "comment" : "no comment"
+}, {
+  "id" : 702,
+  "route" : "test1",
+  "date" : "2024-05-25",
+  "time" : "12:55:29",
+  "distance" : 200.0,
+  "duration" : 10.0,
+  "difficulty" : 4,
+  "rating" : 2,
+  "comment" : "no comment"
+} ] - Methode (GET/.../log/all/test1)
+2024-06-10 23:15:41.188 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.mediator.Mediator - currentRoute set
+2024-06-10 23:15:41.194 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteMenuController - load general window
+2024-06-10 23:15:41.209 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.GeneralWindowController - loading general information for route: nino_uni_tour
+2024-06-10 23:15:42.896 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteMenuController - load route window
+2024-06-10 23:15:42.907 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteWindowController - Added clickable property to logTable
+2024-06-10 23:15:43.014 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.backend.OpenrouteService - Response from server: 200
+2024-06-10 23:15:43.073 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.view.RouteWindowController - WebView from route: nino_uni_tour is Ready to be displayed
+2024-06-10 23:15:43.085 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.backend.LogService - Response from server: [ {
+  "id" : 352,
+  "route" : "nino_uni_tour",
+  "date" : "2024-05-29",
+  "time" : "18:50:52",
+  "distance" : 2.0,
+  "duration" : 2.0,
+  "difficulty" : 2,
+  "rating" : 2,
+  "comment" : "Testnormal"
+}, {
+  "id" : 353,
+  "route" : "nino_uni_tour",
+  "date" : "2024-05-29",
+  "time" : "18:51:17",
+  "distance" : 2.0,
+  "duration" : 2.0,
+  "difficulty" : 5,
+  "rating" : 1,
+  "comment" : "TestOutOfBounds"
+}, {
+  "id" : 354,
+  "route" : "nino_uni_tour",
+  "date" : "2024-06-06",
+  "time" : "18:52:45",
+  "distance" : 2.0,
+  "duration" : 2.0,
+  "difficulty" : 3,
+  "rating" : 4,
+  "comment" : "defeffe"
+}, {
+  "id" : 355,
+  "route" : "nino_uni_tour",
+  "date" : "2024-06-10",
+  "time" : "18:59:08",
+  "distance" : 43.0,
+  "duration" : 34.0,
+  "difficulty" : 1,
+  "rating" : 5,
+  "comment" : "test"
+} ] - Methode (GET/.../log/all/nino_uni_tour)
+2024-06-10 23:15:47.472 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.mediator.Mediator - currentRoute set
+2024-06-10 23:15:47.478 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteMenuController - load general window
+2024-06-10 23:15:47.491 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.GeneralWindowController - loading general information for route: test
+2024-06-10 23:15:49.887 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteMenuController - load route window
+2024-06-10 23:15:49.897 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteWindowController - Added clickable property to logTable
+2024-06-10 23:15:50.113 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.backend.OpenrouteService - Response from server: 200
+2024-06-10 23:15:50.210 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.view.RouteWindowController - WebView from route: test is Ready to be displayed
+2024-06-10 23:15:50.224 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.backend.LogService - Response from server: [ {
+  "id" : 602,
+  "route" : "test",
+  "date" : "01.01.2025",
+  "time" : "12:00",
+  "distance" : 20.0,
+  "duration" : 5.0,
+  "difficulty" : 2,
+  "rating" : 5,
+  "comment" : "Too ez get shrekt"
+} ] - Methode (GET/.../log/all/test)
+2024-06-10 23:17:50.342 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.MainViewController - Added clickable property to routeEntries
+2024-06-10 23:17:50.701 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.backend.RouteService - Response from server: 200 - Methode (GET/.../route/all)
+2024-06-10 23:17:52.154 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.mediator.Mediator - currentRoute set
+2024-06-10 23:17:52.161 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteMenuController - load general window
+2024-06-10 23:17:52.179 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.GeneralWindowController - loading general information for route: test1
+2024-06-10 23:17:53.498 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteMenuController - load route window
+2024-06-10 23:17:53.552 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteWindowController - Added clickable property to logTable
+2024-06-10 23:17:53.856 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.backend.OpenrouteService - Response from server: 200
+2024-06-10 23:17:54.068 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.view.RouteWindowController - WebView from route: test1 is Ready to be displayed
+2024-06-10 23:17:54.085 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.backend.LogService - Response from server: [ {
+  "id" : 652,
+  "route" : "test1",
+  "date" : "2024-05-30",
+  "time" : "12:34:34",
+  "distance" : 1000.0,
+  "duration" : 20.0,
+  "difficulty" : 1,
+  "rating" : 2,
+  "comment" : "no comment"
+}, {
+  "id" : 702,
+  "route" : "test1",
+  "date" : "2024-05-25",
+  "time" : "12:55:29",
+  "distance" : 200.0,
+  "duration" : 10.0,
+  "difficulty" : 4,
+  "rating" : 2,
+  "comment" : "no comment"
+} ] - Methode (GET/.../log/all/test1)
+2024-06-10 23:17:58.322 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.mediator.Mediator - currentRoute set
+2024-06-10 23:17:58.330 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteMenuController - load general window
+2024-06-10 23:17:58.345 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.GeneralWindowController - loading general information for route: nino
+2024-06-10 23:17:59.282 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteMenuController - load route window
+2024-06-10 23:17:59.297 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteWindowController - Added clickable property to logTable
+2024-06-10 23:17:59.393 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.backend.OpenrouteService - Response from server: 200
+2024-06-10 23:17:59.452 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.view.RouteWindowController - WebView from route: nino is Ready to be displayed
+2024-06-10 23:17:59.464 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.backend.LogService - Response from server: [ ] - Methode (GET/.../log/all/nino)
