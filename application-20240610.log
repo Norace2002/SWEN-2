@@ -1,0 +1,93 @@
+2024-06-10 18:58:36.107 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.MainViewController - Added clickable property to routeEntries
+2024-06-10 18:58:36.489 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.backend.RouteService - Response from server: 200 - Methode (GET/.../route/all)
+2024-06-10 18:58:38.546 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.mediator.Mediator - currentRoute set
+2024-06-10 18:58:38.559 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteMenuController - load general window
+2024-06-10 18:58:38.604 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.GeneralWindowController - loading general information for route: nino_uni_tour
+2024-06-10 18:58:40.469 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.mediator.Mediator - currentRoute set
+2024-06-10 18:58:40.477 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteMenuController - load general window
+2024-06-10 18:58:40.497 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.GeneralWindowController - loading general information for route: PopularityTest
+2024-06-10 18:58:41.005 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.mediator.Mediator - currentRoute set
+2024-06-10 18:58:41.011 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteMenuController - load general window
+2024-06-10 18:58:41.030 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.GeneralWindowController - loading general information for route: nino_uni_tour
+2024-06-10 18:58:42.296 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteMenuController - load route window
+2024-06-10 18:58:42.369 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteWindowController - Added clickable property to logTable
+2024-06-10 18:58:43.737 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.view.RouteWindowController - Image Pain from route: nino_uni_tour is Ready to be displayed
+2024-06-10 18:58:43.752 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.backend.LogService - Response from server: [ {
+  "id" : 352,
+  "route" : "nino_uni_tour",
+  "date" : "2024-05-29",
+  "time" : "18:50:52",
+  "distance" : 2.0,
+  "duration" : 2.0,
+  "difficulty" : 2,
+  "rating" : 2,
+  "comment" : "Testnormal"
+}, {
+  "id" : 353,
+  "route" : "nino_uni_tour",
+  "date" : "2024-05-29",
+  "time" : "18:51:17",
+  "distance" : 2.0,
+  "duration" : 2.0,
+  "difficulty" : 5,
+  "rating" : 1,
+  "comment" : "TestOutOfBounds"
+}, {
+  "id" : 354,
+  "route" : "nino_uni_tour",
+  "date" : "2024-06-06",
+  "time" : "18:52:45",
+  "distance" : 2.0,
+  "duration" : 2.0,
+  "difficulty" : 3,
+  "rating" : 4,
+  "comment" : "defeffe"
+} ] - Methode (GET/.../log/all/nino_uni_tour)
+2024-06-10 18:58:45.446 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.mediator.LogMediator - currentLog set
+2024-06-10 18:58:45.975 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.mediator.LogMediator - currentLog set
+2024-06-10 18:58:46.704 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.mediator.LogMediator - currentLog set
+2024-06-10 18:58:47.185 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.mediator.LogMediator - currentLog set
+2024-06-10 18:58:48.233 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteWindowController - load route Log creation window
+2024-06-10 18:58:50.253 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.EditTourLogController - 'Edit Tour Log' Window closed successfully
+2024-06-10 18:58:51.005 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.mediator.LogMediator - currentLog set
+2024-06-10 18:58:53.192 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteWindowController - load route Log creation window
+2024-06-10 18:59:08.650 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.mediator.LogMediator - Creating Entry - sending entry to viewmodel
+2024-06-10 18:59:08.690 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.backend.LogService - Response from server: 355 - Methode (POST/.../log)
+2024-06-10 18:59:08.694 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.view.CreateTourLogController - successfully created an instance of a Tour Log entry - Sending to Log Mediator
+2024-06-10 18:59:11.728 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.CreateTourLogController - 'Create Tour Log' Window closed successfully
+2024-06-10 18:59:13.113 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.mediator.LogMediator - currentLog set
+2024-06-10 18:59:13.481 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.mediator.LogMediator - currentLog set
+2024-06-10 18:59:14.563 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.mediator.LogMediator - currentLog set
+2024-06-10 18:59:15.332 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteWindowController - load route Log creation window
+2024-06-10 18:59:17.679 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.EditTourLogController - 'Edit Tour Log' Window closed successfully
+2024-06-10 19:00:38.845 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.MainViewController - Added clickable property to routeEntries
+2024-06-10 19:00:39.145 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.backend.RouteService - Response from server: 200 - Methode (GET/.../route/all)
+2024-06-10 19:00:40.715 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.mediator.Mediator - currentRoute set
+2024-06-10 19:00:40.724 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteMenuController - load general window
+2024-06-10 19:00:40.752 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.GeneralWindowController - loading general information for route: test1
+2024-06-10 19:00:42.878 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteMenuController - load route window
+2024-06-10 19:00:42.920 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteWindowController - Added clickable property to logTable
+2024-06-10 19:00:44.713 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.view.RouteWindowController - Image Pain from route: test1 is Ready to be displayed
+2024-06-10 19:00:44.747 [JavaFX Application Thread] INFO  at.fhtw.tourPlanner.backend.LogService - Response from server: [ {
+  "id" : 652,
+  "route" : "test1",
+  "date" : "2024-05-30",
+  "time" : "12:34:34",
+  "distance" : 1000.0,
+  "duration" : 20.0,
+  "difficulty" : 1,
+  "rating" : 2,
+  "comment" : "no comment"
+}, {
+  "id" : 702,
+  "route" : "test1",
+  "date" : "2024-05-25",
+  "time" : "12:55:29",
+  "distance" : 200.0,
+  "duration" : 10.0,
+  "difficulty" : 4,
+  "rating" : 2,
+  "comment" : "no comment"
+} ] - Methode (GET/.../log/all/test1)
+2024-06-10 19:00:46.734 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.RouteWindowController - load route Log creation window
+2024-06-10 19:00:49.226 [JavaFX Application Thread] DEBUG at.fhtw.tourPlanner.view.CreateTourLogController - 'Create Tour Log' Window closed successfully

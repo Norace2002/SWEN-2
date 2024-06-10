@@ -85,14 +85,12 @@ public class CreateTourLogController implements Initializable {
             try {
 
                 // Check for intended type
-                int difficulty = Integer.parseInt(difficultyField.getText());
+                int difficulty = CheckBounds(Integer.parseInt(difficultyField.getText()));
                 double totalDistance = Double.parseDouble(totalDistanceField.getText());
                 double totalTime = Double.parseDouble(totalTimeField.getText());
-                int rating = Integer.parseInt(ratingField.getText());
+                int rating = CheckBounds(Integer.parseInt(ratingField.getText()));
                 LocalDate date = dateTimeField.getValue();
                 String dateString = date.toString();
-
-                System.out.println("Hiiiiiiiiilllllfe: " + dateTimeField.getValue());
 
                 // ------ Get the current time ------
                 LocalTime now = LocalTime.now();
@@ -139,6 +137,17 @@ public class CreateTourLogController implements Initializable {
         alert.setContentText(e.getMessage());
 
         alert.showAndWait();
+    }
+
+    private int CheckBounds(int value){
+        if (value > 5){
+            return 5;
+        }
+        else if (value <= 1){
+            return 1;
+        }
+
+        return value;
     }
 
 }

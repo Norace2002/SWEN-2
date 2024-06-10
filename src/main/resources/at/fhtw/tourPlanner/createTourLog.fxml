@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox stylesheets="@./CSS/createTourLog.css" fx:id="vbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.fhtw.tourPlanner.view.CreateTourLogController">
+<VBox fx:id="vbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@./CSS/createTourLog.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.fhtw.tourPlanner.view.CreateTourLogController">
    <children>
       <HBox alignment="CENTER" prefHeight="52.0" prefWidth="600.0">
          <children>
@@ -26,7 +26,7 @@
          <children>
             <HBox alignment="CENTER_LEFT" fillHeight="false" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="10.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Difficulty:" wrappingWidth="180.0" HBox.hgrow="ALWAYS">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Difficulty (1-5):" wrappingWidth="180.0" HBox.hgrow="ALWAYS">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -61,7 +61,7 @@
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <DatePicker fx:id="dateTimeField" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="413.0" HBox.hgrow="ALWAYS"/>
+                  <DatePicker fx:id="dateTimeField" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="413.0" HBox.hgrow="ALWAYS" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" layoutY="120.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="10.0">
@@ -76,7 +76,7 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" layoutY="150.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="10.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Rating: " wrappingWidth="180.0" HBox.hgrow="ALWAYS">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Rating (1-5): " wrappingWidth="180.0" HBox.hgrow="ALWAYS">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -88,7 +88,7 @@
                <children>
                   <ButtonBar buttonMinWidth="120.0" prefHeight="25.0" prefWidth="593.0" HBox.hgrow="ALWAYS">
                      <buttons>
-                        <Button fx:id="exitButton" mnemonicParsing="false" text="Exit without saving" onAction="#closeWindow"/>
+                        <Button fx:id="exitButton" mnemonicParsing="false" onAction="#closeWindow" text="Exit without saving" />
                         <Button fx:id="createTourLogButton" mnemonicParsing="false" onAction="#createNewTourLog" text="Create Tour Log" />
                      </buttons>
                   </ButtonBar>

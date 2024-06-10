@@ -63,17 +63,4 @@ public class RouteMenuController implements Initializable{
         }
     }
 
-    public void loadMiscWindow(){
-        logger.debug("load misc window");
-
-        try{
-            contentWindowPane.getChildren().clear();
-
-            Pane newLoadedPane =  FXMLLoader.load(getClass().getResource("/at/fhtw/tourPlanner/miscWindow.fxml"));
-            contentWindowPane.getChildren().add(newLoadedPane);
-        } catch(Exception e){
-            logger.error("Problem loading MiscWindow FXML into Pane - something went wrong with loading newPane into hostPane");
-            e.printStackTrace();
-        }
-    }
 }

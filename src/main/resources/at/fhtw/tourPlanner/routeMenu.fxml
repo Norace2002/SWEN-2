@@ -18,7 +18,6 @@
    <children>
       <ButtonBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="34.0" GridPane.hgrow="ALWAYS" GridPane.vgrow="NEVER">
         <buttons>
-          <Button fx:id="miscButton" mnemonicParsing="false" onAction="#loadMiscWindow" text="Misc" />
             <Button fx:id="routeButton" mnemonicParsing="false" onAction="#loadRouteWindow" text="Route" />
             <Button fx:id="generalButton" mnemonicParsing="false" onAction="#loadGeneralWindow" text="General" />
         </buttons>

@@ -166,7 +166,7 @@ public class MainViewController implements Initializable, Listener {
         try {
             RouteEntry route = Mediator.getInstance().getCurrentRouteEntry();
             if (route == null) {
-                System.out.println("No route selected");
+                logger.debug("No route selected");
             }
 
             String directory = "empty";
@@ -192,7 +192,7 @@ public class MainViewController implements Initializable, Listener {
             // Store JSON as file
             try(FileOutputStream fos = new FileOutputStream(directory)){
                 fos.write(json.getBytes());
-                System.out.println("Route JSON saved to " + directory);
+                logger.info("Route JSON saved to " + directory);
             }
 
             logger.info("Exporting Tourdata for: " + route.getName() + " on location: " + directory);
