@@ -28,6 +28,11 @@ public class GeneralWindowController implements Initializable{
     public Label tourDurationLabel;
     @FXML
     public Label tourTransportTypeLabel;
+    @FXML
+    public Label popularityLabel;
+    @FXML
+    public Label childFriendlinessLabel;
+
 
 
     private RouteEntry currentEntry;
@@ -61,6 +66,8 @@ public class GeneralWindowController implements Initializable{
         tourDescriptionText.setText(currentEntry.getDescription());
         tourDistanceLabel.setText(currentEntry.getDistance() + "m");
         tourDurationLabel.setText(currentEntry.getTime() + "s");
+        popularityLabel.setText(Integer.toString(currentEntry.getPopularity()));
+        childFriendlinessLabel.setText(Integer.toString(currentEntry.getChildFriendliness()));
     }
 
 }

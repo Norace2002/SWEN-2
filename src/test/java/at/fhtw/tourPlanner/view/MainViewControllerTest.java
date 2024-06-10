@@ -16,6 +16,9 @@ import org.testfx.matcher.control.TextInputControlMatchers;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.testfx.api.FxAssert.verifyThat;
+import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
+import org.junit.jupiter.api.Order;
 
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableView;
@@ -25,7 +28,7 @@ import java.time.format.DateTimeFormatter;
 
 import static org.hamcrest.Matchers.*;
 
-
+@TestMethodOrder(OrderAnnotation.class)
 class MainViewControllerTest extends ApplicationTest{
 
 
@@ -35,6 +38,7 @@ class MainViewControllerTest extends ApplicationTest{
     }
 
     @Test
+    @Order(1)
     void loadCreateRouteWindow() {
         // Arrange
         FxRobot robot = new FxRobot();
@@ -55,6 +59,7 @@ class MainViewControllerTest extends ApplicationTest{
 
 
     @Test
+    @Order(2)
     void createEntry() {
         // Arrange
         FxRobot robot = new FxRobot();
@@ -85,6 +90,7 @@ class MainViewControllerTest extends ApplicationTest{
     }
 
     @Test
+    @Order(3)
     void loadEditRouteWindow() {
         // Arrange
         FxRobot robot = new FxRobot();
@@ -110,6 +116,7 @@ class MainViewControllerTest extends ApplicationTest{
     }
 
     @Test
+    @Order(4)
     void editRoute(){
         // Arrange
         FxRobot robot = new FxRobot();
@@ -129,6 +136,7 @@ class MainViewControllerTest extends ApplicationTest{
     }
 
     @Test
+    @Order(5)
     void loadingLogWindow(){
         // Arrange
         FxRobot robot = new FxRobot();
@@ -146,6 +154,7 @@ class MainViewControllerTest extends ApplicationTest{
     }
 
     @Test
+    @Order(6)
     void loadingCreateTourLogWindow(){
         // Arrange
         FxRobot robot = new FxRobot();
@@ -170,6 +179,7 @@ class MainViewControllerTest extends ApplicationTest{
     }
 
     @Test
+    @Order(7)
     void createTourLog(){
         // Arrange
         FxRobot robot = new FxRobot();
@@ -214,6 +224,7 @@ class MainViewControllerTest extends ApplicationTest{
     }
 
     @Test
+    @Order(8)
     void loadingEditTourLogWindow(){
         // Arrange
         FxRobot robot = new FxRobot();
@@ -251,6 +262,7 @@ class MainViewControllerTest extends ApplicationTest{
     }
 
     @Test
+    @Order(9)
     void deleteTourLog(){
         // Arrange
         FxRobot robot = new FxRobot();
@@ -281,6 +293,7 @@ class MainViewControllerTest extends ApplicationTest{
     }
 
     @Test
+    @Order(10)
     void deleteEntry() {
         // Arrange
         FxRobot robot = new FxRobot();

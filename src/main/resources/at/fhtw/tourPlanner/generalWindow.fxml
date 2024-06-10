@@ -9,32 +9,31 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane stylesheets="@./CSS/generalWindow.css" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="613.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"
-          xmlns="http://javafx.com/javafx/17"
-          xmlns:fx="http://javafx.com/fxml/1"
-          fx:controller="at.fhtw.tourPlanner.view.GeneralWindowController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="613.0" stylesheets="@./CSS/generalWindow.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.fhtw.tourPlanner.view.GeneralWindowController">
   <columnConstraints>
     <ColumnConstraints hgrow="ALWAYS" maxWidth="302.0" minWidth="10.0" prefWidth="203.5" />
     <ColumnConstraints hgrow="ALWAYS" maxWidth="409.5" minWidth="10.0" prefWidth="409.5" />
   </columnConstraints>
   <rowConstraints>
     <RowConstraints minHeight="30.0" percentHeight="10.0" vgrow="ALWAYS" />
-    <RowConstraints minHeight="30.0" percentHeight="40.0" vgrow="ALWAYS" />
+    <RowConstraints minHeight="30.0" percentHeight="20.0" vgrow="ALWAYS" />
     <RowConstraints minHeight="30.0" percentHeight="10.0" vgrow="ALWAYS" />
+      <RowConstraints minHeight="30.0" percentHeight="10.0" vgrow="ALWAYS" />
+      <RowConstraints minHeight="30.0" percentHeight="10.0" vgrow="ALWAYS" />
       <RowConstraints minHeight="30.0" percentHeight="10.0" vgrow="ALWAYS" />
       <RowConstraints minHeight="30.0" percentHeight="10.0" vgrow="ALWAYS" />
       <RowConstraints minHeight="30.0" percentHeight="10.0" vgrow="ALWAYS" />
       <RowConstraints minHeight="30.0" percentHeight="10.0" vgrow="ALWAYS" />
   </rowConstraints>
    <children>
-      <Label prefHeight="43.0" prefWidth="613.0" text="Tour Name" GridPane.columnSpan="2" fx:id="tourNameLabel">
+      <Label fx:id="tourNameLabel" prefHeight="43.0" prefWidth="613.0" text="Tour Name" GridPane.columnSpan="2">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
       <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="1">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Description..." wrappingWidth="101.13671875" fx:id="tourDescriptionText">
+            <Text fx:id="tourDescriptionText" strokeType="OUTSIDE" strokeWidth="0.0" text="Description..." wrappingWidth="101.13671875">
                <font>
                   <Font size="14.0" />
                </font>
@@ -46,7 +45,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Label text="Starting area" GridPane.columnIndex="1" GridPane.rowIndex="2" fx:id="tourStartLabel">
+      <Label fx:id="tourStartLabel" text="Starting area" GridPane.columnIndex="1" GridPane.rowIndex="2">
          <font>
             <Font size="18.0" />
          </font>
@@ -56,7 +55,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Label text="Destination" GridPane.columnIndex="1" GridPane.rowIndex="3" fx:id="tourDestinationLabel">
+      <Label fx:id="tourDestinationLabel" text="Destination" GridPane.columnIndex="1" GridPane.rowIndex="3">
          <font>
             <Font size="18.0" />
          </font>
@@ -66,7 +65,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Label text="Distance in km" GridPane.columnIndex="1" GridPane.rowIndex="4" fx:id="tourDistanceLabel">
+      <Label fx:id="tourDistanceLabel" text="Distance in km" GridPane.columnIndex="1" GridPane.rowIndex="4">
          <font>
             <Font size="18.0" />
          </font>
@@ -76,7 +75,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Label text="Time in min" GridPane.columnIndex="1" GridPane.rowIndex="5" fx:id="tourDurationLabel">
+      <Label fx:id="tourDurationLabel" text="Time in min" GridPane.columnIndex="1" GridPane.rowIndex="5">
          <font>
             <Font size="18.0" />
          </font>
@@ -86,7 +85,27 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Label text="Type" GridPane.columnIndex="1" GridPane.rowIndex="6" fx:id="tourTransportTypeLabel">
+      <Label fx:id="tourTransportTypeLabel" text="Type" GridPane.columnIndex="1" GridPane.rowIndex="6">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="214.0" layoutY="377.0" text="Popularity:" GridPane.rowIndex="7">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="popularityLabel" layoutX="10.0" layoutY="17.0" text="Popularity Rating" GridPane.columnIndex="1" GridPane.rowIndex="7">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="10.0" layoutY="17.0" text="Child Friendliness:" GridPane.rowIndex="8">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="childFriendlinessLabel" layoutX="10.0" layoutY="377.0" text="Child Friendliness Rating" GridPane.columnIndex="1" GridPane.rowIndex="8">
          <font>
             <Font size="18.0" />
          </font>

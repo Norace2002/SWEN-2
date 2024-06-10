@@ -24,9 +24,12 @@ public class RouteEntry implements Entry{
     private final DoubleProperty destinationLatitude;
     private final DoubleProperty destinationLongitude;
 
+    private IntegerProperty childFriendliness;
+    private IntegerProperty popularity;
+
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // constructor
-    public RouteEntry(String name, String description, String start, String destination, String transportType, double startLatitude, double startLongitude, double destinationLatitude, double destinationLongitude){
+    public RouteEntry(String name, String description, String start, String destination, String transportType, double startLatitude, double startLongitude, double destinationLatitude, double destinationLongitude, int childFriendliness, int popularity){
         this.name = new SimpleStringProperty(name);
         this.description = new SimpleStringProperty(description);
         this.start = new SimpleStringProperty(start);
@@ -36,9 +39,11 @@ public class RouteEntry implements Entry{
         this.startLongitude = new SimpleDoubleProperty(startLongitude);
         this.destinationLatitude = new SimpleDoubleProperty(destinationLatitude);
         this.destinationLongitude = new SimpleDoubleProperty(destinationLongitude);
+        this.childFriendliness = new SimpleIntegerProperty(childFriendliness);
+        this.popularity = new SimpleIntegerProperty(popularity);
     }
 
-    public RouteEntry(StringProperty name, StringProperty description, StringProperty start, StringProperty destination, StringProperty transportType, SimpleDoubleProperty startLatitude, SimpleDoubleProperty startLongitude, SimpleDoubleProperty destinationLatitude, SimpleDoubleProperty destinationLongitude) {
+    public RouteEntry(StringProperty name, StringProperty description, StringProperty start, StringProperty destination, StringProperty transportType, SimpleDoubleProperty startLatitude, SimpleDoubleProperty startLongitude, SimpleDoubleProperty destinationLatitude, SimpleDoubleProperty destinationLongitude, SimpleIntegerProperty childFriendliness, SimpleIntegerProperty popularity) {
         this.name = name;
         this.description = description;
         this.start = start;
@@ -48,6 +53,8 @@ public class RouteEntry implements Entry{
         this.startLongitude = startLongitude;
         this.destinationLatitude = destinationLatitude;
         this.destinationLongitude = destinationLongitude;
+        this.childFriendliness = childFriendliness;
+        this.popularity = popularity;
     }
 
     //Standard Constructor to convert json in Model
@@ -61,6 +68,8 @@ public class RouteEntry implements Entry{
         this.startLongitude = new SimpleDoubleProperty(0.0f);
         this.destinationLatitude = new SimpleDoubleProperty(0.0f);
         this.destinationLongitude = new SimpleDoubleProperty(0.0f);
+        this.childFriendliness = new SimpleIntegerProperty(0);
+        this.popularity = new SimpleIntegerProperty(0);
     }
 
 
@@ -172,6 +181,25 @@ public class RouteEntry implements Entry{
     }
 
     public void setDestinationLongitude(Double destinationLongitude) {this.destinationLongitude.set(destinationLongitude);}
+
+    public int getChildFriendliness() {return childFriendliness.get();}
+
+    public IntegerProperty childFriendlinessProperty() {
+        return childFriendliness;
+    }
+
+    public void setChildFriendliness(int childFriendliness) {
+        this.childFriendliness.set(childFriendliness);
+    }
+    public int getPopularity() {return popularity.get();}
+
+    public IntegerProperty popularityProperty() {
+        return popularity;
+    }
+
+    public void setPopularity(int popularity) {
+        this.popularity.set(popularity);
+    }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // REST call on create

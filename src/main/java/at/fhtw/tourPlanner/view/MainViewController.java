@@ -67,7 +67,7 @@ public class MainViewController implements Initializable, Listener {
         // bind listview to observablelist
         routeEntries.setItems(viewModel.getRouteEntries());
 
-        // serachfield
+        // searchfield
         searchTextField.textProperty().addListener((observable, oldText, newText) -> routeEntries.setItems(viewModel.filterRoutes(newText)));
 
     }

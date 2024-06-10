@@ -58,7 +58,7 @@ public class CreateRouteController implements Initializable{
                     && !destinationField.getText().isEmpty() && !transportTypeField.getText().isEmpty()){
                 // create new RouteEntry Object from input
                 newEntry = new RouteEntry(nameField.getText(), descriptionField.getText(), startField.getText(),
-                        destinationField.getText(), transportTypeField.getText(), 0, 0, 0, 0);
+                        destinationField.getText(), transportTypeField.getText(), 0, 0, 0, 0, 0, 0);
             }
 
             // relay information to mainview controller over mediator
