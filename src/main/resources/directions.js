@@ -1,81 +1,74 @@
 var directions = {
   "type" : "FeatureCollection",
-  "bbox" : [ 16.377897, 48.235557, 16.379489, 48.238904 ],
+  "bbox" : [ 16.440822, 48.268803, 16.448195, 48.275012 ],
   "features" : [ {
-    "bbox" : [ 16.377897, 48.235557, 16.379489, 48.238904 ],
+    "bbox" : [ 16.440822, 48.268803, 16.448195, 48.275012 ],
     "type" : "Feature",
     "properties" : {
       "segments" : [ {
-        "distance" : 812.8,
-        "duration" : 142.9,
+        "distance" : 1235.8,
+        "duration" : 245.8,
         "steps" : [ {
-          "distance" : 276.0,
-          "duration" : 49.7,
+          "distance" : 79.5,
+          "duration" : 19.1,
           "type" : 11,
-          "instruction" : "Head southeast",
-          "name" : "-",
-          "way_points" : [ 0, 5 ]
+          "instruction" : "Head north on Jerusalemgasse",
+          "name" : "Jerusalemgasse",
+          "way_points" : [ 0, 1 ]
         }, {
-          "distance" : 78.4,
-          "duration" : 18.8,
+          "distance" : 529.4,
+          "duration" : 76.2,
           "type" : 1,
-          "instruction" : "Turn right",
-          "name" : "-",
-          "way_points" : [ 5, 7 ]
+          "instruction" : "Turn right onto Dopschstraße",
+          "name" : "Dopschstraße",
+          "way_points" : [ 1, 11 ]
         }, {
-          "distance" : 46.4,
-          "duration" : 11.1,
-          "type" : 1,
-          "instruction" : "Turn right onto Winarskystraße",
-          "name" : "Winarskystraße",
-          "way_points" : [ 7, 12 ]
-        }, {
-          "distance" : 164.4,
-          "duration" : 14.8,
+          "distance" : 442.3,
+          "duration" : 106.2,
           "type" : 0,
-          "instruction" : "Turn left onto Dresdner Straße",
-          "name" : "Dresdner Straße",
-          "way_points" : [ 12, 15 ]
+          "instruction" : "Turn left onto Kürschnergasse",
+          "name" : "Kürschnergasse",
+          "way_points" : [ 11, 20 ]
         }, {
-          "distance" : 133.7,
-          "duration" : 21.2,
-          "type" : 1,
-          "instruction" : "Turn right onto Hellwagstraße",
-          "name" : "Hellwagstraße",
-          "way_points" : [ 15, 19 ]
+          "distance" : 111.1,
+          "duration" : 26.7,
+          "type" : 13,
+          "instruction" : "Keep right onto Oswald-Redlich-Straße",
+          "name" : "Oswald-Redlich-Straße",
+          "way_points" : [ 20, 23 ]
         }, {
-          "distance" : 113.9,
-          "duration" : 27.3,
-          "type" : 2,
-          "instruction" : "Turn sharp left onto Universumstraße",
-          "name" : "Universumstraße",
-          "way_points" : [ 19, 21 ]
+          "distance" : 73.5,
+          "duration" : 17.6,
+          "type" : 0,
+          "instruction" : "Turn left onto Castlegasse",
+          "name" : "Castlegasse",
+          "way_points" : [ 23, 24 ]
         }, {
           "distance" : 0.0,
           "duration" : 0.0,
           "type" : 10,
-          "instruction" : "Arrive at Universumstraße, straight ahead",
+          "instruction" : "Arrive at Castlegasse, on the right",
           "name" : "-",
-          "way_points" : [ 21, 21 ]
+          "way_points" : [ 24, 24 ]
         } ]
       } ],
       "summary" : {
-        "distance" : 812.8,
-        "duration" : 142.9
+        "distance" : 1235.8,
+        "duration" : 245.8
       },
-      "way_points" : [ 0, 21 ]
+      "way_points" : [ 0, 24 ]
     },
     "geometry" : {
-      "coordinates" : [ [ 16.378109, 48.238885 ], [ 16.378926, 48.238171 ], [ 16.379105, 48.238014 ], [ 16.37894, 48.23793 ], [ 16.377897, 48.238842 ], [ 16.378022, 48.238904 ], [ 16.378406, 48.238563 ], [ 16.378667, 48.238345 ], [ 16.378606, 48.238316 ], [ 16.378553, 48.238292 ], [ 16.378385, 48.238205 ], [ 16.378272, 48.238147 ], [ 16.378167, 48.238093 ], [ 16.378695, 48.237624 ], [ 16.378893, 48.237416 ], [ 16.379489, 48.236907 ], [ 16.379426, 48.236863 ], [ 16.37892, 48.236619 ], [ 16.378661, 48.236543 ], [ 16.377999, 48.236236 ], [ 16.378088, 48.236189 ], [ 16.37915, 48.235557 ] ],
+      "coordinates" : [ [ 16.440822, 48.268803 ], [ 16.440966, 48.269511 ], [ 16.442641, 48.269723 ], [ 16.442863, 48.269751 ], [ 16.443163, 48.269789 ], [ 16.443857, 48.269865 ], [ 16.444799, 48.27 ], [ 16.445595, 48.270092 ], [ 16.445842, 48.270117 ], [ 16.446756, 48.270213 ], [ 16.447889, 48.270291 ], [ 16.448016, 48.270285 ], [ 16.44786, 48.271443 ], [ 16.447819, 48.271641 ], [ 16.447462, 48.272436 ], [ 16.447354, 48.272698 ], [ 16.447215, 48.272924 ], [ 16.447093, 48.273235 ], [ 16.446735, 48.274026 ], [ 16.446718, 48.274097 ], [ 16.44674, 48.274145 ], [ 16.446835, 48.274179 ], [ 16.447362, 48.274247 ], [ 16.448195, 48.274381 ], [ 16.4479, 48.275012 ] ],
       "type" : "LineString"
     }
   } ],
   "metadata" : {
     "attribution" : "openrouteservice.org | OpenStreetMap contributors",
     "service" : "routing",
-    "timestamp" : 1718054279375,
+    "timestamp" : 1718194967329,
     "query" : {
-      "coordinates" : [ [ 16.37831687927246, 48.238990783691406 ], [ 16.379150390625, 48.235557556152344 ] ],
+      "coordinates" : [ [ 16.440512, 48.268831 ], [ 16.448117, 48.275057 ] ],
       "profile" : "driving-car",
       "format" : "json"
     },

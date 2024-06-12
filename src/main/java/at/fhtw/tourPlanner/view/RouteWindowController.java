@@ -1,26 +1,18 @@
 package at.fhtw.tourPlanner.view;
 
 
-import at.fhtw.tourPlanner.Main;
 import at.fhtw.tourPlanner.backend.OpenrouteService;
-import at.fhtw.tourPlanner.backend.OsmService;
-import at.fhtw.tourPlanner.mediator.Listener;
 
 import at.fhtw.tourPlanner.mediator.LogMediator;
 import at.fhtw.tourPlanner.mediator.Mediator;
 import at.fhtw.tourPlanner.model.LogEntry;
 import at.fhtw.tourPlanner.model.RouteEntry;
-import com.fasterxml.jackson.databind.JsonNode;
-import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
 //libraries to keep popups in bounds
@@ -38,23 +30,14 @@ import org.apache.logging.log4j.Logger;
 import java.io.File;
 
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
-
-
-import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
 
 public class RouteWindowController implements Initializable{
 
     OpenrouteService openrouteService = new OpenrouteService();
-    OsmService osmService = new OsmService();
-
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     private RouteEntry entry;
-
-    private JsonNode geoJson;
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -192,37 +175,12 @@ public class RouteWindowController implements Initializable{
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // methods concerning tileMap
 
-    private void addImage(RouteEntry entry){
-        List<Double> bbox = openrouteService.getDirectionsBbox(entry);
-
-        osmService.setZoom(17);
-        osmService.getMarkers().add(new OsmService.GeoCoordinate(bbox.get(0), bbox.get(1)));
-        osmService.getMarkers().add(new OsmService.GeoCoordinate(bbox.get(2), bbox.get(3)));
-
-        osmService.generateImage(bbox.get(0), bbox.get(1),bbox.get(2), bbox.get(3));
-
-        //osmService.saveImage("fhtw-map.png");
-        Image image = SwingFXUtils.toFXImage(osmService.getImage(), null);
-
-        ImageView imageView = new ImageView(image);
-        imageView.setPreserveRatio(true);
-        imageView.setSmooth(true);
-        imageView.fitWidthProperty().bind(this.imgPane.widthProperty());
-        // imageView.fitHeightProperty().bind(this.imgPane.heightProperty());
-
-        this.imgPane.getChildren().add(imageView);
-        logger.info("Image Pain from route: " + entry.getName() + " is Ready to be displayed");
-    }
-
-
     //---- Required for Webview ----
 
     //Generates directions
     private void generateWebViewImage(RouteEntry entry){
         //Show Image in default browser
         writeGeoJsonToFile(openrouteService.getDirections(entry));
-
-        //Main.showMapInDefaultBrowser();
 
         //Reload Browser to show the updated directions.js
         try {
