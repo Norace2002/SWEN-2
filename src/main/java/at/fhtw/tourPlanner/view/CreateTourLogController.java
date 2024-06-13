@@ -111,6 +111,7 @@ public class CreateTourLogController implements Initializable {
                 int id = LogMediator.getInstance().addEntry(newEntry);
                 newEntry.setId(id);
                 logger.info("successfully created an instance of a Tour Log entry - Sending to Log Mediator");
+                closeWindow();
                 //----------------------------------------------
             } catch (NumberFormatException e) {
                 WrongLogInput(e);

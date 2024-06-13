@@ -7,6 +7,7 @@ import at.fhtw.tourPlanner.model.LogEntry;
 import at.fhtw.tourPlanner.model.RouteEntry;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
@@ -86,6 +87,7 @@ public class EditTourLogController implements Initializable{
             try{
                 entry.setDifficulty(Integer.parseInt(difficultyField.getText()));
             } catch (NumberFormatException e){
+                WrongLogInput(e);
                 logger.error("Invalid input type for difficulty - !" + difficultyField.getText() + " is not a Integer");
             }
         }
@@ -93,6 +95,7 @@ public class EditTourLogController implements Initializable{
             try{
                 entry.setDistance(Integer.parseInt(totalDistanceField.getText()));
             } catch (NumberFormatException e) {
+                WrongLogInput(e);
                 logger.error("Invalid input type for distance - !" + totalDistanceField.getText() + " is not a Integer");
             }
         }
@@ -100,6 +103,7 @@ public class EditTourLogController implements Initializable{
             try{
                 entry.setDuration(Integer.parseInt(totalTimeField.getText()));
             } catch (NumberFormatException e) {
+                WrongLogInput(e);
                 logger.error("Invalid input type for duration - !" + totalTimeField.getText() + " is not a Integer");
             }
         }
@@ -109,6 +113,7 @@ public class EditTourLogController implements Initializable{
                 LocalDate localDate = LocalDate.parse(dateTimeField.getValue().toString(), dateFormatter);
                 entry.setDate(localDate.toString());
             } catch (Exception e) {
+                WrongLogInput(e);
                 logger.error("Invalid input type for date - !" + dateTimeField.getValue().toString() + " is not a valid pattern -> (dd-MM-yyyy)");
             }
         }
@@ -119,6 +124,7 @@ public class EditTourLogController implements Initializable{
             try {
                 entry.setRating(Integer.parseInt(ratingField.getText()));
             } catch (NumberFormatException e) {
+                WrongLogInput(e);
                 logger.error("Invalid input type for rating - !" + ratingField.getText() + " is not a Integer");
             }
         }
@@ -127,13 +133,23 @@ public class EditTourLogController implements Initializable{
         logger.info("Input is valid - Entry will be send to DB");
         //send to viewModel - DB
         LogMediator.getInstance().editEntry(entry);
-
+        closeWindow();
     }
 
     public void closeWindow(){
         Stage stage = (Stage) vbox.getScene().getWindow();
         stage.close();
         logger.debug("'Edit Tour Log' Window closed successfully");
+    }
+
+    // Gives the User a visual feedback when giving invalid input
+    private void WrongLogInput(Exception e) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Invalid Input");
+        alert.setHeaderText("Your input doesn't seem to fit into the given field, please try again!");
+        alert.setContentText(e.getMessage());
+
+        alert.showAndWait();
     }
 
 }
