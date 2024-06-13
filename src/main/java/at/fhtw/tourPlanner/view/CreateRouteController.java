@@ -1,5 +1,6 @@
 package at.fhtw.tourPlanner.view;
 
+import javafx.scene.control.ComboBox;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -33,7 +34,7 @@ public class CreateRouteController implements Initializable{
     @FXML
     TextField destinationField;
     @FXML
-    TextField transportTypeField;
+    ComboBox transportTypeField;
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //Logger Set up
@@ -45,6 +46,7 @@ public class CreateRouteController implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        transportTypeField.getItems().addAll("driving-car", "foot-walking", "cycling-regular");
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -55,10 +57,10 @@ public class CreateRouteController implements Initializable{
         if(!nameField.getText().isEmpty() && Mediator.getInstance().checkUniqueRouteEntryIdentifier(nameField.getText())){
             // check if input is not null
             if(!nameField.getText().isEmpty() && !descriptionField.getText().isEmpty() && !startField.getText().isEmpty()
-                    && !destinationField.getText().isEmpty() && !transportTypeField.getText().isEmpty()){
+                    && !destinationField.getText().isEmpty() && !transportTypeField.getItems().isEmpty()){
                 // create new RouteEntry Object from input
                 newEntry = new RouteEntry(nameField.getText(), descriptionField.getText(), startField.getText(),
-                        destinationField.getText(), transportTypeField.getText(), 0, 0, 0, 0, 0, 0);
+                        destinationField.getText(), String.valueOf(transportTypeField.getValue()), 0, 0, 0, 0, 0, 0);
             }
 
             // relay information to mainview controller over mediator

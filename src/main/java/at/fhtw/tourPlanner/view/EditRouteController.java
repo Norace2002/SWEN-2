@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -35,7 +36,7 @@ public class EditRouteController implements Initializable{
     @FXML
     private TextField destinationField;
     @FXML
-    private TextField transportTypeField;
+    private ComboBox transportTypeField;
 
     private RouteEntry entry;
 
@@ -55,6 +56,8 @@ public class EditRouteController implements Initializable{
         startField.promptTextProperty().set(entry.getStart());
         destinationField.promptTextProperty().set(entry.getDestination());
         transportTypeField.promptTextProperty().set(entry.getTransportType());
+        transportTypeField.setValue(entry.getTransportType());
+        transportTypeField.getItems().addAll("driving-car", "foot-walking", "cycling-regular");
     }
 
 
@@ -70,9 +73,11 @@ public class EditRouteController implements Initializable{
         if(!destinationField.getText().isEmpty()){
             entry.setDestination(destinationField.getText());
         }
-        if(!transportTypeField.getText().isEmpty()){
-            entry.setTransportType(transportTypeField.getText());
+        if(!transportTypeField.getItems().isEmpty()){
+            entry.setTransportType(String.valueOf(transportTypeField.getValue()));
         }
+
+
 
         Mediator.getInstance().publishRouteUpdate(entry);
 
