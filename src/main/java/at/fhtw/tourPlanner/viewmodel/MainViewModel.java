@@ -204,6 +204,12 @@ public class MainViewModel {
         else if(entry.getDestination().contains(query)){
             return true;
         }
+        else if(Integer.toString(entry.getChildFriendliness()).contains(query)){
+            return true;
+        }
+        else if(Integer.toString(entry.getPopularity()).contains(query)){
+            return true;
+        }
         else{
             return false;
         }
@@ -213,13 +219,13 @@ public class MainViewModel {
         if (Integer.toString(log.getId()).contains(query)) {
             return true;
         }
-        else if (log.getDate().toLowerCase().contains(query)) {
+        else if (log.getDate().contains(query)) {
             return true;
         }
-        else if (log.getTime().toLowerCase().contains(query)) {
+        else if (log.getTime().contains(query)) {
             return true;
         }
-        else if (log.getComment().toLowerCase().contains(query)) {
+        else if (log.getComment().contains(query)) {
             return true;
         }
         else if (Integer.toString(log.getDifficulty()).contains(query)) {
